@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECTS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/images/logo !.png" type="image/png">
+    <script src="animations.js" defer></script>
+    <style>
+        nav {
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        nav.transparent {
+            background-color: transparent !important;
+        }
+
+/* CAROUSELL !! */
+        .carousel-section {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.2s ease, filter 1.2s ease;
+            filter: blur(20px);
+        }
+
+        .image-container img.active {
+            opacity: 1;
+            filter: blur(0);
+        }
+
+        .carousel-titles {
+            position: absolute;
+            bottom: 40px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 15;
+        }
+
+        .carousel-title {
+            font-size: 70px;
+            color: #ffffff;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .carousel-title.active {
+            opacity: 1;
+            font-weight: bold;
+        }
+
+/* CAROUSELL !! */
+
+/* PROJECTS !! */
+        #projects-section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content-container {
+            width: 70vw;
+            max-width: 1200px;
+        }
+
+        .project-title {
+            font-size: 55px;
+            color: #ffffff;
+            margin-bottom: 5vh;
+            text-align: left;
+        }
+
+        .description {
+            font-size: 20px;
+            color: #ffffff;
+            margin: 5vh 0;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2vw;
+            margin-top: 6vh;
+        }
+
+        .box {
+            width: 20vw;
+            height: 15vw;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+        }
+
+        .box-wrapper {
+            text-align: left;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-top: 4vh;
+        }
+
+        .additional-text {
+            font-size: 20px;
+            color: #ffffff;
+            margin-top: 0.5vh;
+        }
+/* PROJECTS !! */
+    </style>
+</head>
+<body id="project-page">
+    <nav>
+        <div class="nav-left">
+            <img src="images/logo !.png" alt="Logo" class="nav-logo">
+            <span class="nav-text">https://reubenmattam.me</span>
+        </div>
+        <ul class="nav-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="wrapped.html">Wrapped!</a></li>
+        </ul>
+    </nav>
+
+
+    <section class="carousel-section">
+        <div class="image-container">
+            <img src="images/projects/akira_1636.jpg" alt="Red Image" class="active">
+            <img src="images/projects/akira_2676.jpg" alt="Green Image">
+            <img src="images/projects/akira_4948.jpg" alt="Blue Image">
+        </div>
+        <div class="carousel-titles">
+            <div class="carousel-title" data-index="0">Coming Soon</div>
+            <div class="carousel-title" data-index="1">Coming Soon</div>
+            <div class="carousel-title" data-index="2">Coming Soon</div>
+        </div>
+    </section>
+
+    <div class="cat-break  not-start">
+        <img src="images/Cat 4.GIF" alt="Cat Break Image" class="cat-break-image">
+    </div>
+
+    <section id="projects-section" class="section not-start">
+        <div class="content-container">
+            <h1 class="project-title">My Projects</h1>
+            <p class="description">
+                View my passions as Projects. Done through Jupyter Notebooks, all are available to be viewed further in Github. 
+                Click through to learn more about my skills and passions.
+            </p>
+            <div class="box-container">
+                <div class="box-wrapper">
+                    <div class="box"></div>
+                    <p class="subtitle">Coming Soon</p>
+                    <p class="additional-text">Additional text goes here for Box 1.</p>
+                </div>
+                <div class="box-wrapper">
+                    <div class="box"></div>
+                    <p class="subtitle">Coming Soon</p>
+                    <p class="additional-text">Additional text goes here for Box 2.</p>
+                </div>
+                <div class="box-wrapper">
+                    <div class="box"></div>
+                    <p class="subtitle">Coming Soon</p>
+                    <p class="additional-text">Additional text goes here for Box 3.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer-section not-start">
+        <div class="footer-left">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="wrapped.html">Wrapped</a>
+        </div>
+        <div class="footer-center">
+            <a href="home.html">
+                <img src="images/logo !.png" alt="Website Logo" class="logo">
+            </a>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/reubenmattam" target="_blank" rel="noopener">
+                    <img src="images/insta.png" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/in/reuben-mattam-827746264/?originalSubdomain=au" target="_blank" rel="noopener">
+                    <img src="images/linkdin.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/Reuben-Mattam" target="_blank" rel="noopener">
+                    <img src="images/github.png" alt="GitHub">
+                </a>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p>© 2024 Reuben Mattam</p>
+        </div>
+    </footer>
+
+    <script>
+        const images = document.querySelectorAll('.image-container img');
+        const titles = document.querySelectorAll('.carousel-title');
+        let currentImageIndex = 0;
+        let intervalId;
+
+        function updateActiveTitle() {
+            titles.forEach((title, index) => {
+                if (index === currentImageIndex) {
+                    title.classList.add('active');
+                } else {
+                    title.classList.remove('active');
+                }
+            });
+        }
+
+        function changeBackgroundImage(index = null) {
+            if (index !== null) {
+                currentImageIndex = index;
+            } else {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+            }
+
+            images.forEach((img, i) => {
+                if (i === currentImageIndex) {
+                    img.classList.add('active');
+                } else {
+                    img.classList.remove('active');
+                }
+            });
+
+            updateActiveTitle();
+        }
+
+        function startImageRotation() {
+            intervalId = setInterval(() => changeBackgroundImage(), 5000);
+        }
+
+        function resetImageRotation() {
+            clearInterval(intervalId);
+            startImageRotation();
+        }
+
+        titles.forEach((title, index) => {
+            title.addEventListener('mouseover', () => {
+                changeBackgroundImage(index);
+                resetImageRotation();
+            });
+        });
+
+        startImageRotation();
+        updateActiveTitle();
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const nav = document.querySelector("nav");
+            const carouselSection = document.querySelector(".carousel-section");
+        
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        nav.classList.add("transparent");
+                    } else {
+                        nav.classList.remove("transparent");
+                    }
+                },
+                {
+                    root: null, // Use the viewport as the root
+                    threshold: 0.1, // Trigger when 10% of the carousel section is visible
+                }
+            );
+        
+            observer.observe(carouselSection);
+        });
+        
+    </script>
+</body>
+</html>

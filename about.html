@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/images/logo !.png" type="image/png">
+    <script src="animations.js" defer></script>
+    <style>
+        .section {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 3vw;
+            font-family: Arial, sans-serif;
+        }
+        
+/* CAROUSEL SECTION !!! */
+        #carousel-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 100vh;
+        }
+        
+        .carousel-left, .carousel-right {
+            position: absolute;
+            top: 50vh;
+            transform: translateY(-50%);
+            font-size: 14px;
+            z-index: 1000;
+        }
+        
+        .carousel-left {
+            left: 50px;
+        }
+        
+        .carousel-right {
+            right: 50px;
+        }
+        
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+            animation: none;
+            will-change: transform;
+        }
+        
+        .carousel-image {
+            width: 25vw;
+            max-width: 480px;
+            aspect-ratio: 480 / 594;
+            object-fit: cover;
+            flex-shrink: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            display: block;
+            border: 3px solid #123524;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-height: 700px) {
+            .carousel-image {
+                width: 20vw;
+            }
+        }
+        
+/* CAROUSEL SECTION !!! */
+        
+/* NOTE SECTION !! */
+        #note-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        
+        #container {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            justify-content: flex-start;
+            align-items: flex-start;
+            position: relative;
+        }
+        
+        #image-container {
+            width: 80vh;
+            height: 80vh;
+            position: relative;
+        }
+        
+        #image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 3px solid #123524;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+        
+        #text-container {
+            width: calc(100% - 80vh - 20px);
+            height: 80vh;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            color: black;
+            background-color: #e5e7e6;
+            border-radius: 18px;
+            border: 3px solid #123524;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            position: relative;
+            min-width: 550px;
+        }
+        
+        #about-me {
+            width: 500px;
+            height: 100%;
+        }
+
+        #text-container p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        #note-right {
+            position: absolute;
+            top: -30px;
+            right: 0;
+            background: none;
+            padding: 0;
+            border: none;
+        }
+        
+        #note-left {
+            position: absolute;
+            top: -30px;
+            left: 0;
+            background: none;
+            padding: 0;
+            border: none;
+        }
+        
+/* NOTE SECTION !! */
+
+/* SPOTIFY SECTION */
+        #spotify-section {
+            height: 90vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #103021;
+        }
+        
+        #spotify-container {
+            width: 95vw;
+            height: 70%;
+            background-color: #181A1B;
+            border-radius: 15px;
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #playlist-embed {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #playlist-embed h2 {
+            display: inline;
+            margin: 0;
+            padding: 0;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+        
+        .playlist {
+            width: 900px;
+            height: 400px;
+            border-radius: 12px;
+        }
+        
+        #view-more {
+            display: inline-block;
+            background-color: #123524;
+            color: #e5e7e6;
+            text-align: center;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+            margin-top: 25px;
+            width: 250px;
+            height: 40px;
+            line-height: 40px;
+            
+        }
+        
+        .view-more:hover {
+            background-color: #103021;
+            transform: scale(1.05);
+            font-weight: bold;
+        }
+/* SPOTIFY SECTION */
+
+        
+        .highlight {
+            font-size: 20px;
+            color: #e5e7e6;
+        }
+        
+        .lowlight {
+            font-size: 20px;
+            color: #A5A5A5;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="images/logo !.png" alt="Logo" class="nav-logo">
+            <span class="nav-text">https://reubenmattam.me</span>
+        </div>
+        <ul class="nav-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="wrapped.html">Wrapped!</a></li>
+        </ul>
+    </nav>
+
+    <section id="carousel-section" class="section">
+        <div class="carousel-left highlight">My life in focus.</div>
+        <div class="carousel-right lowlight">Melbourne Based.</div>
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="images/about/carousel1.jpg" alt="Carousel Image 1" class="carousel-image">
+                <img src="images/about/carousel2.jpg" alt="Carousel Image 2" class="carousel-image">
+                <img src="images/about/carousel3.jpg" alt="Carousel Image 3" class="carousel-image">
+                <img src="images/about/carousel4.jpg" alt="Carousel Image 4" class="carousel-image">
+                <img src="images/about/carousel5.jpg" alt="Carousel Image 5" class="carousel-image">
+                <img src="images/about/carousel6.jpg" alt="Carousel Image 6" class="carousel-image">
+                <img src="images/about/carousel7.jpg" alt="Carousel Image 7" class="carousel-image">
+            </div>
+        </div>
+    </section>
+
+    <div class="cat-break not-start">
+        <img src="images/Cat 4.GIF" alt="Cat Break Image" class="cat-break-image">
+    </div>
+
+    <section id="note-section" class="section not-start">
+        <div id="container">
+            <div id="image-container">
+                <span id="note-left" class="lowlight">Built by a Designer.</span>
+                <img src="images/about/me.jpg" alt="My PIC :P">
+            </div>
+            <div id="text-container">
+                <span id="note-right" class="highlight">Learn more about the Creator.</span>
+                <div id="about-me">
+                    <p>
+                        Hey! I'm Reuben, a passionate data science student based in Melbourne and currently in my third year at the University of Melbourne.
+                        I started my academic journey in engineering but quickly realized it wasn’t for me. Around the same time, I developed a deep interest in statistics,
+                        sparked by videos by Veritasium. The first video I watched, "Why Statistics is So Powerful," piqued my curiosity,
+                        and my interest only grew after watching "How Data Science is Changing the World." While my initial reaction was confusion,
+                        this lack of understanding only fueled my desire to learn more.<br><br>
+                    
+                        Over the first university break, I taught myself Python, which I thoroughly enjoyed. My interest in statistics and enjoyment in coding naturally led me to pursue
+                        data science. Along the way, I've built a diverse skill set, including proficiency in Python (and libraries like pandas, numpy, and scikit-learn), R, C, and SQL.
+                        I also self-taught HTML and CSS during my second-year break, adding web development to my toolbelt. <br><br>
+                    
+                        Outside of my academic pursuits, I’ve spent three years working in sales, which has honed my interpersonal skills and given me a solid foundation in client
+                        interaction. My journey has been shaped by curiosity, hands-on learning, and a drive to continuously expand my knowledge.<br><br>
+                    
+                        Let Connect!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="spotify-section" class="not-start">
+    <div id="spotify-container">
+        <div id="playlist-embed">
+            <h2 class="highlight">See what I've been into right now :D <span class="lowlight">Maybe you will like a song or two...</span></h2>
+            <iframe class="playlist" src="https://open.spotify.com/embed/playlist/5lFb21iwftyFLTHqwVIbpq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <a href="wrapped.html" id="view-more">View More</a>
+        </div>
+    </div>
+</section>
+    
+
+    <footer class="footer-section not-start">
+        <div class="footer-left">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="wrapped.html">Wrapped</a>
+        </div>
+        <div class="footer-center">
+            <a href="home.html">
+                <img src="images/logo !.png" alt="Website Logo" class="logo">
+            </a>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/reubenmattam" target="_blank" rel="noopener">
+                    <img src="images/insta.png" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/in/reuben-mattam-827746264/?originalSubdomain=au" target="_blank" rel="noopener">
+                    <img src="images/linkdin.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/Reuben-Mattam" target="_blank" rel="noopener">
+                    <img src="images/github.png" alt="GitHub">
+                </a>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p>© 2024 Reuben Mattam</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const track = document.querySelector(".carousel-track");
+        
+            // Clone images to ensure seamless scrolling
+            function cloneImages() {
+                const images = Array.from(track.children);
+                images.forEach((image) => {
+                    const clone = image.cloneNode(true);
+                    track.appendChild(clone);
+                });
+            }
+        
+            // Infinite scroll logic
+            function startInfiniteScroll() {
+                let scrollPosition = 0;
+        
+                function scroll() {
+                    scrollPosition += 1; // Adjust this value to control scroll speed
+                    track.style.transform = `translateX(-${scrollPosition}px)`;
+        
+                    // Reset scroll position when it reaches half of the track's scrollable width
+                    if (scrollPosition >= track.scrollWidth / 2) {
+                        scrollPosition = 0;
+                    }
+        
+                    requestAnimationFrame(scroll);
+                }
+        
+                scroll();
+            }
+        
+            // Initialize the carousel
+            cloneImages();
+            startInfiniteScroll();
+        });
+    </script>
+</body>
+</html>

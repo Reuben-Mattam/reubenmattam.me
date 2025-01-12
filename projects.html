@@ -73,7 +73,7 @@
 /* PROJECTS !! */
         #projects-section {
             width: 100vw;
-            height: 100vh;
+            height: auto;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -137,6 +137,48 @@
             color: #ffffff;
             margin-top: 0.5vh;
         }
+
+        /*viewport project changes */
+        @media (max-width: 1100px) {
+            #projects-section {
+                padding: 8vh 0;
+            }
+        
+            .content-container {
+                width: 90vw; /* Allow more space on smaller screens */
+            }
+        
+            .project-title {
+                font-size: 45px; /* Adjust font size */
+                text-align: center;
+            }
+        
+            .description {
+                font-size: 18px; /* Adjust font size */
+                text-align: center;
+            }
+        
+            .box-container {
+                flex-direction: column; /* Stack items vertically */
+                gap: 4vh; /* Add vertical spacing between items */
+            }
+        
+            .box {
+                width: 80vw; /* Increase size for smaller screens */
+                height: 50vw;
+            }
+        
+            .subtitle {
+                font-size: 28px; /* Increase font size */
+                text-align: center;
+            }
+        
+            .additional-text {
+                font-size: 22px; /* Increase font size */
+                text-align: center;
+            }
+        }
+        /*viewport project changes */
 /* PROJECTS !! */
     </style>
 </head>

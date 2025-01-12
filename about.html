@@ -64,6 +64,7 @@
         .carousel-image {
             width: 25vw;
             max-width: 480px;
+            min-width: 300px;
             aspect-ratio: 480 / 594;
             object-fit: cover;
             flex-shrink: 0;
@@ -74,11 +75,13 @@
             box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
         }
         
+        /*viewport carousell changes */
         @media (max-height: 700px) {
             .carousel-image {
-                width: 20vw;
+                min-width: 250px;
             }
         }
+        /*viewport carousell changes */
         
 /* CAROUSEL SECTION !!! */
         
@@ -165,6 +168,39 @@
             border: none;
         }
         
+        /*viewport note changes */
+        @media (max-width: 800px) {
+            #note-section {
+                height: auto;
+                padding: 20px;
+            }
+        
+            #container {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+            }
+        
+            #image-container {
+                width: 100%;
+                height: auto;
+            }
+        
+            #image-container img {
+                height: auto;
+            }
+        
+            #text-container {
+                width: 100%;
+                min-width: unset;
+                height: auto;
+            }
+        
+            #about-me {
+                width: auto;
+            }
+        }
+        /*viewport note changes */
 /* NOTE SECTION !! */
 
 /* SPOTIFY SECTION */

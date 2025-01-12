@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 /* Logo Change Animation !! */
 
+/* Hambuger (yum)*/
 function toggleMenu() {
     const navRight = document.querySelector('.nav-right');
     navRight.classList.toggle('active');
@@ -46,8 +47,9 @@ function toggleMenu() {
     const navRight = document.querySelector('.nav-right');
     navRight.classList.toggle('active');
 }
+/* Hambuger (yum)*/
 
-// Resize Nav
+/* Resuize nav */
 function updateNavText() {
     const navText = document.querySelector('.nav-text');
     if (window.innerWidth < 800) {
@@ -59,3 +61,4 @@ function updateNavText() {
 
 window.addEventListener('load', updateNavText);
 window.addEventListener('resize', updateNavText);
+/* Resuize nav */

@@ -32,6 +32,7 @@ nav {
     border-radius: 5px;
     box-sizing: border-box;
     z-index: 10000;
+    position: fixed;
 }
 
 .nav-left {
@@ -84,6 +85,63 @@ nav {
     height: 3px;
     background-color: #B7B5B3;
 }
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    height: 24px;
+    width: 30px;
+}
+
+.hamburger div {
+    background-color: #e5e7e6;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+/* hamburger on smaller screens >:D */
+@media screen and (max-width: 800px) {
+    .nav-logo {
+        display: none;
+    }
+
+    .nav-right {
+        max-width: 100px;
+        background: none;
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+        border-radius: 5px;
+        box-sizing: border-box;
+        position: absolute;
+        top: 60px;
+        right: 35px;
+        width: calc(100% - 36px);
+        z-index: 10000;
+    }
+
+    .nav-right.active {
+        display: flex;
+    }
+
+    .nav-right li a::after {
+        display: none;
+    }
+
+
+    .hamburger {
+        display: flex;
+    }
+}
+/* hamburger on smaller screens >:D */
+
+
+
 /* Nav Bar */
 
 .content {
@@ -119,7 +177,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15vh;
+    height: calc(15vh + 16px);
     width: 100vw;
     padding: 0 8%;
     box-sizing: border-box;
@@ -185,6 +243,50 @@ nav {
     margin: 0;
     font-size: 0.8rem;
 }
+
+    /*footer viewport changes !!*/
+@media (max-width: 800px) {
+    .footer-section {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .footer-left,
+    .footer-right {
+        flex: none;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-left a {
+        margin-right: 8px;
+    }
+
+    .footer-right {
+        text-align: center;
+    }
+
+    .footer-center {
+        width: 100%;
+    }
+
+    .footer-center .logo {
+        margin-bottom: 12px;
+    }
+
+    .footer-center .social-links {
+        gap: 12px;
+    }
+}
+    /*footer viewport changes !!*/
+
 /* FOooter !*/
 
 

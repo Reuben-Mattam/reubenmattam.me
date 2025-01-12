@@ -49,7 +49,7 @@
             animation: slideUp 1s ease-out forwards;
             box-sizing: border-box;
         }
-        
+
         .container {
             position: relative;
             display: flex;
@@ -58,47 +58,47 @@
             align-items: flex-start;
             padding: 20px;
         }
-        
+
         #intro {
             width: 600px;
             height: 500px;
-
             margin-right: 5vw;
         }
-        
+
         #headshot {
             width: 500px;
             height: 500px;
             margin-left: 5vw;
+        
             background-image: url('images/home/me.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             border-radius: 18px;
         }
-        
+
         h2, h1, p {
             text-align: left;
             margin: 0;
         }
-        
+
         h2 {
             font-size: 40px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
-        
+
         h1 {
             font-size: 55px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
-        
+
         p {
             font-size: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
-        
+
         .button {
-            margin-top: 10px;
+            margin-top: 12px;
             padding: 10px 20px;
             font-size: 1.2rem;
             background-color: #181A1B;
@@ -112,7 +112,7 @@
             width: 50%;
             line-height: 1.5;
         }
-    
+
         .button:hover {
             background-color: #e5e7e6;
             color: #181A1B;
@@ -130,6 +130,109 @@
             margin-top: 500px;
             border-radius: 18px;
         }
+
+        /* intro viewport changes :P */
+        @media (max-width: 1300px) and (min-width: 1050px) {
+            #intro {
+                margin-right: 0;
+            }
+        
+            #headshot {
+                margin-left: 0;
+                width: 400px;
+                height: 400px;
+            }
+            .button{
+                box-sizing: content-box;
+                width: 40%;
+            }
+        }
+
+        @media (max-width: 1050px) and (min-width: 800px) {
+            #intro {
+                margin-right: 0;
+                width: 400px;
+            }
+            #headshot {
+                margin-left: -25px;
+                width: 350px;
+                height: 350px;
+            }
+            .button{
+                box-sizing: content-box;
+            }
+        }
+
+        @media (max-width: 800px) {
+            #intro-section {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+            }
+        
+            #intro {
+                margin-right: 0;
+                width: 100%;
+                height: auto;
+            }
+        
+            #headshot {
+                width: 500px;
+                height: 500px;
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        
+            #image-shadow {
+                width: 100%;
+                height: auto;
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        
+            .button {
+                width: 90%;
+                box-sizing: content-box;
+            }
+        }
+
+        @media (max-width: 600px)  {
+            #headshot {
+                width: 450px;
+                height: 450px;
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            .button {
+                width: 89%;
+                box-sizing: content-box;
+            }
+        }
+        @media (max-width: 500px)  {
+            #headshot {
+                width: 400px;
+                height: 400px;
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            .button {
+                width: 87.5%;
+                box-sizing: content-box;
+            }
+        }
+        @media (max-width: 400px)  {
+            #headshot {
+                width: 350px;
+                height: 350px;
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            .button {
+                width: 85%;
+                box-sizing: content-box;
+            }
+        }
+        /* intro viewport changes :P */
 /*intro section !! !*/
 
 /*window section*/
@@ -184,6 +287,9 @@
 
         /*Viewport window changes*/
         @media (max-width: 1100px) and (min-width: 801px) {
+            .window-section {
+                margin-left: 12px;
+            }
             .image-box {
                 width: calc(45vw);
                 height: calc(45vw);
@@ -195,6 +301,10 @@
         }
         
         @media (max-width: 800px) {
+            .window-section {
+                margin-right: 8px;
+            }
+
             .image-grid {
                 grid-template-columns: 1fr;
                 justify-items: center;
@@ -205,12 +315,22 @@
                 width: 500px;
                 height: 500px;
             }
+            .centered-box h1 {
+                text-align: center;
+            }
         }
         
-        @media (max-width: 500px) {
+        @media (max-width: 550px) {
+            .window-section {
+                margin-right: 8px;
+            }
+            
             .image-box {
-                width: calc(90vw);
-                height: calc(90vw);
+                width: 85vw;
+                height: 90vw;
+            }
+            .centered-box h1 {
+                text-align: center;
             }
         }
         /*Viewport window changes*/
@@ -224,6 +344,13 @@
             <img src="images/logo !.png" alt="Logo" class="nav-logo">
             <span class="nav-text">https://reubenmattam.me</span>
         </div>
+        
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
         <ul class="nav-right">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -241,8 +368,7 @@
             <p>I am a Data Science student at the University of Melbourne. See my passions come to life on this website.</p>
             <a href="projects.html" class="button">View My Projects.</a>
         </div>
-        <div id="headshot" class="container">
-        </div>
+        <div id="headshot" class="container"></div>
         <div id="image-shadow"></div>
     </section>
 

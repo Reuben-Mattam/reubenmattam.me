@@ -204,71 +204,73 @@
 /* NOTE SECTION !! */
 
 /* SPOTIFY SECTION */
-        #spotify-section {
-            height: 90vh;
-            width: 100vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #103021;
-        }
-        
-        #spotify-container {
-            width: 95vw;
-            height: 70%;
-            background-color: #181A1B;
-            border-radius: 15px;
-            display: flex;
-            overflow: hidden;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        #playlist-embed {
-            width: 50%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+#spotify-section {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #103021;
+}
 
-        #playlist-embed h2 {
-            display: inline;
-            margin: 0;
-            padding: 0;
-            font-size: 24px;
-            margin-bottom: 25px;
-        }
-        
-        .playlist {
-            width: 900px;
-            height: 400px;
-            border-radius: 12px;
-        }
-        
-        #view-more {
-            display: inline-block;
-            background-color: #123524;
-            color: #e5e7e6;
-            text-align: center;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: background-color 0.3s;
-            margin-top: 25px;
-            width: 250px;
-            height: 40px;
-            line-height: 40px;
-            
-        }
-        
-        .view-more:hover {
-            background-color: #103021;
-            transform: scale(1.05);
-            font-weight: bold;
-        }
+#spotify-container {
+    width: 95vw;
+    height: 70%;
+    background-color: #181A1B;
+    border-radius: 15px;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+#playlist-embed {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#playlist-embed h2 {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.playlist {
+    width: 90%;
+    height: 90%;
+    max-width: 900px;
+    max-height: 400px;
+    border-radius: 12px;
+}
+
+#view-more {
+    display: inline-block;
+    background-color: #123524;
+    color: #e5e7e6;
+    text-align: center;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+    margin-top: 16px;
+    width: 250px;
+    height: 40px;
+    line-height: 40px;
+}
+
+#view-more:hover {
+    background-color: #103021;
+    transform: scale(1.05);
+    font-weight: bold;
+}
 /* SPOTIFY SECTION */
 
         
@@ -289,6 +291,13 @@
             <img src="images/logo !.png" alt="Logo" class="nav-logo">
             <span class="nav-text">https://reubenmattam.me</span>
         </div>
+        
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
         <ul class="nav-right">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html" class="active">About</a></li>
@@ -349,15 +358,15 @@
     </section>
     
     <section id="spotify-section" class="not-start">
-    <div id="spotify-container">
-        <div id="playlist-embed">
-            <h2 class="highlight">See what I've been into right now :D <span class="lowlight">Maybe you will like a song or two...</span></h2>
-            <iframe class="playlist" src="https://open.spotify.com/embed/playlist/5lFb21iwftyFLTHqwVIbpq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <a href="wrapped.html" id="view-more">View More</a>
+        <div id="spotify-container">
+            <div id="playlist-embed">
+                <h2 class="highlight">See what I've been into right now<br><span class="lowlight">Maybe you will like a song or two...</span></h2>
+                <iframe class="playlist" src="https://open.spotify.com/embed/playlist/5lFb21iwftyFLTHqwVIbpq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <a href="wrapped.html" id="view-more">View More</a>
+            </div>
         </div>
-    </div>
-</section>
-    
+    </section>    
+
 
     <footer class="footer-section not-start">
         <div class="footer-left">

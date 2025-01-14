@@ -57,7 +57,6 @@
 
         .carousel-title {
             font-size: 70px;
-            color: #ffffff;
             opacity: 0.6;
             transition: opacity 0.3s ease;
             cursor: pointer;
@@ -68,6 +67,16 @@
             font-weight: bold;
         }
 
+        /*carousel text viewport changes !*/
+        @media (max-width: 600px) {
+            .carousel-titles {
+                padding-bottom: calc(5vh + 10px);
+            }
+            .carousel-title{
+                font-size: 50px;
+            }
+        }
+        /*carousel text viewport changes !*/
 /* CAROUSELL !! */
 
 /* PROJECTS !! */

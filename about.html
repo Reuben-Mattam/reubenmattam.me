@@ -168,6 +168,11 @@
             height: 100%;
         }
 
+        #connect {
+            text-decoration: none;
+            color: #181A1B;
+        }
+
         #text-container p {
             font-size: 14px;
             line-height: 1.5;
@@ -217,6 +222,11 @@
                 width: 100%;
                 min-width: unset;
                 height: auto;
+            }
+
+            #text-container p {
+                font-size: 14px;
+                line-height: 1.25;
             }
         
             #about-me {
@@ -361,20 +371,20 @@
                 <span id="note-right" class="highlight">Learn more about the Creator.</span>
                 <div id="about-me">
                     <p>
-                        Hey! I'm Reuben, a passionate data science student based in Melbourne and currently in my third year at the University of Melbourne.
-                        I started my academic journey in engineering but quickly realized it wasn’t for me. Around the same time, I developed a deep interest in statistics,
-                        sparked by videos by Veritasium. The first video I watched, "Why Statistics is So Powerful," piqued my curiosity,
-                        and my interest only grew after watching "How Data Science is Changing the World." While my initial reaction was confusion,
-                        this lack of understanding only fueled my desire to learn more.<br><br>
-                    
-                        Over the first university break, I taught myself Python, which I thoroughly enjoyed. My interest in statistics and enjoyment in coding naturally led me to pursue
-                        data science. Along the way, I've built a diverse skill set, including proficiency in Python (and libraries like pandas, numpy, and scikit-learn), R, C, and SQL.
-                        I also self-taught HTML and CSS during my second-year break, adding web development to my toolbelt. <br><br>
-                    
-                        Outside of my academic pursuits, I’ve spent three years working in sales, which has honed my interpersonal skills and given me a solid foundation in client
-                        interaction. My journey has been shaped by curiosity, hands-on learning, and a drive to continuously expand my knowledge.<br><br>
-                    
-                        Let Connect!
+                        Hey ! I'm Reuben, a passionate data science student based in Melbourne and currently in my third year at the University of Melbourne.
+                        I am math nerd passionate about statistics who taught themselves python during the summer break of a failing engineering degree.
+                        This led me to data science - a place for my interests in statistics and enjoyment of coding coalesce.<br><br>
+
+                        I have a passion for design as well; telling a story through aesthetics is something I find deeply interesting. Through this combination
+                        of factors, I have built a diverse set of skills such as:<br><br>
+                        Python: including pandas, NumPy, Matplotlib, Seaborn, scikit-learn.<br>
+                        C and R: taught throughout my course.<br>
+                        HTML, CSS and GIT: mainly for personal projects like this !<br><br>
+
+                        Outside of my academic pursuits, I’ve spent three years working in sales, which has honed my interpersonal skills and given me a solid foundation
+                        in client interaction. My journey has been shaped by passion and curiosity - something I hope to bring to your organisation !<br><br>
+
+                        <a id="connect" href="contact.html">Lets Connect &#9749;!</a>
                     </p>
                 </div>
             </div>
@@ -425,37 +435,37 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const track = document.querySelector(".carousel-track");
-        
-            // Clone images to ensure seamless scrolling
-            function cloneImages() {
+
+            function setupInfiniteTrack() {
                 const images = Array.from(track.children);
                 images.forEach((image) => {
                     const clone = image.cloneNode(true);
                     track.appendChild(clone);
                 });
             }
-        
-            // Infinite scroll logic
             function startInfiniteScroll() {
                 let scrollPosition = 0;
-        
+                const scrollSpeed = 1;
+                
                 function scroll() {
-                    scrollPosition += 1; // Adjust this value to control scroll speed
-                    track.style.transform = `translateX(-${scrollPosition}px)`;
-        
-                    // Reset scroll position when it reaches half of the track's scrollable width
-                    if (scrollPosition >= track.scrollWidth / 2) {
+                    const singleSetWidth = track.scrollWidth / 2;
+                    
+                    scrollPosition += scrollSpeed;
+                    
+                    // when we reach the width of the first set
+                    if (scrollPosition >= singleSetWidth) {
+                        // reset to beginning without animation !!
                         scrollPosition = 0;
                     }
-        
+                    
+                    track.style.transform = `translateX(-${scrollPosition}px)`;
                     requestAnimationFrame(scroll);
                 }
         
                 scroll();
             }
         
-            // Initialize the carousel
-            cloneImages();
+            setupInfiniteTrack();
             startInfiniteScroll();
         });
     </script>

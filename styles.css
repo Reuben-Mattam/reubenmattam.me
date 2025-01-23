@@ -261,7 +261,7 @@ nav {
     .footer-left,
     .footer-right {
         flex: none;
-        width: auto;
+        width: 100%;
         text-align: center;
         display: flex;
         justify-content: center;
@@ -278,6 +278,7 @@ nav {
 
     .footer-center {
         width: 100%;
+        height: auto;
     }
 
     .footer-center .logo {

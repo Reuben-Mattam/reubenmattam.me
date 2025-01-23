@@ -261,7 +261,7 @@ nav {
     .footer-left,
     .footer-right {
         flex: none;
-        width: 100%;
+        width: auto;
         text-align: center;
         display: flex;
         justify-content: center;

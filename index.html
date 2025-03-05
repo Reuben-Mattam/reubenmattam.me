@@ -163,9 +163,6 @@
         }
 
         @media (max-width: 800px) {
-            #intro {
-                margin-top: 100px;
-            }
             #intro-section {
                 flex-direction: column;
                 height: auto;
@@ -176,13 +173,15 @@
                 margin-right: 0;
                 width: 100%;
                 height: auto;
+                bottom: 0;
             }
         
             #headshot {
                 width: 500px;
                 height: 500px;
+
                 margin-left: 0;
-                margin-top: 20px;
+                order: -1;
             }
         
             #image-shadow {
@@ -200,13 +199,14 @@
 
         @media (max-width: 600px)  {
             #intro {
-                margin-top: 40vh;
+                display: flex;
+                margin-top: 10px;
             }
+
             #headshot {
                 width: 450px;
                 height: 450px;
-                margin-left: 0;
-                margin-top: 20px;
+                
             }
             .button {
                 width: 89%;
@@ -214,14 +214,10 @@
             }
         }
         @media (max-width: 500px)  {
-            #intro {
-                margin-top: 40vh;
-            }
             #headshot {
                 width: 400px;
                 height: 400px;
-                margin-left: 0;
-                margin-top: 20px;
+                margin: 0;
             }
             .button {
                 width: 87.5%;
@@ -229,14 +225,10 @@
             }
         }
         @media (max-width: 400px)  {
-            #intro {
-                margin-top: 40vh;
-            }
             #headshot {
                 width: 350px;
                 height: 350px;
-                margin-left: 0;
-                margin-top: 20px;
+                margin: 0;
             }
             .button {
                 width: 85%;
@@ -246,107 +238,396 @@
         /* intro viewport changes :P */
 /*intro section !! !*/
 
-/*window section*/
-        .window-section {
-            width: 100vw;
-            min-height: 150vh;
+
+/* skills section */
+        #skill-section {
+            width: 100%;
+            height: auto;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            box-sizing: border-box;
+            flex-direction: column;
+            margin: 15vh 0;
         }
 
-        .centered-box {
-            width: 1050px;
-            text-align: center;
-            z-index: 10;
+        .skills {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 25vh;
+            position: relative;
+            overflow: hidden;
+            transition: height 0.3s ease;
         }
 
-        .centered-box h1 {
-            margin-bottom: 30px;
-            font-size: 25px;
-            color: #e5e7e6;
-            text-align: left;
+        .skills:hover {
+            height: 33vh;
         }
 
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 500px);
-            grid-gap: 25px 50px;
-            justify-content: center;
+        #ds,
+        #webdev {
+            border-top: 2px solid #e5e7e6;
         }
 
-        .grid-item {
-            text-align: left;
+        #uiux {
+            border-top: 2px solid #e5e7e6;
+            border-bottom: 2px solid #e5e7e6;
         }
 
-        .image-box {
-            width: 500px;
-            height: 500px;
-            background-color: #e5e7e6;
-            margin-bottom: 25px;
-
+        /* image slide up */
+        .skills::before {
+            content: "";
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center;
+            z-index: -1;
+            transition: bottom 0.5s ease;
         }
 
-        .grid-item p {
-            margin: 0;
-            font-size: 20px;
-            color: #e5e7e6;
+        .skills:hover::before {
+            bottom: 0;
         }
 
-        /*Viewport window changes*/
-        @media (max-width: 1100px) and (min-width: 801px) {
-            .window-section {
-                margin-left: 12px;
-            }
-            .image-box {
-                width: calc(45vw);
-                height: calc(45vw);
-            }
-            .image-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-gap: 10px;
-            }
+        #ds::before {
+            background-image: url('https://source.unsplash.com/800x600/?data,science');
         }
-        
+
+        #webdev::before {
+            background-image: url('https://source.unsplash.com/800x600/?web,development');
+        }
+
+        .default,
+        .hover-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 100px;
+        }
+
+        .hover-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .skills:hover .default {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0s 0.3s;
+        }
+
+        .skills:hover .hover-content {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease;
+        }
+
+        .skills:not(:hover) .hover-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0s 1s;
+        }
+
+        .skill-summary {
+            width: 30%;
+        }
+
+        .skill-contact {
+            text-align: right; /* Keeps the text right-aligned in the h2 container */
+            position: relative;
+        }
+
+        .skill-contact span {
+            display: inline-block;  /* Makes the span only as wide as its content */
+            position: relative;     /* Needed for absolute positioning of the pseudo-element */
+            overflow: hidden;
+        }
+
+        .skill-contact span::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;              /* Start with no cover */
+            background: #e5e7e6;     /* Adjust to match your background */
+            transition: none;       /* No transition initially */
+            z-index: 2;
+        }
+
+        .skills:not(:hover) .hover-content .skill-contact span::after {
+            height: 100%;
+            transition: height 0.5s ease-out;
+        }
+
+        /* viewport skill changes */
         @media (max-width: 800px) {
-            .window-section {
-                margin-right: 8px;
+            h1 {
+                font-size: 36px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            .lowlight {
+                font-size: 16px;
             }
 
-            .image-grid {
-                grid-template-columns: 1fr;
-                justify-items: center;
-                width: 100%;
-            }
-        
-            .image-box {
-                width: 500px;
-                height: 500px;
-            }
-            .centered-box h1 {
-                text-align: center;
+            .default,
+            .hover-content  {
+                padding: 0 20px;
             }
         }
-        
+
         @media (max-width: 550px) {
-            .window-section {
-                margin-right: 8px;
-                margin-top: 100px;
+            #skill-section {
+                margin: 10vh 0;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            .lowlight {
+                font-size: 14px;
+            }
+
+            .default,
+            .hover-content  {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 399px) {
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            .lowlight {
+                font-size: 12px;
+            }
+
+            .default,
+            .hover-content  {
+                padding: 0 15px;
+            }
+        }
+        /* viewport skill changes */
+/* skills section */
+
+/* project display */
+        #project-display {
+            width: 100vw;
+            height: 90vh;
+            min-height: 750px;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-wrapper {
+            width: 300vw; /* 3 projects 100vw each ! */
+            height: 750px;
+            min-height: 750px;
+
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .project {
+            height: 750px;
+            min-height: 750px;
+
+            flex: 0 0 100vw;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 12px 0;
+        }
+
+        .side-p {
+            height: 750px;
+            width: calc((100vw - 550px)/2);
+            padding: 24px;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12px;
+        }
+
+        .middle-p {
+            height: 750px;
+            width: 550px;
+        }
+
+        .img-p {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        #slider {
+            position: relative;
+            bottom: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 13vw;
+            z-index: 1000;
+        }
+
+        .slider-line {
+            position: absolute;
+            width: 550px;
+            height: 2px;
+            background-color: #181A1B;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1000;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #A5A5A5;
+            cursor: pointer;
+        }
+        .dot.active {
+            background-color: #181A1B;
+        }
+
+        /* viewport project display changes */
+        @media (max-width: 1200px) {
+            .side-p .lowlight, .side-p .highlight {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 950px) {
+            .side-p {
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 725px) {
+            #project-display, .project, .slider-wrapper {
+                min-height: 650px;
+            }
+
+            .slider-wrapper, .project {
+                height: 650px;
+            }
+
+            .side-p {
+                width: calc((100vw - 475px)/2);
+            }
+
+            .middle-p {
+                height: 650px;
+                width: 475px;
+            }
+
+            .slider-line {
+                width: 475px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            #project-display, .project, .slider-wrapper {
+                min-height: 550px;
+            }
+
+            .slider-wrapper, .project {
+                height: 550px;
             }
             
-            .image-box {
-                width: 85vw;
-                height: 90vw;
+            .side-p .lowlight, .side-p .highlight {
+                font-size: 12px;
+                padding: 8px;
             }
-            .centered-box h1 {
-                text-align: center;
+
+            .side-p {
+                width: calc((100vw - 400px)/2);
+            }
+            .middle-p {
+                height: 550px;
+                width: 400px;
+            }
+
+            .slider-line {
+                width: 400px;
             }
         }
-        /*Viewport window changes*/
-/*window section*/
+
+        @media (max-width: 550px) {
+            #project-display, .project, .slider-wrapper {
+                min-height: calc(95vw * 1.3636);
+            }
+
+            .slider-wrapper {
+                height: calc(95vw * 1.3636);
+            }
+            
+            .project {
+                position: relative;
+                display: block;
+                text-align: center;
+                height: calc(95vw * 1.3636);
+            }
+        
+            .middle-p {
+                width: 95vw;
+                height: calc(95vw * 1.3636);
+                margin: 0 auto;
+                position: relative;
+            }
+        
+            .side-p {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 100000;
+                margin-left: 16px;
+                margin-right: 16px;
+            }
+        
+            .side-p:first-of-type {
+                left: calc(50% - 47.5vw);
+            }
+        
+            .side-p:last-of-type {
+                right: calc(50% - 47.5vw);
+            }
+
+            .slider-line {
+                width: 95vw;
+                height: 4px;
+            }
+
+            .dot {
+                width: 24px;
+                height: 24px;
+            }
+        }
+        /* viewport project display changes */
+/* project display */
 
     </style>
 </head>
@@ -384,31 +665,130 @@
         <div id="image-shadow"></div>
     </section>
 
-
-    <section class="window-section not-start">
-        <div class="centered-box">
-            <h1>When I'm not working on projects I'm...</h2>
-                <div class="image-grid">
-                    <div class="grid-item">
-                        <div class="image-box" style="background-image: url('images/home/music.jpg');"></div>
-                        <p>Listening to music.</p>
-                    </div>
-                    <div class="grid-item">
-                        <div class="image-box" style="background-image: url('images/home/cafe.jpg');"></div>
-                        <p>Cafe Hopping.</p>
-                    </div>
-                    <div class="grid-item">
-                        <div class="image-box" style="background-image: url('images/home/bouldering.jpg');"></div>
-                        <p>Bouldering.</p>
-                    </div>
-                    <div class="grid-item">
-                        <div class="image-box" style="background-image: url('images/home/reading.jpg');"></div>
-                        <p>Reading.</p>
-                    </div>
+    <section id="skill-section">
+        <div id="ds" class="skills">
+            <div class="default">
+                <div>
+                    <h1>Data Science</h1>
                 </div>
+                <div class="skill-summary">
+                    <p class="lowlight">Draw on my university background in Python and its libraries (pandas, NumPy, Matplotlib, Seaborn, scikit-learn), along with C , R and SQL.</p>
+                </div>
+            </div>
+            
+            <div class="hover-content">
+                <div>
+                    <h1>Data Science</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="lowlight">Draw on my university background in Python and its libraries (pandas, NumPy, Matplotlib, Seaborn, scikit-learn), along with C R and SQL.</p>
+                    <h2 class="skill-contact"><span>Contact Me</span></h2>
+                </div>
+            </div>
+        </div>
+
+        <div id="webdev" class="skills">
+            <div class="default">
+                <div>
+                    <h1>Web Development</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="lowlight">Combine my self-taught HTML and CSS knowledge with university experience in JavaScript.</p>
+                </div>
+            </div>
+
+            <div class="hover-content">
+                <div>
+                    <h1>Web Development</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="lowlight">Combine my self-taught HTML and CSS knowledge with university experience in JavaScript.</p>
+                    <h2 class="skill-contact"><span>Contact Me</span></h2>
+                </div>
+            </div>
+        </div>
+
+        <div id="uiux" class="skills">
+            <div class="default">
+                <div>
+                    <h1>UI/UX Design</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="lowlight">Learn how I keep up with industry trends to create intuitive and creative designs</p>
+                </div>
+            </div>
+            
+            <div class="hover-content">
+                <div>
+                    <h1>UI/UX Design</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="lowlight">Learn how I keep up with industry trends to create intuitive and creative designs</p>
+                    <h2 class="skill-contact"><span>Contact Me</span></h2>
+                </div>
+            </div>
         </div>
     </section>
-    
+
+    <h2 style="display: flex; justify-content: center;">My Projects</h2>
+    <section id="project-display">
+        <!-- Wrapper holding all slides -->
+        <div class="slider-wrapper">
+            <!-- 16thJan -->
+            <div class="project">
+                <div class="side-p">
+                    <p class="highlight">Stats.Sptfy</p>
+                    <p class="lowlight">Spotify Stats Tracker and App</p>
+                </div>
+                <div class="middle-p">
+                    <a href="statssptfy.html">
+                        <img class="img-p" src="/images/home/statssptfy.jpg" alt="16thJan project image">
+                    </a>
+                </div>
+                <div class="side-p">
+                    <p class="highlight">HTML, CSS, JS, Python; eel</p>
+                    <p class="lowlight">2025</p>
+                </div>
+            </div>
+            <!-- RSpotify -->
+            <div class="project">
+                <div class="side-p">
+                    <p class="highlight">Portfolioe</p>
+                    <p class="lowlight">Current Website</p>
+                </div>
+                <div class="middle-p">
+                    <a href="index.html">
+                        <img class="img-p" src="/images/home/portfolio.jpg" alt="RSpotify project image">
+                    </a>
+                    </div>
+                <div class="side-p">
+                    <p class="highlight">Python</p>
+                    <p class="lowlight">2024</p>
+                </div>
+            </div>
+            <!-- Book Recommendation -->
+            <div class="project">
+                <div class="side-p">
+                    <p class="highlight">Business Proposal</p>
+                    <p class="lowlight">Bookstore Insights</p>
+                </div>
+                <div class="middle-p">
+                    <img class="img-p" src="/images/home/bookstore.jpg" alt="Book Recommendation project image">
+                </div>
+                <div class="side-p">
+                    <p class="highlight">Python; Jupyter Notebook</p>
+                    <p class="lowlight">2025</p>
+                </div>
+            </div>
+        </div>
+        <!-- Dots navigation -->
+        <div id="slider">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <div class="slider-line"></div>
+        </div>
+    </section>
 
     <footer class="footer-section not-start">
         <div class="footer-left">
@@ -440,6 +820,73 @@
         </div>
     </footer>
     <script>
+        // Grab the slider wrapper and dots
+        const sliderWrapper = document.querySelector('.slider-wrapper');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+        const totalSlides = dots.length;
+        const slideInterval = 10000; // 10 seconds
+    
+        // Function to go to a specific slide
+        function goToSlide(index) {
+          sliderWrapper.style.transform = `translateX(-${index * 100}vw)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+            currentIndex = index;
+        }
+    
+        // Add click event listeners for the dots
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'));
+                goToSlide(index);
+                resetInterval(); // Reset auto-rotation timer when user clicks
+        });
+        });
+    
+        // Automatic slide rotation every 10 seconds
+        let autoSlide = setInterval(() => {
+            const nextIndex = (currentIndex + 1) % totalSlides;
+            goToSlide(nextIndex);
+        }, slideInterval);
+    
+        // Reset the auto-rotation timer
+        function resetInterval() {
+            clearInterval(autoSlide);
+            autoSlide = setInterval(() => {
+                const nextIndex = (currentIndex + 1) % totalSlides;
+                goToSlide(nextIndex);
+            }, slideInterval);
+        }
+
+
+        function updateSliderPosition() {
+            // Identify the active project (adjust the selector if needed)
+            const activeProject = document.querySelector('.project.active');
+            if (!activeProject) return;
+        
+            // Get the image element inside the active project's middle container
+            const img = activeProject.querySelector('.middle-p .img-p');
+            if (!img) return;
+        
+            // Get the image's bounding rectangle
+            const rect = img.getBoundingClientRect();
+        
+            // Calculate the bottom-center position of the image
+            const bottomCenterX = rect.left + rect.width / 2;
+            const bottomCenterY = rect.bottom;
+        
+            // Get the slider element
+            const slider = document.getElementById('slider');
+        
+            // Update slider's position: adjust these values if you need an offset
+            slider.style.left = `${bottomCenterX}px`;
+            slider.style.top = `${bottomCenterY}px`;
+        }
+        
+        // Update on initial load and whenever the viewport is resized
+        window.addEventListener('resize', updateSliderPosition);
+        updateSliderPosition();
     </script>
 </body>
 </html>

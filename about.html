@@ -93,6 +93,7 @@
                 right: 25px;
             }
         }
+
         @media (max-width: 400px) {
             .carousel-image {
                 min-width: 300px;
@@ -236,6 +237,110 @@
         /*viewport note changes */
 /* NOTE SECTION !! */
 
+
+/*window section*/
+        .window-section {
+            width: 100vw;
+            min-height: 150vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        
+        .centered-box {
+            width: 1050px;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .centered-box h1 {
+            margin-bottom: 30px;
+            font-size: 25px;
+            color: #e5e7e6;
+            text-align: left;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 500px);
+            grid-gap: 25px 50px;
+            justify-content: center;
+        }
+        
+        .grid-item {
+            text-align: left;
+        }
+        
+        .image-box {
+            width: 500px;
+            height: 500px;
+            background-color: #e5e7e6;
+            margin-bottom: 25px;
+        
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .grid-item p {
+            margin: 0;
+            font-size: 20px;
+            color: #e5e7e6;
+        }
+        
+        /*Viewport window changes*/
+        @media (max-width: 1100px) and (min-width: 801px) {
+            .window-section {
+                margin-left: 12px;
+            }
+            .image-box {
+                width: calc(45vw);
+                height: calc(45vw);
+            }
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 10px;
+            }
+        }
+        
+        @media (max-width: 800px) {
+            .window-section {
+                margin-right: 8px;
+            }
+        
+            .image-grid {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                width: 100%;
+            }
+        
+            .image-box {
+                width: 500px;
+                height: 500px;
+            }
+            .centered-box h1 {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 550px) {
+            .window-section {
+                margin-right: 8px;
+                margin-top: 100px;
+            }
+            
+            .image-box {
+                width: 85vw;
+                height: 90vw;
+            }
+            .centered-box h1 {
+                text-align: center;
+            }
+        }
+        /*Viewport window changes*/
+/*window section*/
+
+
 /* SPOTIFY SECTION */
         #spotify-section {
             height: 90vh;
@@ -306,16 +411,6 @@
         }
 /* SPOTIFY SECTION */
 
-        
-        .highlight {
-            font-size: 20px;
-            color: #e5e7e6;
-        }
-        
-        .lowlight {
-            font-size: 20px;
-            color: #A5A5A5;
-        }
     </style>
 </head>
 <body>
@@ -371,15 +466,13 @@
                 <span id="note-right" class="highlight">Learn more about the Creator.</span>
                 <div id="about-me">
                     <p>
-                        Hey ! I'm Reuben, a passionate data science student based in Melbourne and currently in my third year at the University of Melbourne.
-                        I am math nerd passionate about statistics who taught themselves python during the summer break of a failing engineering degree.
-                        This led me to data science - a place for my interests in statistics and enjoyment of coding coalesce.<br><br>
+                        Hey ! <br><br>
+                        I'm Reuben, a passionate data science student based in Melbourne and currently in my third year at the University of Melbourne.
+                        I am math nerd passionate about statistics who taught themselves python during the summer break of a passionless engineering degree.
+                        This led me to data science - a place for my interests in statistics and enjoyment of coding to coalesce.<br><br>
 
                         I have a passion for design as well; telling a story through aesthetics is something I find deeply interesting. Through this combination
-                        of factors, I have built a diverse set of skills such as:<br><br>
-                        Python: including pandas, NumPy, Matplotlib, Seaborn, scikit-learn.<br>
-                        C and R: taught throughout my course.<br>
-                        HTML, CSS and GIT: mainly for personal projects like this !<br><br>
+                        of factors, I have built a diverse set of skills.
 
                         Outside of my academic pursuits, I’ve spent three years working in sales, which has honed my interpersonal skills and given me a solid foundation
                         in client interaction. My journey has been shaped by passion and curiosity - something I hope to bring to your organisation !<br><br>
@@ -388,6 +481,30 @@
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="window-section not-start">
+        <div class="centered-box">
+            <h1>When I'm not working on projects I'm...</h2>
+                <div class="image-grid">
+                    <div class="grid-item">
+                        <div class="image-box" style="background-image: url('images/about/music.jpg');"></div>
+                        <p>Listening to music.</p>
+                    </div>
+                    <div class="grid-item">
+                        <div class="image-box" style="background-image: url('images/about/cafe.jpg');"></div>
+                        <p>Cafe Hopping.</p>
+                    </div>
+                    <div class="grid-item">
+                        <div class="image-box" style="background-image: url('images/about/bouldering.jpg');"></div>
+                        <p>Bouldering.</p>
+                    </div>
+                    <div class="grid-item">
+                        <div class="image-box" style="background-image: url('images/about/reading.jpg');"></div>
+                        <p>Reading.</p>
+                    </div>
+                </div>
         </div>
     </section>
     

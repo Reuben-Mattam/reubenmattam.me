@@ -36,7 +36,7 @@
             height: 100%;
             object-fit: cover;
             opacity: 0;
-            transition: opacity 1.2s ease, filter 1.2s ease;
+            transition: opacity 3s ease, filter 3s ease;
             filter: blur(20px);
         }
 
@@ -120,10 +120,28 @@
         .box {
             width: 20vw;
             height: 15vw;
+
             background-color: #ffffff;
-            border-radius: 15px;
+            border-radius: 18px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-in-out;
+
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .box:hover {
@@ -221,9 +239,9 @@
             <img src="images/projects/akira_4948.jpg" alt="Blue Image">
         </div>
         <div class="carousel-titles">
-            <div class="carousel-title" data-index="0">Coming Soon</div>
-            <div class="carousel-title" data-index="1">Coming Soon</div>
-            <div class="carousel-title" data-index="2">Coming Soon</div>
+            <div class="carousel-title" data-index="0">16th Jan</div>
+            <div class="carousel-title" data-index="1">reubenmattam.me</div>
+            <div class="carousel-title" data-index="2">Bookstore Proposal</div>
         </div>
     </section>
 
@@ -240,19 +258,36 @@
             </p>
             <div class="box-container">
                 <div class="box-wrapper">
-                    <div class="box"></div>
-                    <p class="subtitle">Coming Soon</p>
-                    <p class="additional-text">Additional text goes here for Box 1.</p>
+                    <div class="box">
+                        <a href="https://github.com/Reuben-Mattam/Stats.Sptfy">
+                            <img src="/images/projects/statsptfy.jpg" alt="">
+                        </a>
+                    </div>
+                    <p class="subtitle">Stats.Sptfy</p>
+                    <p class="additional-text">Spotify Music Tracker.<br>
+                        <span class="lowlight">Python; eel, HTML, CSS, JS, SQL.</span></p>
                 </div>
+
                 <div class="box-wrapper">
-                    <div class="box"></div>
-                    <p class="subtitle">Coming Soon</p>
-                    <p class="additional-text">Additional text goes here for Box 2.</p>
+                    <div class="box">
+                        <a href="https://github.com/Reuben-Mattam/portfolio">
+                            <img src="/images/projects/portfolio.jpg" alt="">
+                        </a>
+                    </div>
+                    <p class="subtitle">reubenmattam.me</p>
+                    <p class="additional-text">Porfolio Website.<br>
+                        <span class="lowlight">HTML, CSS, JS</span></p>
                 </div>
+
                 <div class="box-wrapper">
-                    <div class="box"></div>
-                    <p class="subtitle">Coming Soon</p>
-                    <p class="additional-text">Additional text goes here for Box 3.</p>
+                    <div class="box">
+                        <a href="">
+                            <img src="/images/projects/bookstore.jpg" alt="">
+                        </a>
+                    </div>
+                    <p class="subtitle">Bookstore Proposal</p>
+                    <p class="additional-text">Reccomendation for a bookstore.<br>
+                        <span class="lowlight">Python; Jupyter Notebook</span></p>
                 </div>
             </div>
         </div>

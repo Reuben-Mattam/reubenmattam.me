@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="animations.js" defer></script>
+    <style>
+        #section {
+            height: auto;
+            width: 100vw;
+        }
+
+        #intro-title {
+            width: 100%;
+            height: 10w;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 5vh;
+        }
+
+        .download {
+            height: 50%;
+            width: 100%;
+
+            display: flex;
+            flex-direction: row;
+        }
+
+        .half {
+            height: 100%;
+            width: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin: 5vw;
+        }
+
+        .text {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        img {
+            height: 25vw;
+            width: auto;
+        }
+
+        a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #e5e7e6;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1100px) {
+            p {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .download {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .half {
+                margin: 20px;
+            }
+
+            img {
+                min-width: 400px;
+                min-height: 216px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .half {
+                margin: 10px;
+            }
+
+            img {
+                min-width: 350px;
+                min-height: 190px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="images/logo !.png" alt="Logo" class="nav-logo">
+            <span class="nav-text">https://reubenmattam.me</span>
+        </div>
+        
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+        <ul class="nav-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="wrapped.html">Wrapped!</a></li>
+        </ul>
+    </nav>
+
+    <section id="intro">
+        <div id="intro-title">
+            <h1>Stats.Sptfy</h1>
+            <p>Spotify Stats Tracker and App !</p>
+            <a href="https://github.com/Reuben-Mattam/Stats.Sptfy">View the Github Repository</a>
+        </div>
+        <div class="download">
+            <div class="half">
+                <img src="/images/statssptfy/trackersptfy.JPG" alt="">
+            </div>
+            <div class="half text">
+                <h2>Tracker.Sptfy</h2>
+                <p>Utalise this to track your music listening habits on spotify.
+                    Currently, this python program requires you to set up a spotify for
+                    developers app. You can do so 
+                    <a href="https://developer.spotify.com/">here.</a><br><br>
+
+                    Once done, set up a .env file with the following format:<br><br>
+
+                    SPOTIFY_CLIENT_ID= <br>SPOTIFY_CLIENT_SECRET= <br>SPOTIFY_REDIRECT_URI=http://localhost:8888/callback<br><br>
+                    Now running the program through command prompt will save you stats !
+                </p>
+            </div>
+        </div>
+        <div class="download">
+            <div class="half">
+                <img src="/images/statssptfy/statssptfy.jpg" alt="">
+            </div>
+            <div class="half text">
+                <h2>Stats.Sptfy</h2>
+                <p><a href="https://github.com/Reuben-Mattam/portfolio/releases/tag/v1.0/statssptfy.zip" download>Download the App.</a>
+                    Included is a sample excel sheet with Stats you can use if
+                    you don't want to collect your own !<br><br>
+
+                    If you have any issues with the exe, you can find the project
+                    <a href="https://github.com/Reuben-Mattam/Stats.Sptfy">here</a>
+                    on GitHub, where you can run the python program directly. <br><br>
+
+                    p.s, since it is chromium based, dark mode extentions work on the app :>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="process"></section>
+</body>
+</html>

@@ -408,7 +408,7 @@
 
         @media (max-width: 399px) {
             h1 {
-                font-size: 28px;
+                font-size: 24px;
             }
             h2 {
                 font-size: 18px;
@@ -579,6 +579,7 @@
         @media (max-width: 550px) {
             #project-display, .project, .slider-wrapper {
                 min-height: calc(95vw * 1.3636);
+                margin: 0;
             }
 
             .slider-wrapper {
@@ -600,12 +601,7 @@
             }
         
             .side-p {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 100000;
-                margin-left: 16px;
-                margin-right: 16px;
+                display: none;
             }
         
             .side-p:first-of-type {

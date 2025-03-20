@@ -1,645 +1,575 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HOME</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="images/logo !.png" type="image/png">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="images/logo !.png" type="image/png" />
     <script src="animations.js" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&family=Lexend:wght@100..900&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
     <style>
-/* Opening Animation !! */
-        #intro, #headshot {
-            opacity: 0;
-            transform: translateY(75px);
-        }
 
-        @keyframes slideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        #intro {
-            animation: slideUp 1s ease-out forwards;
-            animation-delay: 0.2s;
-        }
-
-        #headshot {
-            animation: slideUp 1s ease-out forwards;
-            animation-delay: 0.5s;
-        }
-/* Opening Animation !! */
-
-/* INtro Section !*/        
-        #intro-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100vw;
-            min-height: 100vh;
-            position: relative;
-            overflow: visible;
-            animation: slideUp 1s ease-out forwards;
-            box-sizing: border-box;
-        }
-
-        .container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 20px;
-        }
-
-        #intro {
-            width: 600px;
-            height: 500px;
-            margin-right: 5vw;
-        }
-
-        #headshot {
-            width: 500px;
-            height: 500px;
-            margin-left: 5vw;
-        
-            background-image: url('images/home/me.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 18px;
-        }
-
-        h2, h1, p {
-            text-align: left;
+        body, html {
             margin: 0;
-        }
-
-        h2 {
-            font-size: 40px;
-            margin-bottom: 8px;
-        }
-
-        h1 {
-            font-size: 55px;
-            margin-bottom: 16px;
-        }
-
-        p {
-            font-size: 20px;
-            margin-bottom: 16px;
-        }
-
-        .button {
-            margin-top: 12px;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            background-color: #181A1B;
-            color: #e5e7e6;
-            border-radius: 12px;
-            cursor: pointer;
-            display: inline-block;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            width: 50%;
-            line-height: 1.5;
-        }
-
-        .button:hover {
-            background-color: #e5e7e6;
-            color: #181A1B;
-            font-weight: bold;
-            transform: scale(1.05);
-        }
-
-        #image-shadow {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background-color: #103021;
-            z-index: -1;
-            margin-left: calc(1250px + 5vw);
-            margin-top: 500px;
-            border-radius: 18px;
-        }
-
-        /* intro viewport changes :P */
-        @media (max-width: 1300px) and (min-width: 1050px) {
-            #intro {
-                margin-right: 0;
-            }
-        
-            #headshot {
-                margin-left: 0;
-                width: 400px;
-                height: 400px;
-            }
-            .button{
-                box-sizing: content-box;
-                width: 40%;
-            }
-        }
-
-        @media (max-width: 1050px) and (min-width: 800px) {
-            #intro {
-                margin-right: 0;
-                width: 400px;
-            }
-            #headshot {
-                margin-left: -25px;
-                width: 350px;
-                height: 350px;
-            }
-            .button{
-                box-sizing: content-box;
-            }
-        }
-
-        @media (max-width: 800px) {
-            #intro-section {
-                flex-direction: column;
-                height: auto;
-                padding: 20px;
-            }
-        
-            #intro {
-                margin-right: 0;
-                width: 100%;
-                height: auto;
-                bottom: 0;
-            }
-        
-            #headshot {
-                width: 500px;
-                height: 500px;
-
-                margin-left: 0;
-                order: -1;
-            }
-        
-            #image-shadow {
-                width: 100%;
-                height: auto;
-                margin-left: 0;
-                margin-top: 20px;
-            }
-        
-            .button {
-                width: 90%;
-                box-sizing: content-box;
-            }
-        }
-
-        @media (max-width: 600px)  {
-            #intro {
-                display: flex;
-                margin-top: 10px;
-            }
-
-            #headshot {
-                width: 450px;
-                height: 450px;
-                
-            }
-            .button {
-                width: 89%;
-                box-sizing: content-box;
-            }
-        }
-        @media (max-width: 500px)  {
-            #headshot {
-                width: 400px;
-                height: 400px;
-                margin: 0;
-            }
-            .button {
-                width: 87.5%;
-                box-sizing: content-box;
-            }
-        }
-        @media (max-width: 400px)  {
-            #headshot {
-                width: 350px;
-                height: 350px;
-                margin: 0;
-            }
-            .button {
-                width: 85%;
-                box-sizing: content-box;
-            }
-        }
-        /* intro viewport changes :P */
-/*intro section !! !*/
-
-
-/* skills section */
-        #skill-section {
-            width: 100%;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            margin: 15vh 0;
-        }
-
-        .skills {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 25vh;
-            position: relative;
-            overflow: hidden;
-            transition: height 0.3s ease;
-        }
-
-        .skills:hover {
-            height: 33vh;
-        }
-
-        #ds,
-        #webdev {
-            border-top: 2px solid #e5e7e6;
-        }
-
-        #uiux {
-            border-top: 2px solid #e5e7e6;
-            border-bottom: 2px solid #e5e7e6;
-        }
-
-        /* image slide up */
-        .skills::before {
-            content: "";
-            position: absolute;
-            bottom: -100%;
-            left: 0;
-            width: 100%;
+            padding: 0;
             height: 100%;
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            transition: bottom 0.5s ease;
         }
 
-        .skills:hover::before {
-            bottom: 0;
-        }
-
-        #ds::before {
-            background-image: url('https://source.unsplash.com/800x600/?data,science');
-        }
-
-        #webdev::before {
-            background-image: url('https://source.unsplash.com/800x600/?web,development');
-        }
-
-        .default,
-        .hover-content {
+/* start-up section */
+        #start-up {
+            height: 100vh;
+            width: 100vw;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0 100px;
-        }
+            justify-content: center;
 
-        .hover-content {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease;
-        }
-
-        .skills:hover .default {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0s 0.3s;
-        }
-
-        .skills:hover .hover-content {
             opacity: 1;
-            visibility: visible;
-            transition: opacity 0.5s ease;
-        }
-
-        .skills:not(:hover) .hover-content {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0s 1s;
-        }
-
-        .skill-summary {
-            width: 30%;
-        }
-
-        .skill-contact {
-            text-align: right; /* Keeps the text right-aligned in the h2 container */
-            position: relative;
-        }
-
-        .skill-contact span {
-            display: inline-block;  /* Makes the span only as wide as its content */
-            position: relative;     /* Needed for absolute positioning of the pseudo-element */
-            overflow: hidden;
-        }
-
-        .skill-contact span::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 0;              /* Start with no cover */
-            background: #e5e7e6;     /* Adjust to match your background */
-            transition: none;       /* No transition initially */
+            transition: opacity 1s ease-out, filter 1s ease-out;
             z-index: 2;
         }
 
-        .skills:not(:hover) .hover-content .skill-contact span::after {
-            height: 100%;
-            transition: height 0.5s ease-out;
+        #start-up.fade-out {
+            opacity: 0;
+            filter: blur(8px);
         }
 
-        /* viewport skill changes */
-        @media (max-width: 800px) {
-            h1 {
-                font-size: 36px;
-            }
-            h2 {
-                font-size: 24px;
-            }
-            .lowlight {
-                font-size: 16px;
-            }
+        #start-up > img {
+            height: auto;
+            width: 25vw;
+            min-width: 500px;
 
-            .default,
-            .hover-content  {
-                padding: 0 20px;
-            }
+            display: block;
         }
 
-        @media (max-width: 550px) {
-            #skill-section {
-                margin: 10vh 0;
-            }
-
-            h1 {
-                font-size: 32px;
-            }
-            h2 {
-                font-size: 20px;
-            }
-            .lowlight {
-                font-size: 14px;
-            }
-
-            .default,
-            .hover-content  {
-                padding: 0 15px;
-            }
-        }
-
-        @media (max-width: 399px) {
-            h1 {
-                font-size: 24px;
-            }
-            h2 {
-                font-size: 18px;
-            }
-            .lowlight {
-                font-size: 12px;
-            }
-
-            .default,
-            .hover-content  {
-                padding: 0 15px;
-            }
-        }
-        /* viewport skill changes */
-/* skills section */
-
-/* project display */
-        #project-display {
-            width: 100vw;
-            height: 90vh;
-            min-height: 750px;
-
-            position: relative;
-            overflow: hidden;
-        }
-
-        .slider-wrapper {
-            width: 300vw; /* 3 projects 100vw each ! */
-            height: 750px;
-            min-height: 750px;
-
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .project {
-            height: 750px;
-            min-height: 750px;
-
-            flex: 0 0 100vw;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin: 12px 0;
-        }
-
-        .side-p {
-            height: 750px;
-            width: calc((100vw - 550px)/2);
-            padding: 24px;
-
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 12px;
-        }
-
-        .middle-p {
-            height: 750px;
-            width: 550px;
-        }
-
-        .img-p {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        #slider {
-            position: relative;
-            bottom: 30px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 13vw;
-            z-index: 1000;
-        }
-
-        .slider-line {
+        #whoami {
             position: absolute;
-            width: 550px;
-            height: 2px;
-            background-color: #181A1B;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: -1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
         }
 
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #A5A5A5;
-            cursor: pointer;
-        }
-        .dot.active {
-            background-color: #181A1B;
+        #whoami img {
+            width: 25px;
+            height: auto;
         }
 
-        /* viewport project display changes */
-        @media (max-width: 1200px) {
-            .side-p .lowlight, .side-p .highlight {
-                font-size: 16px;
-                padding: 12px;
-            }
-        }
-
-        @media (max-width: 950px) {
-            .side-p {
-                flex-direction: column;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 725px) {
-            #project-display, .project, .slider-wrapper {
-                min-height: 650px;
-            }
-
-            .slider-wrapper, .project {
-                height: 650px;
-            }
-
-            .side-p {
-                width: calc((100vw - 475px)/2);
-            }
-
-            .middle-p {
-                height: 650px;
-                width: 475px;
-            }
-
-            .slider-line {
-                width: 475px;
-            }
+        #whoami h1 {
+            margin: 0 10px;
+            font-size: 1.5em;
         }
 
         @media (max-width: 650px) {
-            #project-display, .project, .slider-wrapper {
-                min-height: 550px;
-            }
-
-            .slider-wrapper, .project {
-                height: 550px;
-            }
-            
-            .side-p .lowlight, .side-p .highlight {
-                font-size: 12px;
-                padding: 8px;
-            }
-
-            .side-p {
-                width: calc((100vw - 400px)/2);
-            }
-            .middle-p {
-                height: 550px;
-                width: 400px;
-            }
-
-            .slider-line {
-                width: 400px;
+            #start-up > img {
+                min-width: 400px;
             }
         }
 
-        @media (max-width: 550px) {
-            #project-display, .project, .slider-wrapper {
-                min-height: calc(95vw * 1.3636);
-                margin: 0;
+        @media (max-width: 450px) {
+            #start-up > img {
+                min-width: 350px;
+            }
+        }
+/* start-up section */
+
+/* landing page section */
+        #landing-page {
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            opacity: 1;
+            filter: blur(8px);
+            transition: opacity 1s ease-out, filter 1s ease-out;
+            z-index: 1;
+        }
+
+        #landing-page.reveal {
+            opacity: 1;
+            filter: blur(0);
+        }
+
+        #intro {
+            width: 80%;
+            height: calc(80vw / 2);
+            position: absolute;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .intro-title {
+            height: 33.3%;
+            width: 100%;
+
+            font-size: 6.5vw;
+        }
+        #start {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #middle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* sub heading */
+        #me {
+            height: 100%;
+            width: 20%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-family: "Lexend", sans-serif;
+            
+        }
+
+        .me-text {
+            font-size: 3vw;
+            color: #A5A5A5;
+        }
+
+        #first-line {
+            display: flex;
+            justify-content: center;
+        }
+
+        #middle-line {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        #subheading-name {
+            position: relative;
+            left: 5vw;
+            top: 4px;
+            font-size: 1.15vw;
+            color: #e5e7e6;
+            
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        #last-line {
+            display: flex;
+            justify-content: center;
+        }
+        /* sub heading */
+
+        #middle-text {
+            width: auto;
+        }
+
+        #end {
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #mobile-display {
+            display: none;
+        }
+
+        #hook-intro {
+            width: 80%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            font: 1vw;
+            color: #e5e7e6;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        #line {
+            width: 100%;
+            height: 4px;
+            margin: 12px 0;
+            background-color: #e5e7e6;
+        }
+
+        #mobile-me {
+            display: flex;
+            flex-direction: column;
+            text-align: end;
+            margin-top: 24px;
+            font-family: "Lexend", sans-serif;
+        }
+
+        .mobile-me-text {
+            font-size: 4.5vw;
+            text-decoration: none;
+            color: #A5A5A5;
+        }
+
+        #mobile-subheading-name {
+            font-size: 3.5vw;
+            margin-top: 8px;
+        }
+
+        #mobile-hook {
+            position: absolute;
+            top: 50vh;
+            width: 100%;
+
+            display: flex;
+            justify-content: start;
+
+            color: #e5e7e6;
+        }
+
+        #mobile-hook:hover {
+            text-decoration: none;
+        }
+        /* mobile-hidden */
+
+        @media (max-width: 650px) {
+            #intro {
+                width: calc(100vw - 24px);
+                height: 40%;
+                margin: 0 12px;
             }
 
-            .slider-wrapper {
-                height: calc(95vw * 1.3636);
+            .intro-title {
+                height: calc(7vw + 24px);
+                font-size: 8vw;
             }
-            
-            .project {
-                position: relative;
-                display: block;
-                text-align: center;
-                height: calc(95vw * 1.3636);
-            }
-        
-            .middle-p {
-                width: 95vw;
-                height: calc(95vw * 1.3636);
-                margin: 0 auto;
-                position: relative;
-            }
-        
-            .side-p {
+
+            #me {
                 display: none;
             }
-        
-            .side-p:first-of-type {
-                left: calc(50% - 47.5vw);
-            }
-        
-            .side-p:last-of-type {
-                right: calc(50% - 47.5vw);
+
+            #start {
+                justify-content: start;
             }
 
-            .slider-line {
-                width: 95vw;
-                height: 4px;
+            #end {
+                justify-content: start;
             }
 
-            .dot {
-                width: 24px;
-                height: 24px;
+            #hook-intro {
+                display: none;
+            }
+
+            #mobile-display {
+                width: 100%;
+                height: auto;
+    
+                display: flex;
+                flex-direction: column;
             }
         }
-        /* viewport project display changes */
-/* project display */
 
+        @media (max-height: 600px) {
+            #mobile-hook {
+                margin-top: 24px;
+                font-size: 3vw;
+            }
+        }
+/* landing page section */
+
+/* hook section */
+        #hook-section {
+            width: 100vw;
+            height: 150vh;
+            position: relative;
+            margin-top: -5vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+
+            background:
+                url(images/home/background-left.png) no-repeat left calc(0% + 48px) / auto 80%,
+                url(images/home/background-right.png) no-repeat right calc(0% + 24px) / auto 80%;
+        }
+
+        @media (max-width: 650px) {
+            #hook-section {
+                margin-top: 24px;
+                background:
+                url(images/home/background-left.png) no-repeat left calc(0% + 24px) / auto 100%,
+                url(images/home/background-right.png) no-repeat right calc(0% + 24px) / auto 100%;
+            }
+        }
+
+        #scroll-video {
+            width: max(50vw, 45vh);
+            aspect-ratio: 16 / 9;
+        
+            position: sticky;
+            top: 20vh;
+            padding: 12px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #video {
+            width: 100%;
+            height: 100%;
+        
+            border-radius: 18px;
+            
+            object-fit: cover;
+            object-position: center;
+            transition: opacity 0.5s ease-in-out;
+        
+            outline: 4px solid #e5e7e6;
+            outline-offset: -16px;
+        }
+
+        /* mobile-hidden */
+        #mobile-proj {
+            display: none;
+        }
+
+        #mobile-proj-title {
+            width: calc(100vw - 24px);
+            text-align: end;
+        }
+
+        .mobile-proj-box {
+            height: 100vw;
+            width: calc(100vw - 24px);
+
+            margin: 0 12px;
+            margin-bottom: 48px;
+        }
+
+        .mobile-proj-img {
+            width: 100%;
+            height: 75%;
+
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .mobile-proj-box > h2.mobile-me-text {
+            margin-bottom: 0px;
+            color: #A5A5A5;
+        }
+
+        .mobile-proj-headings {
+            font-size: 8vw;
+
+            text-align: end;
+            margin-top: 0px;
+        }
+        /* mobile-hidden */
+        
+        @media (max-width: 650px) {
+            #hook-section {
+                height: auto;
+            }
+
+            #scroll-video {
+                display: none;
+            }
+
+            #mobile-proj {
+                display: block;
+            }
+        }
+/* hook section */
+
+/* end section */
+        #end-section {
+            position: relative;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #backgroundtemp {
+            height: 50vh;
+            width: 100%;
+
+            margin-top: -30vh;
+            background-color: #103021;
+            z-index: -100000;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .proj-name-desc {
+            max-width: 25vw;
+            padding: 24px;
+
+            display: flex;
+            justify-content: center;
+            text-align: end;
+        }
+
+        #proj-name {
+            display: flex;
+            justify-content: start;
+            text-align: left;
+            align-items: start;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+
+        #final-title {
+            width: 100%;
+            height: 6vw;
+            position: absolute;
+
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            text-align: center;
+            font-size:  6vw;
+            margin-top: 48px;
+        }
+
+        /* carousell time bar */
+        #line {
+            width: calc(100% - 24px);
+            height: 2px;
+            position: absolute;
+            
+            margin: 96px 12px;
+
+            background-color: #e5e7e6;
+        }
+
+        #circle {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+
+            top: -8px;
+            left: 0;
+
+            background-color: #e5e7e6;
+            border-radius: 50%;
+            animation: move 20s infinite; /* ease in takes 0.5s therefore 20s*/
+        }
+
+        @keyframes move {
+            0% {
+                left: 24px;
+                animation-timing-function: ease-in;
+            }
+            50% {
+                left: calc(100% - 44px);
+                animation-timing-function: ease-in;
+            }
+            100% {
+                left: 24px;
+            }
+        }
+
+        @media (max-height: 500px) {
+            #line {
+                margin-top: 48px;
+            }
+        }
+
+        /* carousell time bar */
+
+        /* mobile-hidden */
+        #mobile-final-title {
+            height: 24vw;
+            width: 100%;
+
+            display: none;
+        }
+        /* mobile-hidden */
+
+        @media (max-width: 650px) {
+
+            #backgroundtemp {
+                display: none;
+            }
+
+            #final-title {
+                display: none;
+            }
+
+            #mobile-final-title {
+                width: 100%;
+                display: flex;
+                font-size: 8vw;
+                margin-bottom: 48px;
+
+                justify-content: center;
+                align-items: center;
+                text-align: end;
+            }
+
+            #line {
+                display: none;
+            }
+
+            #circle {
+                display: none;
+            }
+        }
+/* end section */
+        
+        .footer-section {
+            background-color: #103021;
+        }
+
+        @media (max-width: 650px) {
+            .footer-section {
+                background-color: #123524;
+            }
+            
+        }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-left">
-            <img src="images/logo !.png" alt="Logo" class="nav-logo">
+            <img src="images/logo !.png" alt="Logo" class="nav-logo" />
             <span class="nav-text">https://reubenmattam.me</span>
         </div>
-        
         <div class="hamburger" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
         </div>
-        
         <ul class="nav-right">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -648,143 +578,97 @@
             <li><a href="wrapped.html">Wrapped!</a></li>
         </ul>
     </nav>
+
+
+    <section id="start-up" class="not-start">
+        <img src="/images/home/1.jpg" alt="me" />
+        <div id="whoami">
+            <img src="/images/logo !.png" alt="logo" />
+            <h1>reubenmattam.me</h1>
+        </div>
+    </section>
     
-
-    <section id="intro-section">
-        <div id="intro" class="container">
-            <h2>Hi there,</h2>
-            <h1>I'm Reuben Mattam.</h1>
-            <p>I am a Data Science student at the University of Melbourne. See my passions come to life on this website.</p>
-            <a href="projects.html" class="button">View My Projects.</a>
-        </div>
-        <div id="headshot" class="container"></div>
-        <div id="image-shadow"></div>
-    </section>
-
-    <section id="skill-section">
-        <div id="ds" class="skills">
-            <div class="default">
-                <div>
-                    <h1>Data Science</h1>
+    <section id="landing-page" class="not-start">
+        <div id="intro">
+            <div id="start" class="intro-title">
+                <h1>DATA SCIENCE</h1>
+            </div>
+            <div id="middle" class="intro-title">
+                <div id="me">
+                    <div class="me-text" id="first-line">Let Me Tell</div>
+                        <div id="middle-line">
+                            <div class="me-text">Your</div>
+                            <div id="subheading-name">Reuben Mattam.</div>
+                        </div>
+                    <div class="me-text" id="last-line">Story.</div>
                 </div>
-                <div class="skill-summary">
-                    <p class="lowlight">Draw on my university background in Python and its libraries (pandas, NumPy, Matplotlib, Seaborn, scikit-learn), along with C , R and SQL.</p>
+                <div id="middle-text">
+                    <h1>IS STORY-</h1>
                 </div>
             </div>
-            
-            <div class="hover-content">
-                <div>
-                    <h1>Data Science</h1>
+            <div id="end" class="intro-title">
+                <h1>TELLING !</h1>
+            </div>
+            <div id="mobile-display">
+                <div id="line"></div>
+                <div id="mobile-me">
+                    <div class="mobile-me-text">Let me tell your Story !</div>
+                    <div id="mobile-subheading-name">Reuben Mattam.</div>
                 </div>
-                <div class="skill-summary">
-                    <p class="lowlight">Draw on my university background in Python and its libraries (pandas, NumPy, Matplotlib, Seaborn, scikit-learn), along with C R and SQL.</p>
-                    <h2 class="skill-contact"><span>Contact Me</span></h2>
-                </div>
+                <a id="mobile-hook" class="mobile-me-text" href="projects.html">See my Works &rArr;</a>
             </div>
         </div>
-
-        <div id="webdev" class="skills">
-            <div class="default">
-                <div>
-                    <h1>Web Development</h1>
-                </div>
-                <div class="skill-summary">
-                    <p class="lowlight">Combine my self-taught HTML and CSS knowledge with university experience in JavaScript.</p>
-                </div>
-            </div>
-
-            <div class="hover-content">
-                <div>
-                    <h1>Web Development</h1>
-                </div>
-                <div class="skill-summary">
-                    <p class="lowlight">Combine my self-taught HTML and CSS knowledge with university experience in JavaScript.</p>
-                    <h2 class="skill-contact"><span>Contact Me</span></h2>
-                </div>
-            </div>
-        </div>
-
-        <div id="uiux" class="skills">
-            <div class="default">
-                <div>
-                    <h1>UI/UX Design</h1>
-                </div>
-                <div class="skill-summary">
-                    <p class="lowlight">Learn how I keep up with industry trends to create intuitive and creative designs</p>
-                </div>
-            </div>
-            
-            <div class="hover-content">
-                <div>
-                    <h1>UI/UX Design</h1>
-                </div>
-                <div class="skill-summary">
-                    <p class="lowlight">Learn how I keep up with industry trends to create intuitive and creative designs</p>
-                    <h2 class="skill-contact"><span>Contact Me</span></h2>
-                </div>
-            </div>
+        <div id="hook-intro">
+            <h1>My Works <span style="font-weight: normal;">&dArr;</span></h1>
+            <h1>Keep Scrolling</h1>
         </div>
     </section>
 
-    <h2 style="display: flex; justify-content: center;">My Projects</h2>
-    <section id="project-display">
-        <!-- Wrapper holding all slides -->
-        <div class="slider-wrapper">
-            <!-- 16thJan -->
-            <div class="project">
-                <div class="side-p">
-                    <p class="highlight">Stats.Sptfy</p>
-                    <p class="lowlight">Spotify Stats Tracker and App</p>
-                </div>
-                <div class="middle-p">
-                    <a href="statssptfy.html">
-                        <img class="img-p" src="/images/home/statssptfy.jpg" alt="16thJan project image">
-                    </a>
-                </div>
-                <div class="side-p">
-                    <p class="highlight">HTML, CSS, JS, Python; eel</p>
-                    <p class="lowlight">2025</p>
-                </div>
+    <div id="hook-section" class="not-start">
+        <div id="scroll-video"> 
+            <video id="video" autoplay loop muted>
+                <source  src="images/home/bookstore.mp4" type="video/mp4">
+                Your Browser does not support the Video Tag.
+            </video>
+        </div>
+        <div id="mobile-proj">
+            <h1 id="mobile-proj-title">My Works</h1>
+            <div class="mobile-proj-box">
+                <img class="mobile-proj-img" src="images/sample.jpg" alt="">
+                <h2 class="mobile-me-text">Sample Text</h2>
+                <h1 class="mobile-proj-headings">Project 1</h1>
             </div>
-            <!-- RSpotify -->
-            <div class="project">
-                <div class="side-p">
-                    <p class="highlight">Portfolioe</p>
-                    <p class="lowlight">Current Website</p>
-                </div>
-                <div class="middle-p">
-                    <a href="index.html">
-                        <img class="img-p" src="/images/home/portfolio.jpg" alt="RSpotify project image">
-                    </a>
-                    </div>
-                <div class="side-p">
-                    <p class="highlight">Python</p>
-                    <p class="lowlight">2024</p>
-                </div>
+            <div class="mobile-proj-box">
+                <img class="mobile-proj-img" src="images/sample.jpg" alt="">
+                <h2 class="mobile-me-text" style="text-align: end;">Sample Text</h2>
+                <h1 class="mobile-proj-headings" style="text-align: start;">Project 1</h1>
             </div>
-            <!-- Book Recommendation -->
-            <div class="project">
-                <div class="side-p">
-                    <p class="highlight">Business Proposal</p>
-                    <p class="lowlight">Bookstore Insights</p>
-                </div>
-                <div class="middle-p">
-                    <img class="img-p" src="/images/home/bookstore.jpg" alt="Book Recommendation project image">
-                </div>
-                <div class="side-p">
-                    <p class="highlight">Python; Jupyter Notebook</p>
-                    <p class="lowlight">2025</p>
-                </div>
+            <div class="mobile-proj-box">
+                <img class="mobile-proj-img" src="images/sample.jpg" alt="">
+                <h2 class="mobile-me-text">Sample Text</h2>
+                <h1 class="mobile-proj-headings">Project 1</h1>
             </div>
         </div>
-        <!-- Dots navigation -->
-        <div id="slider">
-            <span class="dot active" data-index="0"></span>
-            <span class="dot" data-index="1"></span>
-            <span class="dot" data-index="2"></span>
-            <div class="slider-line"></div>
+    </div>
+
+    <section id="end-section" class="not-start">
+        <div id="backgroundtemp">
+            <div class="proj-name-desc">
+                <h1 class="highlight" id="proj-name">Bookstore Report</h1>
+            </div>
+            <div class="proj-name-desc">
+                <h1 class="lowlight" id="proj-desc">Book Repository Analysis.</h1>
+            </div>
+        </div>
+        <div id="line">
+            <div id="circle"></div>
+        </div>
+        <div id="mobile-final-title">
+            <h1>Let Me Tell Your Story</h1>
         </div>
     </section>
+    
+    
 
     <footer class="footer-section not-start">
         <div class="footer-left">
@@ -796,18 +680,17 @@
         </div>
         <div class="footer-center">
             <a href="home.html">
-                <img src="images/logo !.png" alt="Website Logo" class="logo">
+                <img src="images/logo !.png" alt="Website Logo" class="logo" />
             </a>
-            
             <div class="social-links">
                 <a href="https://www.instagram.com/reubenmattam" target="_blank" rel="noopener">
-                    <img src="images/insta.png" alt="Instagram">
+                    <img src="images/insta.png" alt="Instagram" />
                 </a>
                 <a href="https://www.linkedin.com/in/reuben-mattam-827746264/?originalSubdomain=au" target="_blank" rel="noopener">
-                    <img src="images/linkdin.png" alt="LinkedIn">
+                    <img src="images/linkdin.png" alt="LinkedIn" />
                 </a>
                 <a href="https://github.com/Reuben-Mattam" target="_blank" rel="noopener">
-                    <img src="images/github.png" alt="GitHub">
+                    <img src="images/github.png" alt="GitHub" />
                 </a>
             </div>
         </div>
@@ -815,74 +698,105 @@
             <p>© 2024 Reuben Mattam</p>
         </div>
     </footer>
+
     <script>
-        // Grab the slider wrapper and dots
-        const sliderWrapper = document.querySelector('.slider-wrapper');
-        const dots = document.querySelectorAll('.dot');
-        let currentIndex = 0;
-        const totalSlides = dots.length;
-        const slideInterval = 10000; // 10 seconds
-    
-        // Function to go to a specific slide
-        function goToSlide(index) {
-          sliderWrapper.style.transform = `translateX(-${index * 100}vw)`;
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[index].classList.add('active');
-            currentIndex = index;
-        }
-    
-        // Add click event listeners for the dots
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const index = parseInt(dot.getAttribute('data-index'));
-                goToSlide(index);
-                resetInterval(); // Reset auto-rotation timer when user clicks
+        // starting animation !
+        document.addEventListener("DOMContentLoaded", function () {
+            const referrer = document.referrer;
+            const isInternal = referrer.includes("reubenmattam.me");
+        
+            // Use the Navigation Timing API to check the navigation type.
+            let navigationType = "navigate";
+            if (performance.getEntriesByType("navigation").length > 0) {
+                navigationType = performance.getEntriesByType("navigation")[0].type;
+            }
+            const isReload = navigationType === "reload";
+        
+            const startUpSection = document.getElementById("start-up");
+            const landingPage = document.getElementById("landing-page");
+        
+            // If reloading or navigating from within the same domain, skip the animation.
+            if (isInternal || isReload) {
+                startUpSection.style.display = "none";
+                landingPage.classList.add("reveal");
+                document.body.style.overflow = "";
+                return;
+            }
+        
+            // Otherwise, play the animation.
+            document.body.style.overflow = "hidden";
+        
+            const images = [
+                "images/home/2.jpg",
+                "images/home/4.jpg",
+                "images/home/3.jpg",
+                "images/home/4.jpg",
+                "images/home/4.jpg",
+            ];
+            
+            const imgElement = document.querySelector('#start-up img[alt="me"]');
+            let currentIndex = 0;
+            
+            const flickerInterval = setInterval(() => {
+                imgElement.src = images[currentIndex];
+                currentIndex++;
+                if (currentIndex >= images.length) {
+                    clearInterval(flickerInterval);
+                    startUpSection.classList.add("fade-out");
+        
+                    setTimeout(() => {
+                        startUpSection.style.display = "none";
+                        landingPage.classList.add("reveal");
+                        document.body.style.overflow = ""; // allow scrolling
+                    }, 1000); // Delay to match CSS transition.
+                }
+            }, 200); // cycle through images at 200ms per image.
         });
+
+        // carousell at the bottom !
+        document.addEventListener("DOMContentLoaded", function(){
+            const videos = [
+                'images/home/bookstore.mp4',
+                'images/home/statssptfy.mp4',
+                'images/home/portfolio.mp4'
+            ];
+        
+            const projNames = [
+                "Bookstore Report",
+                "Stats.Sptfy",
+                "Tracker.Sptfy"
+            ];
+        
+            const projDescs = [
+                "Book Repository Analysis",
+                "Spotify Stats App",
+                "Spotify Music Tracker"
+            ];
+        
+            let currentIndex = 0;
+            const videoElement = document.getElementById("video");
+            const projNameElement = document.getElementById("proj-name");
+            const projDescElement = document.getElementById("proj-desc");
+        
+            function rotateContent() {
+                videoElement.classList.add("fade-out");
+        
+                setTimeout(function(){
+                    currentIndex = (currentIndex + 1) % videos.length;
+                    videoElement.src = videos[currentIndex];
+                    videoElement.load();
+                    videoElement.play();
+        
+                    projNameElement.textContent = projNames[currentIndex];
+                    projDescElement.textContent = projDescs[currentIndex];
+        
+                    videoElement.classList.remove("fade-out");
+                }, 500); // fade out duration 500ms
+            }
+        
+            // video, text swap every 10 seconds
+            setInterval(rotateContent, 10000);
         });
-    
-        // Automatic slide rotation every 10 seconds
-        let autoSlide = setInterval(() => {
-            const nextIndex = (currentIndex + 1) % totalSlides;
-            goToSlide(nextIndex);
-        }, slideInterval);
-    
-        // Reset the auto-rotation timer
-        function resetInterval() {
-            clearInterval(autoSlide);
-            autoSlide = setInterval(() => {
-                const nextIndex = (currentIndex + 1) % totalSlides;
-                goToSlide(nextIndex);
-            }, slideInterval);
-        }
-
-
-        function updateSliderPosition() {
-            // Identify the active project (adjust the selector if needed)
-            const activeProject = document.querySelector('.project.active');
-            if (!activeProject) return;
-        
-            // Get the image element inside the active project's middle container
-            const img = activeProject.querySelector('.middle-p .img-p');
-            if (!img) return;
-        
-            // Get the image's bounding rectangle
-            const rect = img.getBoundingClientRect();
-        
-            // Calculate the bottom-center position of the image
-            const bottomCenterX = rect.left + rect.width / 2;
-            const bottomCenterY = rect.bottom;
-        
-            // Get the slider element
-            const slider = document.getElementById('slider');
-        
-            // Update slider's position: adjust these values if you need an offset
-            slider.style.left = `${bottomCenterX}px`;
-            slider.style.top = `${bottomCenterY}px`;
-        }
-        
-        // Update on initial load and whenever the viewport is resized
-        window.addEventListener('resize', updateSliderPosition);
-        updateSliderPosition();
     </script>
 </body>
 </html>

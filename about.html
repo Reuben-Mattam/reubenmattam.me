@@ -26,28 +26,30 @@
             align-items: center;
             position: relative;
             height: 100vh;
+            
         }
         
         .carousel-left, .carousel-right {
             position: absolute;
             top: 50vh;
             transform: translateY(-50%);
-            font-size: 14px;
+            font-size: 20px;
             z-index: 1000;
         }
         
         .carousel-left {
-            left: 50px;
+            left: 48px;
         }
         
         .carousel-right {
-            right: 50px;
+            right: 48px;
         }
         
         .carousel {
             position: relative;
             width: 100%;
             height: auto;
+            min-height: 375px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -59,12 +61,14 @@
             width: max-content;
             animation: none;
             will-change: transform;
+            
         }
         
         .carousel-image {
             width: 25vw;
             max-width: 480px;
             min-width: 300px;
+
             aspect-ratio: 480 / 594;
             object-fit: cover;
             flex-shrink: 0;
@@ -108,7 +112,202 @@
         /*viewport carousell changes */
         
 /* CAROUSEL SECTION !!! */
+
+/* skills section */
+        #skill-section {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            margin: 15vh 0;
+        }
+
+        .skills {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 25vh;
+            position: relative;
+            overflow: hidden;
+            transition: height 0.3s ease;
+        }
+
+        .skills:hover {
+            height: 33vh;
+        }
+
+        #ds,
+        #webdev {
+            border-top: 2px solid #e5e7e6;
+        }
+
+        #uiux {
+            border-top: 2px solid #e5e7e6;
+            border-bottom: 2px solid #e5e7e6;
+        }
+
+        /* image slide up */
+        .skills::before {
+            content: "";
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            transition: bottom 0.5s ease;
+        }
+
+        .skills:hover::before {
+            bottom: 0;
+        }
+
+        #ds::before {
+            background-image: url('/images/about/4.jpg');
+        }
+
+        #webdev::before {
+            background-image: url('/images/about/2.jpg');
+        }
+
+        #uiux::before {
+            background-image: url('/images/about/3.jpg');
+        }
+
+        .default,
+        .hover-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 100px;
+        }
+
+        .hover-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .skills:hover .default {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0s 0.3s;
+        }
+
+        .skills:hover .hover-content {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease;
+        }
+
+        .skills:not(:hover) .hover-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0s 1s;
+        }
+
+        .skill-summary {
+            width: 30%;
+        }
+
+        .skill-contact {
+            text-align: right;
+            position: relative;
+        }
+
+        .skill-contact span {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-contact span::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: #e5e7e6;
+            transition: none;
+            z-index: 2;
+        }
+
+        .skills:not(:hover) .hover-content .skill-contact span::after {
+            height: 100%;
+            transition: height 0.5s ease-out;
+        }
+
+        /* viewport skill changes */
+        @media (max-width: 800px) {
+            #default h1 {
+                font-size: 36px;
+            }
+            .skill-contact {
+                font-size: 24px;
+            }
+            .skill-summary .lowlight {
+                font-size: 16px;
+            }
         
+            .default,
+            .hover-content  {
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            #skill-section {
+                margin: 10vh 0;
+            }
+            
+            .skill-summary {
+                width: 35%;
+            }
+
+            .default h1 {
+                font-size: 32px;
+            }
+
+            .skill-contact {
+                font-size: 20px;
+            }
+            .skill-summary .lowlight {
+                font-size: 14px;
+            }
+        
+            .default,
+            .hover-content  {
+                padding: 0 24px;
+            }
+        }
+
+        @media (max-width: 399px) {
+            .default h1 {
+                font-size: 24px;
+            }
+            .skill-contact {
+                font-size: 18px;
+            }
+            .skill-summary .lowlight {
+                font-size: 12px;
+            }
+        
+            .default,
+            .hover-content  {
+                padding: 0 15px;
+            }
+        }
+        /* viewport skill changes */
+/* skills section */
+
 /* NOTE SECTION !! */
         #note-section {
             display: flex;
@@ -256,7 +455,7 @@
         
         .centered-box h1 {
             margin-bottom: 30px;
-            font-size: 25px;
+            font-size: 24px;
             color: #e5e7e6;
             text-align: left;
         }
@@ -409,7 +608,25 @@
             transform: scale(1.05);
             font-weight: bold;
         }
+
+        @media (max-height: 824px) {
+            #spotify-section {
+                min-height: 600px;
+            }
+
+            #spotify-container {
+                height: 50%;
+                min-height: 550px;
+            }
+            #view-more {
+                margin-top: 12px;
+            }
+        }
 /* SPOTIFY SECTION */
+
+        .footer-section {
+            background-color: #103021;
+        }
 
     </style>
 </head>
@@ -452,9 +669,70 @@
         </div>
     </section>
 
-    <div class="cat-break not-start">
-        <img src="images/Cat 4.GIF" alt="Cat Break Image" class="cat-break-image">
-    </div>
+    <section id="skill-section" class="not-start">
+        <div id="ds" class="skills">
+            <div class="default">
+                <div>
+                    <h1>Data Science</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="lowlight">Leverage my university education in Python and its libraries, as well as C, R, and SQL.</p>
+                </div>
+            </div>
+            
+            <div class="hover-content">
+                <div>
+                    <h1>Data Science</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="lowlight">Leverage my university education in Python and its libraries, as well as C, R, and SQL.</p>
+                    <h2 class="skill-contact"><span>Learn More</span></h2>
+                </div>
+            </div>
+        </div>
+
+        <div id="webdev" class="skills">
+            <div class="default">
+                <div>
+                    <h1>Web Development</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="lowlight">Integrate my self-taught HTML and CSS expertise with formal JavaScript training.</p>
+                </div>
+            </div>
+
+            <div class="hover-content">
+                <div>
+                    <h1>Web Development</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="lowlight">Integrate my self-taught HTML and CSS expertise with formal JavaScript training.</p>
+                    <h2 class="skill-contact"><span>Learn More</h2>
+                </div>
+            </div>
+        </div>
+
+        <div id="uiux" class="skills">
+            <div class="default">
+                <div>
+                    <h1>UI/UX Design</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="lowlight">Discover how I stay updated on industry trends to craft intuitive and innovative designs.</p>
+                </div>
+            </div>
+            
+            <div class="hover-content">
+                <div>
+                    <h1>UI/UX Design</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="lowlight">Discover how I stay updated on industry trends to craft intuitive and innovative designs.</p>
+                    <h2 class="skill-contact"><span>Learn More</span></h2>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="note-section" class="section not-start">
         <div id="container">
@@ -513,7 +791,7 @@
             <div id="playlist-embed">
                 <h2 class="highlight">See what I've been into right now<br><span class="lowlight">Maybe you will like a song or two...</span></h2>
                 <iframe class="playlist" src="https://open.spotify.com/embed/playlist/5lFb21iwftyFLTHqwVIbpq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                <a href="wrapped.html" id="view-more">View More</a>
+                <a href="https://open.spotify.com/user/5hui60plz2y0sq2wf7q8w47u1?si=39cbe652d012495d" id="view-more">View More</a>
             </div>
         </div>
     </section>    
@@ -550,6 +828,7 @@
     </footer>
 
     <script>
+        // intro carousell
         document.addEventListener("DOMContentLoaded", () => {
             const track = document.querySelector(".carousel-track");
 

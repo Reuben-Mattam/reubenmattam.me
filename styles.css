@@ -1,25 +1,25 @@
-/* Set the overall width of the scrollbar */
+/* scroll bar styles */
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  /* Make the track (scrollbar area) fully transparent */
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  /* Style the thumb (the draggable part) with a semitransparent color and soft corners */
-  ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3); /* semitransparent black */
-    border-radius: 10px;                /* soft rounded corners */
-    transition: background-color 0.3s ease; /* smooth transition on hover */
-  }
-  
-  /* When hovering over the scrollbar thumb, make it fully opaque */
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, 0.5); /* fully opaque black */
-  }
+}
 
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+@media (max-width:650px)
+    {body::-webkit-scrollbar{display:none;}body{scrollbar-width:none;}
+}
+/* scroll bar styles */
 
 
 *, *::before, *::after {
@@ -127,8 +127,17 @@ nav {
     border-radius: 2px;
 }
 
-/* hamburger on smaller screens >:D */
-@media screen and (max-width: 800px) {
+
+@media screen and (max-width: 800px) { /* hamburger on smaller screens >:D */
+    
+    nav {
+        width: calc(100vw - 24px);
+        margin: 0 auto;
+        display: flex;
+        left: 12px;
+        background-color: #103021;
+    }
+
     .nav-logo {
         display: none;
     }
@@ -165,11 +174,8 @@ nav {
         display: flex;
     }
 }
-/* hamburger on smaller screens >:D */
-
-
-
 /* Nav Bar */
+
 
 .content {
     display: flex;
@@ -326,19 +332,3 @@ nav {
     font-size: 20px;
     color: #A5A5A5;
 }
-
-
-/* CAT BREAK >:D */
-.cat-break {
-    width: 100vw;
-    height: 60vh;
-    background-color: #123524;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.cat-break-image {
-    width: 500px;
-    height: 500px;
-}
-/* CAT BREAK >:D */

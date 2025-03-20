@@ -79,134 +79,189 @@
         /*carousel text viewport changes !*/
 /* CAROUSELL !! */
 
-/* PROJECTS !! */
-        #projects-section {
+/* Projection Section  !! */
+        #project-section {
             width: 100vw;
             height: auto;
+            margin: 10vh 0;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        /* left side */
+        #proj-heading {
+            height: auto;
+            margin: 0 24px;
+            
+        }
+
+        #section-desc {
+            width: 474px;
+            height: auto;
+            position: sticky;
+
+            top: 25vh;
+            font-size: 24px;
+            padding-bottom: calc(10vh + 48x);
+        }
+
+        #about-link {
+            text-decoration: none;
+            color: #e7e5e6;
+        }
+
+        #about-link:hover {
+            text-decoration: solid;
+        }
+        /* left side */
+
+        /* right side */
+        #proj-display {
+            width: auto;
+            height: auto;
+
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
         }
 
-        .content-container {
-            width: 70vw;
-            max-width: 1200px;
+        .proj-container {
+            height: auto;
+            width: auto;
+            max-width: 88vh;
+            margin: 48px 24px;
         }
 
-        .project-title {
-            font-size: 55px;
-            color: #ffffff;
-            margin-bottom: 5vh;
-            text-align: left;
-        }
-
-        .description {
-            font-size: 20px;
-            color: #ffffff;
-            margin: 5vh 0;
-            line-height: 1.5;
-            text-align: left;
-        }
-
-        .box-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2vw;
-            margin-top: 6vh;
-        }
-
-        .box {
-            width: 20vw;
-            height: 15vw;
-
-            background-color: #ffffff;
-            border-radius: 18px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out;
-
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .box a {
-            display: block;
+        .proj-img {
             width: 100%;
-            height: 100%;
+            aspect-ratio: 16 / 9;
         }
 
-        .box img {
+        .proj-details {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 10vh;
+
+            display: flex;
+            flex-direction: column;
+            text-align: end;
         }
 
-        .box:hover {
-            transform: scale(1.1);
+        .proj-titles {
+            width: 100%;
+            height: auto;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 64px;
         }
 
-        .box-wrapper {
-            text-align: left;
+        .proj-name {
+            display: flex;
+            text-align: start;
+            justify-content: start;
+            align-items: start;
         }
+        /* right side */
 
-        .subtitle {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffffff;
-            margin-top: 4vh;
-        }
-
-        .additional-text {
-            font-size: 20px;
-            color: #ffffff;
-            margin-top: 0.5vh;
-        }
-
-        /*viewport project changes */
-        @media (max-width: 1100px) {
-            #projects-section {
-                padding: 8vh 0;
+        @media (max-width: 1600px) {
+            #section-desc {
+                width: 395px;
+                font-size: 20px;
             }
-        
-            .content-container {
-                width: 90vw;
+
+            .proj-container {
+                max-width: 73vh;
             }
-        
-            .project-title {
-                font-size: 45px;
-                text-align: center;
+
+            .proj-name {
+                font-size: 20px;
             }
-        
-            .description {
-                font-size: 18px;
-                text-align: center;
+
+            .proj-language {
+                font-size: 20px;
             }
-        
-            .box-container {
+        }
+
+        @media (max-width: 1200px) {
+            #section-desc {
+                width: 316px;
+                font-size: 16px;
+            }
+
+            .proj-container {
+                max-width: 55vh;
+            }
+
+            .proj-name {
+                font-size: 16px;
+            }
+
+            .proj-language {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 950px) {
+            #section-desc {
+                width: 237px;
+                font-size: 12px;
+            }
+
+            .proj-container {
+                max-width: 44vh;
+            }
+        }
+
+        @media (max-width: 650px) {
+            #project-section {
+                width: 100vw;
+
                 flex-direction: column;
-                gap: 4vh;
+                justify-content: start;
+                margin: 0;
+                
             }
-        
-            .box {
-                width: 80vw;
-                height: 50vw;
+            /* left side */
+            #proj-heading {
+                margin: 0 12px;
             }
-        
-            .subtitle {
-                font-size: 28px;
-                text-align: center;
+
+            #section-desc {
+                width: calc(100% - 12px);
+
+                margin: 0;
+                font-size: 24px;
             }
-        
-            .additional-text {
-                font-size: 22px;
-                text-align: center;
+
+            #about-link {
+                display: flex;
+                justify-content: end;
+            }
+            /* left side */
+
+            /* right side */
+            .proj-container {
+                margin: 36px 0;
+            }
+
+            .proj-details {
+                width: calc(100vw - 24px);
+                height: auto;
+                margin: 0 12px;
+            }
+
+            .proj-img {
+                width: 100vw;
+                margin: 0;
+            }
+            /* right side */
+
+            .footer-section {
+                margin-top: 36px;
             }
         }
-        /*viewport project changes */
-/* PROJECTS !! */
+/* Projection Section  !! */
     </style>
 </head>
 <body id="project-page">
@@ -231,63 +286,58 @@
         </ul>
     </nav>
 
-
-    <section id="carousel-section">
+    <section id="carousel-section" class="not-start">
         <div class="image-container">
             <img src="images/projects/akira_1636.jpg" alt="Red Image" class="active">
             <img src="images/projects/akira_2676.jpg" alt="Green Image">
             <img src="images/projects/akira_4948.jpg" alt="Blue Image">
         </div>
         <div class="carousel-titles">
-            <div class="carousel-title" data-index="0">16th Jan</div>
-            <div class="carousel-title" data-index="1">reubenmattam.me</div>
-            <div class="carousel-title" data-index="2">Bookstore Proposal</div>
+            <div class="carousel-title" data-index="0">Bookstore </div>
+            <div class="carousel-title" data-index="1">Stats.Sptfy</div>
+            <div class="carousel-title" data-index="2">Tracker.Sptfy</div>
         </div>
     </section>
 
-    <div class="cat-break  not-start">
-        <img src="images/Cat 4.GIF" alt="Cat Break Image" class="cat-break-image">
-    </div>
+    <section id="project-section" class="not-start">
+        <div id="proj-heading">
+            <div id="section-desc">
+                <h1>View my palette of projects. Explore my Works. <span>Or...</span></h1>
+                <a id="about-link" href="about.html">See Behind the Curtain</a>
+            </div>
+        </div>
 
-    <section id="projects-section" class="section not-start">
-        <div class="content-container">
-            <h1 class="project-title">My Projects</h1>
-            <p class="description">
-                View my passions as Projects. Done through Jupyter Notebooks, all are available to be viewed further in Github. 
-                Click through to learn more about my skills and passions.
-            </p>
-            <div class="box-container">
-                <div class="box-wrapper">
-                    <div class="box">
-                        <a href="https://github.com/Reuben-Mattam/Stats.Sptfy">
-                            <img src="/images/projects/statssptfy.jpg" alt="">
-                        </a>
+        <div id="proj-display">
+            <div class="proj-container">
+                <img class="proj-img" src="/images/sample.JPG" alt="">
+                <div class="proj-details">
+                    <p class="proj-desc">Book-title reccomendations for a Physical Store,
+                        dervied form a book review repository.
+                    </p>
+                    <div class="proj-titles">
+                        <h1 class="proj-name">Bookstore Analysis</h1>
+                        <h1 class="proj-language">Python - jupyter notebook</h1>
                     </div>
-                    <p class="subtitle">Stats.Sptfy</p>
-                    <p class="additional-text">Spotify Music Tracker.<br>
-                        <span class="lowlight">Python; eel, HTML, CSS, JS, SQL.</span></p>
                 </div>
-
-                <div class="box-wrapper">
-                    <div class="box">
-                        <a href="https://github.com/Reuben-Mattam/portfolio">
-                            <img src="/images/projects/portfolio.jpg" alt="">
-                        </a>
+            </div>
+            <div class="proj-container">
+                <img class="proj-img" src="/images/projects/statssptfy.JPG" alt="">
+                <div class="proj-details">
+                    <p class="proj-desc">Spotify Stats Application, operating in conjunction with Tracker.Sptfy's excel output.</p>
+                    <div class="proj-titles">
+                        <h1 class="proj-name">Stats.Sptfy</h1>
+                        <h2 class="proj-language">Python - eel, HTMl, CSS, JS</h2>
                     </div>
-                    <p class="subtitle">reubenmattam.me</p>
-                    <p class="additional-text">Porfolio Website.<br>
-                        <span class="lowlight">HTML, CSS, JS</span></p>
                 </div>
-
-                <div class="box-wrapper">
-                    <div class="box">
-                        <a href="reubenmattam.me">
-                            <img src="/images/projects/bookstore.jpg" alt="">
-                        </a>
+            </div>
+            <div class="proj-container">
+                <img class="proj-img" src="/images/sample.JPG" alt="">
+                <div class="proj-details">
+                    <p class="proj-desc">Spotify Music Tracker, developed using Python and the Spotify API.</p>
+                    <div class="proj-titles">
+                        <h1 class="proj-name">Tracker.Sptfy</h1>
+                        <h1 class="proj-language">Python, SQL</h1>
                     </div>
-                    <p class="subtitle">Bookstore Proposal</p>
-                    <p class="additional-text">Reccomendation for a bookstore.<br>
-                        <span class="lowlight">Python; Jupyter Notebook</span></p>
                 </div>
             </div>
         </div>

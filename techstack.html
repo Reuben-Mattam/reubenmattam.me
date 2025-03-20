@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Stack</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/logo !.png" type="image/png">
+    <script src="animations.js" defer></script>
+    <style>
+        /* Coding Languaegs Section*/
+        #skills-section {
+            height: 110vh;
+        }
+
+        #skills-title {
+            width: calc(750px + 48px);
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            margin: 0 auto;
+            font-size: 24px;
+        }
+
+        #skills-grid {
+            max-width: calc((250px * 3) + 48px);
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 0 auto;
+        }
+
+        .coding-container {
+            height: 250px;
+
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+        }
+
+        .img-container {
+            height: 250px;
+
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .coding-img {
+            width: 100%;
+            height: 100%;
+            display: block;
+
+            z-index: 2;
+            transition: height 0.3s ease-out;
+        }
+
+        .img-container:hover .coding-img {
+            height: calc(100% - 48px);
+        }
+
+        .c-language {
+            height: auto;
+            width: auto;
+            position: absolute;
+
+            margin: 0;
+            padding: 4px;
+            z-index: 1;
+        }
+/* Coding Languaegs Section*/
+    </style>
+</head>
+<body>
+    <section id="skills-section" class="not-start">
+        <div id="skills-title">
+            <h1 class="highlight" style="font-size: 2rem;">Tech Stack</h1>
+            <h1 class="lowlight" style="font-size: 1.5rem;">Hover for Further Details</h1>
+        </div>
+        <div id="skills-grid">
+            <div class="coding-container">
+                <div class="img-container">
+                    <img class="coding-img" src="/images/sample.jpg" alt="Image 1">
+                </div>
+                <h2 class="c-language">Python</h2>
+            </div>
+            <div class="coding-container">
+                <div class="img-container">
+                    <img class="coding-img" src="/images/sample.jpg" alt="Image 1">
+                </div>
+                <h2 class="c-language">R</h2>
+            </div>
+            <div class="coding-container">
+                <div class="img-container">
+                    <img class="coding-img" src="/images/sample.jpg" alt="Image 1">
+                </div>
+                <h2 class="c-language">MySQL</h2>
+            </div>
+            <div class="coding-container">
+                <div class="img-container">
+                    <img class="coding-img" src="/images/sample.jpg" alt="Image 1">
+                </div>
+                <h2 class="c-language">HTML</h2>
+            </div>
+            <div class="coding-container">
+                <div class="img-container">
+                    <img class="coding-img" src="/images/sample.jpg" alt="Image 1">
+                </div>
+                <h2 class="c-language">CSS</h2>
+            </div>
+            <div class="coding-container">
+                <div class="img-container">
+                    <img class="coding-img" src="/images/sample.jpg" alt="Image 1">
+                </div>
+                <h2 class="c-language">JS</h2>
+            </div>
+            <div class="coding-container">
+                <div class="img-container">
+                    <img class="coding-img" src="/images/sample.jpg" alt="Image 1">
+                </div>
+                <h2 class="c-language">C</h2>
+            </div>
+            <div class="coding-container">
+                <div class="img-container">
+                    <img class="coding-img" src="/images/sample.jpg" alt="Image 1">
+                </div>
+                <h2 class="c-language">GIT</h2>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

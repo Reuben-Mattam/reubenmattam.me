@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/logo !.png" type="image/png">
     <script src="animations.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&family=Lexend:wght@100..900&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
     <style>
         nav {
             transition: background-color 0.3s ease-in-out;
@@ -30,19 +34,43 @@
             height: 100%;
         }
 
-        .image-container img {
+        .image-container::before {
+            content: "";
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .carousel-container {
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             opacity: 0;
             transition: opacity 3s ease, filter 3s ease;
             filter: blur(20px);
+
         }
 
-        .image-container img.active {
+        .carousel-container.active {
             opacity: 1;
             filter: blur(0);
+        }
+
+        .carousel-vid {
+            object-fit: cover;
+        }
+        .carousel-img {
+            object-fit: cover;
+            display: none;
         }
 
         .carousel-titles {
@@ -56,7 +84,7 @@
         }
 
         .carousel-title {
-            font-size: 70px;
+            font-size: 72px;
             opacity: 0.6;
             transition: opacity 0.3s ease;
             cursor: pointer;
@@ -67,13 +95,18 @@
             font-weight: bold;
         }
 
+        .superscript {
+            font-size: 20px;
+            vertical-align: super;
+        }
+
         /*carousel text viewport changes !*/
         @media (max-width: 600px) {
             #carousel-section{
                 height: 100%;
             }
             .carousel-title{
-                font-size: 50px;
+                font-size: 48px;
             }
         }
         /*carousel text viewport changes !*/
@@ -83,7 +116,7 @@
         #project-section {
             width: 100vw;
             height: auto;
-            margin: 10vh 0;
+            margin: 152px 0 96px 0;
 
             display: flex;
             flex-direction: row;
@@ -93,27 +126,37 @@
         /* left side */
         #proj-heading {
             height: auto;
+            width: auto;
             margin: 0 24px;
-            
+
+            background:
+                url(images/projects/background-left.png) no-repeat left 0 / auto 100%,
+                url(images/projects/background-right.png) no-repeat right 0 / auto 100%;
         }
 
         #section-desc {
-            width: 474px;
+            width: 40vw;
             height: auto;
-            position: sticky;
 
+            position: sticky;
             top: 25vh;
-            font-size: 24px;
-            padding-bottom: calc(10vh + 48x);
+
+            font-size: 48px;
+            font-family: "Lexend", sans-serif;
+        }
+
+        #mobile-section-desc {
+            display: none;
         }
 
         #about-link {
             text-decoration: none;
             color: #e7e5e6;
+            font-size: 20px;
         }
 
         #about-link:hover {
-            text-decoration: solid;
+            text-decoration: underline;
         }
         /* left side */
 
@@ -127,15 +170,30 @@
         }
 
         .proj-container {
-            height: auto;
             width: auto;
             max-width: 88vh;
-            margin: 48px 24px;
+
+            margin: 48px 36px;
+        }
+
+        .proj-vid {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+
+
+            border: 4px solid #123524;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
         }
 
         .proj-img {
             width: 100%;
             aspect-ratio: 16 / 9;
+
+            display: none;
+            border: 4px solid #123524;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
         }
 
         .proj-details {
@@ -151,9 +209,12 @@
             width: 100%;
             height: auto;
 
+            font-size: 20px;
             display: flex;
             justify-content: space-between;
             gap: 64px;
+
+            color: #A5A5A5;
         }
 
         .proj-name {
@@ -162,85 +223,70 @@
             justify-content: start;
             align-items: start;
         }
+
+        .github-link {
+            text-decoration: none;
+            color: #e7e5e6;
+        }
+
+        .github-link:hover {
+            text-decoration: underline;
+        }
+
+        .proj-desc {
+            font-size: 16px;
+            margin: 0;
+        }
         /* right side */
 
-        @media (max-width: 1600px) {
-            #section-desc {
-                width: 395px;
-                font-size: 20px;
-            }
-
-            .proj-container {
-                max-width: 73vh;
-            }
-
-            .proj-name {
-                font-size: 20px;
-            }
-
-            .proj-language {
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 1200px) {
-            #section-desc {
-                width: 316px;
-                font-size: 16px;
-            }
-
-            .proj-container {
-                max-width: 55vh;
-            }
-
-            .proj-name {
-                font-size: 16px;
-            }
-
-            .proj-language {
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 950px) {
-            #section-desc {
-                width: 237px;
-                font-size: 12px;
-            }
-
-            .proj-container {
-                max-width: 44vh;
-            }
-        }
-
-        @media (max-width: 650px) {
+        @media (max-width: 900px), (max-height: 600px){
             #project-section {
                 width: 100vw;
+                height: auto;
 
                 flex-direction: column;
                 justify-content: start;
-                margin: 0;
+                margin: 96px 0;
                 
             }
             /* left side */
             #proj-heading {
                 margin: 0 12px;
+                background: none;
             }
 
             #section-desc {
                 width: calc(100% - 12px);
-
+                
                 margin: 0;
-                font-size: 24px;
+                font-size: 48px;
+                font-family: Sans-Serif;
+            }
+
+            #pc-section-desc {
+                display: none;
+            }
+
+            #mobile-section-desc{
+                display: inline;
+                font-size: 48px;
             }
 
             #about-link {
                 display: flex;
                 justify-content: end;
+
+                font-size: 20px;
             }
             /* left side */
 
             /* right side */
+            #proj-display {
+                background:
+                    url(images/projects/background-left.png) no-repeat left 0 / auto 100%,
+                    url(images/projects/background-right.png) no-repeat right 0 / auto 100%;
+            }
+
             .proj-container {
                 margin: 36px 0;
             }
@@ -251,15 +297,12 @@
                 margin: 0 12px;
             }
 
-            .proj-img {
+            .proj-vid {
                 width: 100vw;
                 margin: 0;
+                border-radius: 0px;
             }
             /* right side */
-
-            .footer-section {
-                margin-top: 36px;
-            }
         }
 /* Projection Section  !! */
     </style>
@@ -279,64 +322,77 @@
         
         <ul class="nav-right">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
             <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="wrapped.html">Wrapped!</a></li>
         </ul>
     </nav>
 
     <section id="carousel-section" class="not-start">
         <div class="image-container">
-            <img src="images/projects/akira_1636.jpg" alt="Red Image" class="active">
-            <img src="images/projects/akira_2676.jpg" alt="Green Image">
-            <img src="images/projects/akira_4948.jpg" alt="Blue Image">
+            <div class="carousel-container active">
+                <video class="carousel-vid" src="images/projects/bookstore-vid.mp4" loop autoplay muted></video>
+                <img class="carousel-img" src="images/projects/akira_1636.jpg" alt="BookStore">
+            </div>
+            <div class="carousel-container">
+                <video src="images/projects/statssptfy-vid.mp4" loop autoplay muted></video>
+                <img class="carousel-img" src="images/projects/akira_2676.jpg" alt="Stats.Sptfy">
+            </div>
+            <div class="carousel-container">
+                <video src="images/projects/trackersptfy-vid.mp4" loop autoplay muted></video>
+                <img class="carousel-img" src="images/projects/akira_4948.jpg" alt="Track.Sptfy">
+            </div>
+            
         </div>
         <div class="carousel-titles">
-            <div class="carousel-title" data-index="0">Bookstore </div>
-            <div class="carousel-title" data-index="1">Stats.Sptfy</div>
-            <div class="carousel-title" data-index="2">Tracker.Sptfy</div>
+            <div class="carousel-title" data-index="0">Bookstore<span class="superscript">  2024</span></div>
+            <div class="carousel-title" data-index="1">Stats.Sptfy<span class="superscript">  2025</span></div>
+            <div class="carousel-title" data-index="2">Tracker.Sptfy<span class="superscript">  2024</span></div>
         </div>
     </section>
 
     <section id="project-section" class="not-start">
         <div id="proj-heading">
             <div id="section-desc">
-                <h1>View my palette of projects. Explore my Works. <span>Or...</span></h1>
-                <a id="about-link" href="about.html">See Behind the Curtain</a>
+                <p id="pc-section-desc">View my palette of projects. Explore my Works, <span>Or...</span></p>
+                <h1 id="mobile-section-desc">View my palette of projects. Explore my Works, <span>Or...</span></h1>
+                <a id="about-link" href="about.html">See Behind the Curtain &rArr;</a>
             </div>
         </div>
 
         <div id="proj-display">
             <div class="proj-container">
-                <img class="proj-img" src="/images/sample.JPG" alt="">
+                <video class="proj-vid" src="images/projects/statssptfyvid.mp4" loop autoplay muted></video>
+                <img class="proj-img" src="images/projects/statssptfy.JPG" alt="Project Preview">
                 <div class="proj-details">
                     <p class="proj-desc">Book-title reccomendations for a Physical Store,
                         dervied form a book review repository.
                     </p>
                     <div class="proj-titles">
-                        <h1 class="proj-name">Bookstore Analysis</h1>
-                        <h1 class="proj-language">Python - jupyter notebook</h1>
+                        <p class="proj-name"><a class="github-link" href="https://github.com/Reuben-Mattam/Stats.Sptfy">Bookstore Analysis &rArr;</a></p>
+                        <p>Python - jupyter notebook</p>
                     </div>
                 </div>
             </div>
             <div class="proj-container">
-                <img class="proj-img" src="/images/projects/statssptfy.JPG" alt="">
+                <video class="proj-vid" src="images/projects/statssptfyvid.mp4" loop autoplay muted></video>
+                <img class="proj-img" src="images/projects/statssptfy.JPG" alt="Project Preview">
                 <div class="proj-details">
                     <p class="proj-desc">Spotify Stats Application, operating in conjunction with Tracker.Sptfy's excel output.</p>
                     <div class="proj-titles">
-                        <h1 class="proj-name">Stats.Sptfy</h1>
-                        <h2 class="proj-language">Python - eel, HTMl, CSS, JS</h2>
+                        <p class="proj-name"><a class="github-link" href="https://github.com/Reuben-Mattam/Stats.Sptfy">Stats.Sptfy &rArr;</a></p>
+                        <p>Python - eel, HTMl, CSS, JS</p>
                     </div>
                 </div>
             </div>
-            <div class="proj-container">
-                <img class="proj-img" src="/images/sample.JPG" alt="">
+            <div class="proj-container" style="margin-bottom: 0;">
+                <video class="proj-vid" src="images/projects/trackersptfyvid.mp4" loop autoplay muted></video>
+                <img class="proj-img" src="images/projects/statssptfy.JPG" alt="Project Preview">
                 <div class="proj-details">
                     <p class="proj-desc">Spotify Music Tracker, developed using Python and the Spotify API.</p>
                     <div class="proj-titles">
-                        <h1 class="proj-name">Tracker.Sptfy</h1>
-                        <h1 class="proj-language">Python, SQL</h1>
+                        <p class="proj-name"><a class="github-link" href="https://github.com/Reuben-Mattam/Stats.Sptfy">Tracker.Sptfy &rArr;</a></p>
+                        <p>Python, SQL</p>
                     </div>
                 </div>
             </div>
@@ -347,10 +403,9 @@
     <footer class="footer-section not-start">
         <div class="footer-left">
             <a href="home.html">Home</a>
-            <a href="about.html">About</a>
             <a href="projects.html" class="active">Projects</a>
+            <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
-            <a href="wrapped.html">Wrapped</a>
         </div>
         <div class="footer-center">
             <a href="home.html">
@@ -375,7 +430,19 @@
     </footer>
 
     <script>
-        const images = document.querySelectorAll('.image-container img');
+        // if vids dont load, load imgs instead
+        function loadFallback() {
+            document.querySelector(".proj-vid").style.display = "none";
+            document.querySelector(".proj-img").style.display = "block";
+        }
+
+        function loadFallback() {
+            document.querySelector(".carousel-vid").style.display = "none";
+            document.querySelector(".carousel-img").style.display = "block";
+        }
+        
+        // carousell
+        const images = document.querySelectorAll('.carousel-container');
         const titles = document.querySelectorAll('.carousel-title');
         let currentImageIndex = 0;
         let intervalId;

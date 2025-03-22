@@ -60,10 +60,13 @@
             align-items: center;
             justify-content: center;
             z-index: 10;
+
+            color: red;
+            font-size: 48px;
         }
 
         #whoami img {
-            width: 25px;
+            width: 48px;
             height: auto;
         }
 
@@ -76,11 +79,27 @@
             #start-up > img {
                 min-width: 400px;
             }
+
+            #whoami {
+                font-size: 28px;
+            }
+
+            #whoami img {
+                width: 28px;
+            }
         }
 
         @media (max-width: 450px) {
             #start-up > img {
                 min-width: 350px;
+            }
+
+            #whoami {
+                font-size: 20px;
+            }
+
+            #whoami img {
+                width: 20px;
             }
         }
 /* start-up section */
@@ -88,6 +107,7 @@
 /* landing page section */
         #landing-page {
             height: 100vh;
+            min-height: calc(40vw + 96px);
             width: 100vw;
             position: relative;
 
@@ -109,7 +129,7 @@
 
         #intro {
             width: 80%;
-            height: calc(80vw / 2);
+            height: 40vw;
             position: absolute;
 
             display: flex;
@@ -139,13 +159,12 @@
         /* sub heading */
         #me {
             height: 100%;
-            width: 20%;
+            width: 25%;
 
             display: flex;
             flex-direction: column;
             justify-content: center;
             font-family: "Lexend", sans-serif;
-            
         }
 
         .me-text {
@@ -166,9 +185,10 @@
 
         #subheading-name {
             position: relative;
-            left: 5vw;
+            left: 2vw;
             top: 4px;
-            font-size: 1.15vw;
+            
+            font-size: 1.25vw;
             color: #e5e7e6;
             
             display: flex;
@@ -200,42 +220,43 @@
 
         #hook-intro {
             width: 80%;
+
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
 
-            font: 1vw;
-            color: #e5e7e6;
+            font-size: 28px;
 
             display: flex;
             flex-direction: row;
             justify-content: space-between;
         }
 
-        #line {
+        /* mobile-hidden */
+        #mobile-line {
             width: 100%;
             height: 4px;
             margin: 12px 0;
             background-color: #e5e7e6;
+            display: none;
         }
 
         #mobile-me {
             display: flex;
             flex-direction: column;
             text-align: end;
-            margin-top: 24px;
             font-family: "Lexend", sans-serif;
         }
 
         .mobile-me-text {
-            font-size: 4.5vw;
+            font-size: 28px;
             text-decoration: none;
             color: #A5A5A5;
         }
 
         #mobile-subheading-name {
-            font-size: 3.5vw;
+            font-size: 20px;
             margin-top: 8px;
         }
 
@@ -290,12 +311,16 @@
                 display: flex;
                 flex-direction: column;
             }
+
+            #mobile-line {
+                display: block;
+            }
         }
 
         @media (max-height: 600px) {
             #mobile-hook {
                 margin-top: 24px;
-                font-size: 3vw;
+                font-size: 28px;
             }
         }
 /* landing page section */
@@ -311,6 +336,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
+            
 
             background:
                 url(images/home/background-left.png) no-repeat left calc(0% + 48px) / auto 80%,
@@ -337,13 +363,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
         }
         
         #video {
             width: 100%;
             height: 100%;
         
-            border-radius: 18px;
+            border-radius: 12px;
             
             object-fit: cover;
             object-position: center;
@@ -364,16 +391,15 @@
         }
 
         .mobile-proj-box {
-            height: 100vw;
+            height: auto;
             width: calc(100vw - 24px);
 
-            margin: 0 12px;
-            margin-bottom: 48px;
+            margin: 0 12px 72px 12px;
         }
 
         .mobile-proj-img {
             width: 100%;
-            height: 75%;
+            aspect-ratio: 16/9;
 
             object-fit: cover;
             object-position: center;
@@ -385,7 +411,7 @@
         }
 
         .mobile-proj-headings {
-            font-size: 8vw;
+            font-size: 48px;
 
             text-align: end;
             margin-top: 0px;
@@ -413,15 +439,17 @@
             height: auto;
             display: flex;
             flex-direction: column;
+
         }
 
         #backgroundtemp {
-            height: 50vh;
+            height: calc(96px + (max(50vw, 45vh) * 9)/32);
             width: 100%;
 
-            margin-top: -30vh;
-            background-color: #103021;
+            margin-top: calc(-5vh + (max(50vw, 45vh) * 9)/-32);
             z-index: -100000;
+
+            margin-bottom: calc(48px - 5vh);
 
             display: flex;
             flex-direction: row;
@@ -430,6 +458,7 @@
 
         .proj-name-desc {
             max-width: 25vw;
+            height: auto;
             padding: 24px;
 
             display: flex;
@@ -448,27 +477,14 @@
             opacity: 0;
         }
 
-        #final-title {
-            width: 100%;
-            height: 6vw;
-            position: absolute;
-
-            display: flex;
-            justify-content: center;
-            align-items: end;
-            text-align: center;
-            font-size:  6vw;
-            margin-top: 48px;
-        }
-
         /* carousell time bar */
         #line {
-            width: calc(100% - 24px);
+            width: calc(100% - 48px);
             height: 2px;
-            position: absolute;
-            
-            margin: 96px 12px;
 
+            position: absolute;
+            top: 36px;
+            margin: calc(48px - 5vh) 24px 0 24px;
             background-color: #e5e7e6;
         }
 
@@ -498,13 +514,6 @@
                 left: 24px;
             }
         }
-
-        @media (max-height: 500px) {
-            #line {
-                margin-top: 48px;
-            }
-        }
-
         /* carousell time bar */
 
         /* mobile-hidden */
@@ -522,15 +531,12 @@
                 display: none;
             }
 
-            #final-title {
-                display: none;
-            }
-
             #mobile-final-title {
                 width: 100%;
+
                 display: flex;
                 font-size: 8vw;
-                margin-bottom: 48px;
+                margin-bottom: 96px;
 
                 justify-content: center;
                 align-items: center;
@@ -548,7 +554,7 @@
 /* end section */
         
         .footer-section {
-            background-color: #103021;
+            margin-top: 48px;
         }
 
         @media (max-width: 650px) {
@@ -572,16 +578,15 @@
         </div>
         <ul class="nav-right">
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
             <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="wrapped.html">Wrapped!</a></li>
         </ul>
     </nav>
 
 
     <section id="start-up" class="not-start">
-        <img src="/images/home/1.jpg" alt="me" />
+        <img src="images/home/1.png" alt="me" />
         <div id="whoami">
             <img src="/images/logo !.png" alt="logo" />
             <h1>reubenmattam.me</h1>
@@ -610,17 +615,17 @@
                 <h1>TELLING !</h1>
             </div>
             <div id="mobile-display">
-                <div id="line"></div>
+                <div id="mobile-line"></div>
                 <div id="mobile-me">
-                    <div class="mobile-me-text">Let me tell your Story !</div>
+                    <div class="mobile-me-text">Let me tell your Story.</div>
                     <div id="mobile-subheading-name">Reuben Mattam.</div>
                 </div>
                 <a id="mobile-hook" class="mobile-me-text" href="projects.html">See my Works &rArr;</a>
             </div>
         </div>
         <div id="hook-intro">
-            <h1>My Works <span style="font-weight: normal;">&dArr;</span></h1>
-            <h1>Keep Scrolling</h1>
+            <p>My Works <span style="font-weight: normal;">&dArr;</span></p>
+            <p>Keep Scrolling</p>
         </div>
     </section>
 
@@ -654,17 +659,17 @@
     <section id="end-section" class="not-start">
         <div id="backgroundtemp">
             <div class="proj-name-desc">
-                <h1 class="highlight" id="proj-name">Bookstore Report</h1>
+                <p class="highlight" id="proj-name">Bookstore Report</p>
             </div>
             <div class="proj-name-desc">
-                <h1 class="lowlight" id="proj-desc">Book Repository Analysis.</h1>
+                <p class="lowlight" id="proj-desc">Book Repository Analysis.</p>
             </div>
         </div>
         <div id="line">
             <div id="circle"></div>
         </div>
         <div id="mobile-final-title">
-            <h1>Let Me Tell Your Story</h1>
+            <h1>Reuben Mattam.</h1>
         </div>
     </section>
     
@@ -673,10 +678,9 @@
     <footer class="footer-section not-start">
         <div class="footer-left">
             <a href="index.html" class="active">Home</a>
-            <a href="about.html">About</a>
             <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
-            <a href="wrapped.html">Wrapped</a>
         </div>
         <div class="footer-center">
             <a href="home.html">
@@ -727,11 +731,14 @@
             document.body.style.overflow = "hidden";
         
             const images = [
-                "images/home/2.jpg",
-                "images/home/4.jpg",
-                "images/home/3.jpg",
-                "images/home/4.jpg",
-                "images/home/4.jpg",
+                "images/home/1.png",
+                "images/home/2.png",
+                "images/home/3.png",
+                "images/home/4.png",
+                "images/home/5.png",
+                "images/home/6.png",
+                "images/home/7.jpg",
+                "images/home/7.jpg",
             ];
             
             const imgElement = document.querySelector('#start-up img[alt="me"]');
@@ -757,8 +764,8 @@
         document.addEventListener("DOMContentLoaded", function(){
             const videos = [
                 'images/home/bookstore.mp4',
-                'images/home/statssptfy.mp4',
-                'images/home/portfolio.mp4'
+                'images/home/statssptfy.mov',
+                'images/home/trackersptfy.mov'
             ];
         
             const projNames = [

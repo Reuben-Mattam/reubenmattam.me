@@ -22,6 +22,15 @@
 /* scroll bar styles */
 
 
+/*
+statement titles -> 72px
+large -> 48px
+medium -> 28px
+small -> 20px
+p (desc) -> 16px
+*/
+
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -37,7 +46,6 @@ body {
     color: #e5e7e6;
     font-family: Sans-Serif;
 }
-
 
 /* Nav Bar */
 nav {

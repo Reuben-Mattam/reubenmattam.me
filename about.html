@@ -8,75 +8,68 @@
     <link rel="icon" href="images/logo !.png" type="image/png">
     <script src="animations.js" defer></script>
     <style>
-        .section {
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-            font-size: 3vw;
-            font-family: Arial, sans-serif;
-        }
-        
 /* CAROUSEL SECTION !!! */
         #carousel-section {
+            height: 100vh;
+            min-height: 450px;
+            width: 100vw;
+            
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-            height: 100vh;
-            
         }
         
         .carousel-left, .carousel-right {
             position: absolute;
             top: 50vh;
+
             transform: translateY(-50%);
-            font-size: 20px;
             z-index: 1000;
         }
         
         .carousel-left {
-            left: 48px;
+            left: 24px;
         }
         
         .carousel-right {
-            right: 48px;
+            right: 24px;
         }
         
         .carousel {
-            position: relative;
             width: 100%;
             height: auto;
             min-height: 375px;
+
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         
         .carousel-track {
+            width: max-content;
+
             display: flex;
             gap: 20px;
-            width: max-content;
             animation: none;
             will-change: transform;
-            
         }
         
         .carousel-image {
-            width: 25vw;
-            max-width: 480px;
-            min-width: 300px;
-
+            max-height: 594px;
+            height: 58vh;
+            min-height: 371px;
+            
             aspect-ratio: 480 / 594;
+
             object-fit: cover;
             flex-shrink: 0;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             display: block;
-            border: 3px solid #123524;
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            border: 4px solid #123524;
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
         }
         
         /*viewport carousell changes */
@@ -91,10 +84,10 @@
                 min-width: 400px;
             }
             .carousel-left{
-                left: 15px;
+                left: 12px;
             }
             .carousel-right {
-                right: 25px;
+                right: 12px;
             }
         }
 
@@ -103,10 +96,10 @@
                 min-width: 300px;
             }
             .carousel-left{
-                left: 10px;
+                left: 12px;
             }
             .carousel-right {
-                right: 20px;
+                right: 12px;
             }
         }
         /*viewport carousell changes */
@@ -117,17 +110,19 @@
         #skill-section {
             width: 100%;
             height: auto;
+
             display: flex;
             flex-direction: column;
-            margin: 15vh 0;
+            margin: 0;
         }
 
         .skills {
-            display: flex;
-            flex-direction: column;
             width: 100%;
             height: 25vh;
+
             position: relative;
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
             transition: height 0.3s ease;
         }
@@ -148,16 +143,22 @@
 
         /* image slide up */
         .skills::before {
-            content: "";
+            width: 100%;
+            height: 100%;
+
             position: absolute;
             bottom: -100%;
             left: 0;
-            width: 100%;
-            height: 100%;
+
+            content: "";
             background-size: cover;
             background-position: center;
             z-index: -1;
             transition: bottom 0.5s ease;
+        }
+
+        .skills-title {
+            font-size: 28px;
         }
 
         .skills:hover::before {
@@ -178,11 +179,13 @@
 
         .default,
         .hover-content {
+            width: 100%;
+            height: 100%;
+            
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -220,6 +223,7 @@
         .skill-contact {
             text-align: right;
             position: relative;
+            font-size: 28px;
         }
 
         .skill-contact span {
@@ -229,12 +233,14 @@
         }
 
         .skill-contact span::after {
-            content: "";
+            width: 100%;
+            height: 0;
+
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 0;
+
+            content: "";
             background: #e5e7e6;
             transition: none;
             z-index: 2;
@@ -246,41 +252,20 @@
         }
 
         /* viewport skill changes */
-        @media (max-width: 800px) {
-            #default h1 {
-                font-size: 36px;
-            }
-            .skill-contact {
-                font-size: 24px;
-            }
-            .skill-summary .lowlight {
-                font-size: 16px;
-            }
-        
+        @media (max-width: 800px) {        
             .default,
             .hover-content  {
                 padding: 0 20px;
             }
         }
 
-        @media (max-width: 550px) {
-            #skill-section {
-                margin: 10vh 0;
-            }
-            
+        @media (max-width: 650px) {            
             .skill-summary {
                 width: 35%;
             }
 
-            .default h1 {
-                font-size: 32px;
-            }
-
-            .skill-contact {
-                font-size: 20px;
-            }
             .skill-summary .lowlight {
-                font-size: 14px;
+                font-size: 16px;
             }
         
             .default,
@@ -289,20 +274,10 @@
             }
         }
 
-        @media (max-width: 399px) {
-            .default h1 {
-                font-size: 24px;
-            }
-            .skill-contact {
-                font-size: 18px;
-            }
-            .skill-summary .lowlight {
-                font-size: 12px;
-            }
-        
+        @media (max-width: 399px) {        
             .default,
             .hover-content  {
-                padding: 0 15px;
+                padding: 0 16px;
             }
         }
         /* viewport skill changes */
@@ -310,18 +285,23 @@
 
 /* NOTE SECTION !! */
         #note-section {
+            height: auto;
+            width: auto;
+
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 50px;
-            height: 100vh;
             box-sizing: border-box;
+
+            margin-top: 136px;
+            margin-bottom: 96px;
         }
         
-        #container {
+        #note-container {
+            width: 100%;
+
             display: flex;
             gap: 20px;
-            width: 100%;
             justify-content: flex-start;
             align-items: flex-start;
             position: relative;
@@ -329,42 +309,51 @@
         
         #image-container {
             width: 80vh;
+            min-width: 372px;
             height: 80vh;
             position: relative;
+
+            margin: 0;
         }
         
         #image-container img {
             width: 100%;
             height: 100%;
+
             object-fit: cover;
-            border-radius: 18px;
-            border: 3px solid #123524;
+            border-radius: 24px;
+            border: 4px solid #123524;
             box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-            text-align: left;
         }
         
         #text-container {
-            width: calc(100% - 80vh - 20px);
+            width: calc(100% - 80vh - 24px);
+            min-width: 372px;
             height: 80vh;
-            padding: 20px;
-            box-sizing: border-box;
+
+            position: relative;
             display: flex;
             flex-direction: column;
-            gap: 10px;
             align-items: flex-start;
             justify-content: flex-start;
+            box-sizing: border-box;
+
+            gap: 12px;
+            margin: 0;
+            padding: 24px;
+
+
             color: black;
             background-color: #e5e7e6;
-            border-radius: 18px;
-            border: 3px solid #123524;
+            border-radius: 24px;
+            border: 4px solid #123524;
             box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
             text-align: left;
-            position: relative;
-            min-width: 550px;
         }
         
         #about-me {
-            width: 500px;
+            width: 25vw; /** come back too !!! **/
+            min-width: 500px;
             height: 100%;
         }
 
@@ -374,25 +363,29 @@
         }
 
         #text-container p {
-            font-size: 14px;
+            font-size: 16px;
             line-height: 1.5;
+        }
+
+        #note-left {
+            position: absolute;
+            top: -36px;
+            left: 2px;
+            
+            background: none;
+            padding: 0;
+            margin: 0;
+            border: none;
         }
 
         #note-right {
             position: absolute;
-            top: -30px;
-            right: 0;
+            top: -36px;
+            right: 2px;
+
             background: none;
             padding: 0;
-            border: none;
-        }
-        
-        #note-left {
-            position: absolute;
-            top: -30px;
-            left: 0;
-            background: none;
-            padding: 0;
+            margin: 0;
             border: none;
         }
         
@@ -403,9 +396,9 @@
                 padding: 20px;
             }
         
-            #container {
+            #note-container {
                 flex-direction: column;
-                gap: 30px;
+                gap: 36px;
                 align-items: center;
             }
         
@@ -425,7 +418,6 @@
             }
 
             #text-container p {
-                font-size: 14px;
                 line-height: 1.25;
             }
         
@@ -440,7 +432,10 @@
 /*window section*/
         .window-section {
             width: 100vw;
-            min-height: 150vh;
+            height: auto;
+            margin: 0 0 200px 0;
+
+            
             display: flex;
             align-items: center;
             justify-content: center;
@@ -454,8 +449,8 @@
         }
         
         .centered-box h1 {
-            margin-bottom: 30px;
-            font-size: 24px;
+            margin: 0 0 18px 0;
+            font-size: 28px;
             color: #e5e7e6;
             text-align: left;
         }
@@ -463,7 +458,7 @@
         .image-grid {
             display: grid;
             grid-template-columns: repeat(2, 500px);
-            grid-gap: 25px 50px;
+            grid-gap: 24px 48px;
             justify-content: center;
         }
         
@@ -475,8 +470,8 @@
             width: 500px;
             height: 500px;
             background-color: #e5e7e6;
-            margin-bottom: 25px;
-        
+            margin-bottom: 24px;
+
             background-size: cover;
             background-position: center;
         }
@@ -542,8 +537,10 @@
 
 /* SPOTIFY SECTION */
         #spotify-section {
-            height: 90vh;
+            height: calc(63vh + 192px);
             width: 100vw;
+
+            padding: 96px 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -552,9 +549,10 @@
 
         #spotify-container {
             width: 95vw;
-            height: 70%;
+            height: 63vh;
+
             background-color: #181A1B;
-            border-radius: 15px;
+            border-radius: 12px;
             display: flex;
             overflow: hidden;
             justify-content: center;
@@ -568,14 +566,14 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 24px;
         }
 
         #playlist-embed h2 {
             display: inline;
             margin: 0;
             padding: 0;
-            font-size: 1.5rem;
+            font-size: 28px;
             margin-bottom: 16px;
             text-align: center;
         }
@@ -593,9 +591,9 @@
             background-color: #123524;
             color: #e5e7e6;
             text-align: center;
-            border-radius: 20px;
+            border-radius: 12px;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 20px;
             transition: background-color 0.3s;
             margin-top: 16px;
             width: 250px;
@@ -609,7 +607,7 @@
             font-weight: bold;
         }
 
-        @media (max-height: 824px) {
+        @media (max-height: 850px) {
             #spotify-section {
                 min-height: 600px;
             }
@@ -645,10 +643,9 @@
         
         <ul class="nav-right">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
             <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html" class="active">About</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="wrapped.html">Wrapped!</a></li>
         </ul>
     </nav>
 
@@ -673,7 +670,7 @@
         <div id="ds" class="skills">
             <div class="default">
                 <div>
-                    <h1>Data Science</h1>
+                    <h1 class="skills-title">Data Science</h1>
                 </div>
                 <div class="skill-summary">
                     <p class="lowlight">Leverage my university education in Python and its libraries, as well as C, R, and SQL.</p>
@@ -682,7 +679,7 @@
             
             <div class="hover-content">
                 <div>
-                    <h1>Data Science</h1>
+                    <h1 class="skills-title">Data Science</h1>
                 </div>
                 <div class="skill-summary">
                     <p class="lowlight">Leverage my university education in Python and its libraries, as well as C, R, and SQL.</p>
@@ -694,7 +691,7 @@
         <div id="webdev" class="skills">
             <div class="default">
                 <div>
-                    <h1>Web Development</h1>
+                    <h1 class="skills-title">Web Dev</h1>
                 </div>
                 <div class="skill-summary">
                     <p class="lowlight">Integrate my self-taught HTML and CSS expertise with formal JavaScript training.</p>
@@ -703,7 +700,7 @@
 
             <div class="hover-content">
                 <div>
-                    <h1>Web Development</h1>
+                    <h1 class="skills-title">Web Dev</h1>
                 </div>
                 <div class="skill-summary">
                     <p class="lowlight">Integrate my self-taught HTML and CSS expertise with formal JavaScript training.</p>
@@ -715,7 +712,7 @@
         <div id="uiux" class="skills">
             <div class="default">
                 <div>
-                    <h1>UI/UX Design</h1>
+                    <h1 class="skills-title">UI/UX Design</h1>
                 </div>
                 <div class="skill-summary">
                     <p class="lowlight">Discover how I stay updated on industry trends to craft intuitive and innovative designs.</p>
@@ -724,7 +721,7 @@
             
             <div class="hover-content">
                 <div>
-                    <h1>UI/UX Design</h1>
+                    <h1 class="skills-title">UI/UX Design</h1>
                 </div>
                 <div class="skill-summary">
                     <p class="lowlight">Discover how I stay updated on industry trends to craft intuitive and innovative designs.</p>
@@ -735,7 +732,7 @@
     </section>
 
     <section id="note-section" class="section not-start">
-        <div id="container">
+        <div id="note-container">
             <div id="image-container">
                 <span id="note-left" class="lowlight">Built by a Designer.</span>
                 <img src="images/about/me.jpg" alt="My PIC :P">
@@ -800,10 +797,9 @@
     <footer class="footer-section not-start">
         <div class="footer-left">
             <a href="index.html">Home</a>
-            <a href="about.html" class="active">About</a>
             <a href="projects.html">Projects</a>
+            <a href="about.html" class="active">About</a>
             <a href="contact.html">Contact</a>
-            <a href="wrapped.html">Wrapped</a>
         </div>
         <div class="footer-center">
             <a href="home.html">

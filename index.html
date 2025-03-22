@@ -640,18 +640,18 @@
             <h1 id="mobile-proj-title">My Works</h1>
             <div class="mobile-proj-box">
                 <img class="mobile-proj-img" src="images/sample.jpg" alt="">
-                <h2 class="mobile-me-text">Sample Text</h2>
-                <h1 class="mobile-proj-headings">Project 1</h1>
+                <h2 class="mobile-me-text">Book Repository Analysis</h2>
+                <h1 class="mobile-proj-headings">Bookstore Report</h1>
             </div>
             <div class="mobile-proj-box">
-                <img class="mobile-proj-img" src="images/sample.jpg" alt="">
-                <h2 class="mobile-me-text" style="text-align: end;">Sample Text</h2>
-                <h1 class="mobile-proj-headings" style="text-align: start;">Project 1</h1>
+                <img class="mobile-proj-img" src="images/home/statssptfy-mobile.jpg" alt="stats.sptfy">
+                <h2 class="mobile-me-text" style="text-align: end;">Spotify Stats App</h2>
+                <h1 class="mobile-proj-headings" style="text-align: start;">Stats.Sptfy</h1>
             </div>
             <div class="mobile-proj-box">
-                <img class="mobile-proj-img" src="images/sample.jpg" alt="">
-                <h2 class="mobile-me-text">Sample Text</h2>
-                <h1 class="mobile-proj-headings">Project 1</h1>
+                <img class="mobile-proj-img" src="images/home/trackersptfy-mobile.jpg" alt="stats.sptfy">
+                <h2 class="mobile-me-text">Spotify Music Tracker</h2>
+                <h1 class="mobile-proj-headings">Tracker.Sptfy</h1>
             </div>
         </div>
     </div>
@@ -757,11 +757,14 @@
                         document.body.style.overflow = ""; // allow scrolling
                     }, 1000); // Delay to match CSS transition.
                 }
-            }, 200); // cycle through images at 200ms per image.
+            }, 125); // cycle through images at 200ms per image.
         });
 
         // carousell at the bottom !
-        document.addEventListener("DOMContentLoaded", function(){
+        document.addEventListener("DOMContentLoaded", function() {
+
+            if (window.innerWidth < 650) return; // check if on mobile
+
             const videos = [
                 'images/home/bookstore.mp4',
                 'images/home/statssptfy.mov',

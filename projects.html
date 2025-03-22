@@ -413,8 +413,12 @@
                 </div>
             </div>
             <div class="proj-container" style="margin-bottom: 0;">
-                <video class="proj-vid" src="images/projects/trackersptfyvid.mp4" loop autoplay muted></video>
-                <img class="proj-img" src="images/projects/statssptfy.JPG" alt="Project Preview">
+                <video class="proj-vid" loop autoplay muted>
+                    <source src="images/projects/trackersptfyvid.mp4" media="(min-width: 651px)" type="video/mp4">
+                    <source src="images/projects/trackersptfyvid.mp4" media="(max-width: 650px)" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <img class="proj-img" src="images/projects/trackersptfy.jpg" alt="Project Preview">
                 <div class="proj-details">
                     <p class="proj-desc">Spotify Music Tracker, developed using Python and the Spotify API.</p>
                     <div class="proj-titles">

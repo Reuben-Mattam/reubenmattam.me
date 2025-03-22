@@ -337,16 +337,28 @@
     <section id="carousel-section" class="not-start">
         <div class="image-container">
             <div class="carousel-container active">
-                <video class="carousel-vid" src="images/projects/bookstore-vid.mp4" loop autoplay muted></video>
-                <img class="carousel-img" src="images/projects/akira_1636.jpg" alt="BookStore">
+                <video class="carousel-vid" loop autoplay muted>
+                    <source src="images/projects/bookstore-vid.mp4" media="(min-width: 651px)" type="video/mp4">
+                    <source src="images/projects/bookstore-lowq-vid.mp4" media="(max-width: 650px)" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <img class="carousel-img" src="images/sample.jpg" alt="this is temp">
             </div>
             <div class="carousel-container">
-                <video src="images/projects/statssptfy-vid.mp4" loop autoplay muted></video>
-                <img class="carousel-img" src="images/projects/akira_2676.jpg" alt="Stats.Sptfy">
+                <video class="carousel-vid" loop autoplay muted>
+                    <source src="images/projects/statssptfy-vid.mp4" media="(min-width: 651px)" type="video/mp4">
+                    <source src="images/projects/statssptfy-lowq-vid.mp4" media="(max-width: 650px)" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <img class="carousel-img" src="images/sample.jpg" alt="this is temp">
             </div>
             <div class="carousel-container">
-                <video src="images/projects/trackersptfy-vid.mp4" loop autoplay muted></video>
-                <img class="carousel-img" src="images/projects/akira_4948.jpg" alt="Track.Sptfy">
+                <video class="carousel-vid" loop autoplay muted>
+                    <source src="images/projects/trackersptfy-vid.mp4" media="(min-width: 651px)" type="video/mp4">
+                    <source src="images/projects/trackersptfy-lowq-vid.mp4" media="(max-width: 650px)" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <img class="carousel-img" src="images/sample.jpg" alt="this is temp">
             </div>
             
         </div>
@@ -381,7 +393,11 @@
                 </div>
             </div>
             <div class="proj-container">
-                <video class="proj-vid" src="images/projects/statssptfyvid.mp4" loop autoplay muted></video>
+                <video class="proj-vid" loop autoplay muted>
+                    <source src="images/projects/statssptfyvid.mp4" media="(min-width: 651px)" type="video/mp4">
+                    <source src="images/projects/statssptfyvid-lowq.mp4" media="(max-width: 650px)" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
                 <img class="proj-img" src="images/projects/statssptfy.JPG" alt="Project Preview">
                 <div class="proj-details">
                     <p class="proj-desc">Spotify Stats Application, operating in conjunction with Tracker.Sptfy's excel output.</p>
@@ -437,15 +453,36 @@
 
     <script>
         // if vids dont load, load imgs instead
-        function loadFallback() {
-            document.querySelector(".proj-vid").style.display = "none";
-            document.querySelector(".proj-img").style.display = "block";
+        function attachVideoFallback(videoSelector, imageSelector) {
+            const videoEl = document.querySelector(videoSelector);
+            const imgEl = document.querySelector(imageSelector);
+            
+            if (videoEl) {
+                videoEl.addEventListener('error', function() {
+                    videoEl.style.display = 'none';
+                    if (imgEl) {
+                        imgEl.style.display = 'block';
+                    }
+                    console.log(`${videoSelector} failed to load. Fallback image ${imageSelector} displayed.`);
+                });
+
+                setTimeout(function() {
+
+                if (videoEl.readyState < 3) {
+                    videoEl.style.display = 'none';
+                    if (imgEl) {
+                        imgEl.style.display = 'block';
+                    }
+                    console.log(`${videoSelector} is taking too long to load. Fallback image ${imageSelector} displayed.`);
+                }
+                }, 10000);
+            }
         }
 
-        function loadFallback() {
-            document.querySelector(".carousel-vid").style.display = "none";
-            document.querySelector(".carousel-img").style.display = "block";
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            attachVideoFallback('.proj-vid', '.proj-img');
+            attachVideoFallback('.carousel-vid', '.carousel-img');
+        });
         
         // carousell
         const images = document.querySelectorAll('.carousel-container');

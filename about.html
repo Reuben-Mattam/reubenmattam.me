@@ -308,7 +308,7 @@
         }
         
         #image-container {
-            width: 80vh;
+            width: min(88vh, calc((100% - 24px) / 2));
             min-width: 372px;
             height: 80vh;
             position: relative;
@@ -327,8 +327,7 @@
         }
         
         #text-container {
-            width: calc(100% - 80vh - 24px);
-            min-width: 372px;
+            width: calc(100% - 24px - min(88vh, calc((100% - 24px) / 2)));
             height: 80vh;
 
             position: relative;
@@ -352,14 +351,48 @@
         }
         
         #about-me {
-            width: 25vw; /** come back too !!! **/
-            min-width: 500px;
+            width: 100%;
             height: 100%;
+            
+        }
+
+        #adjusting-text {
+            font-size: 16px !important;
+        }
+
+        @media (max-width: 1475px), (max-height: 790px) {
+            #adjusting-text {
+                font-size: 14px !important;
+            }
+        }
+        @media (max-width: 1210px), (max-height: 724px) {
+            #adjusting-text {
+                font-size: 12px !important;
+            }
+        }
+        @media (max-width: 900px) {
+            #adjusting-text {
+                font-size: 11px !important;
+            }
+        }
+        @media (max-height: 624px) {
+            #adjusting-text {
+                font-size: 10px !important;
+            }
+        }
+        @media (max-height: 474px) {
+            #adjusting-text {
+                font-size: 8px !important;
+            }
         }
 
         #connect {
             text-decoration: none;
             color: #181A1B;
+        }
+
+        #connect:hover {
+            text-decoration: underline;
         }
 
         #text-container p {
@@ -390,7 +423,7 @@
         }
         
         /*viewport note changes */
-        @media (max-width: 800px) {
+        @media (max-width: 800px), (max-height: 374px) {
             #note-section {
                 height: auto;
                 padding: 20px;
@@ -423,6 +456,9 @@
         
             #about-me {
                 width: auto;
+            }
+            #adjusting-text {
+                font-size: 16px !important;
             }
         }
         /*viewport note changes */
@@ -683,7 +719,7 @@
                 </div>
                 <div class="skill-summary">
                     <p class="lowlight">Leverage my university education in Python and its libraries, as well as C, R, and SQL.</p>
-                    <h2 class="skill-contact"><span>Learn More</span></h2>
+                    <h2 class="skill-contact"><span>Learn More &rArr;</span></h2>
                 </div>
             </div>
         </div>
@@ -704,7 +740,7 @@
                 </div>
                 <div class="skill-summary">
                     <p class="lowlight">Integrate my self-taught HTML and CSS expertise with formal JavaScript training.</p>
-                    <h2 class="skill-contact"><span>Learn More</h2>
+                    <h2 class="skill-contact"><span>Learn More &rArr;</h2>
                 </div>
             </div>
         </div>
@@ -725,7 +761,7 @@
                 </div>
                 <div class="skill-summary">
                     <p class="lowlight">Discover how I stay updated on industry trends to craft intuitive and innovative designs.</p>
-                    <h2 class="skill-contact"><span>Learn More</span></h2>
+                    <h2 class="skill-contact"><span>Learn More &rArr;</span></h2>
                 </div>
             </div>
         </div>
@@ -740,20 +776,29 @@
             <div id="text-container">
                 <span id="note-right" class="highlight">Learn more about the Creator.</span>
                 <div id="about-me">
-                    <p>
-                        Hey ! <br><br>
-                        I'm Reuben, a passionate data science student based in Melbourne and currently in my third year at the University of Melbourne.
-                        I am math nerd passionate about statistics who taught themselves python during the summer break of a passionless engineering degree.
-                        This led me to data science - a place for my interests in statistics and enjoyment of coding to coalesce.<br><br>
+                    <p id="adjusting-text">
+                        Structural Engineering.<br><br>
 
-                        I have a passion for design as well; telling a story through aesthetics is something I find deeply interesting. Through this combination
-                        of factors, I have built a diverse set of skills.
+                        That was my career path, prior to my summer break of self-taught Python passion. That summer, I tutored myself
+                        eagerly, gaining a new hobby and discoveing a potential career path I actually could see myself doing. I was always a
+                        nerd at maths - problem solving is something I adore and is arguably my biggest strength - yet the association of math
+                        and engineering never clicked for me.<br><br>
 
-                        Outside of my academic pursuits, I’ve spent three years working in sales, which has honed my interpersonal skills and given me a solid foundation
-                        in client interaction. My journey has been shaped by passion and curiosity - something I hope to bring to your organisation !<br><br>
+                        23 people in a room.<br><br>
 
-                        <a id="connect" href="contact.html">Lets Connect &#9749;!</a>
-                    </p>
+                        Thats how many people it takes for the probability to exceed 50% that two people share the same birthday. Being 16
+                        and learning this first through a Vertisium video, I believed Statistics was an esoteric field of math; a point of curiousity
+                        that only blossomed the further my educational journey continued. Thus...<br><br>
+
+                        Data Science.<br><br>
+
+                        The culimation of a summer fling of Python and a deep nurtured interest in statistics. Studying data science further,
+                        completely personal projects, staying up to date with data science via reddit, tiktok and twiter, my passion for the field
+                        has only grown.<br><br>
+
+                        Hi, I'm Reuben Mattaｍ...<br>
+                        <a id="connect" href="contact.html">Lets Connect &#9749;</a>
+                    </p> 
                 </div>
             </div>
         </div>

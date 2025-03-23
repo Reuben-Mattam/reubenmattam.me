@@ -641,7 +641,7 @@
 
     <div id="hook-section" class="not-start">
         <div id="scroll-video"> 
-            <video id="video" autoplay loop muted playsinline controls="false">
+            <video id="video" autoplay loop muted playsinline>
                 <source  src="images/home/bookstore.mp4" type="video/mp4">
                 Your Browser does not support the Video Tag.
             </video>
@@ -765,9 +765,9 @@
                         startUpSection.style.display = "none";
                         landingPage.classList.add("reveal");
                         document.body.style.overflow = ""; // allow scrolling
-                    }, 1000); // Delay to match CSS transition.
+                    }, 1600); // Delay to match CSS transition.
                 }
-            }, 125); // cycle through images at 200ms per image.
+            }, 200); // cycle through images at 200ms per image.
         });
 
         // carousell at the bottom !

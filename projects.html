@@ -80,19 +80,18 @@
 
         .carousel-titles {
             position: absolute;
-            bottom: 40px;
-            left: 20px;
+            bottom: 48px;
+            left: 24px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            z-index: 15;
+            gap: 16px;
+            z-index: 16;
         }
 
         .carousel-title {
             font-size: 72px;
             opacity: 0.6;
             transition: opacity 0.3s ease;
-            cursor: pointer;
         }
 
         .carousel-title.active {
@@ -342,7 +341,7 @@
     <section id="carousel-section" class="not-start">
         <div class="image-container">
             <div class="carousel-container active">
-                <video class="carousel-vid" loop autoplay muted playsinline controls="false">
+                <video class="carousel-vid" loop autoplay muted playsinline>
                     <source src="images/projects/bookstore-vid.mp4" media="(min-width: 651px)" type="video/mp4">
                     <source src="images/projects/bookstore-lowq-vid.mp4" media="(max-width: 650px)" type="video/mp4">
                     Your browser does not support the video tag.
@@ -350,7 +349,7 @@
                 <img class="carousel-img" src="images/sample.jpg" alt="this is temp">
             </div>
             <div class="carousel-container">
-                <video class="carousel-vid" loop autoplay muted playsinline controls="false">
+                <video class="carousel-vid" loop autoplay muted playsinline>
                     <source src="images/projects/statssptfy-vid.mp4" media="(min-width: 651px)" type="video/mp4">
                     <source src="images/projects/statssptfy-lowq-vid.mp4" media="(max-width: 650px)" type="video/mp4">
                     Your browser does not support the video tag.
@@ -358,7 +357,7 @@
                 <img class="carousel-img" src="images/sample.jpg" alt="this is temp">
             </div>
             <div class="carousel-container">
-                <video class="carousel-vid" loop autoplay muted playsinline controls="false">
+                <video class="carousel-vid" loop autoplay muted playsinline>
                     <source src="images/projects/trackersptfy-vid.mp4" media="(min-width: 651px)" type="video/mp4">
                     <source src="images/projects/trackersptfy-lowq-vid.mp4" media="(max-width: 650px)" type="video/mp4">
                     Your browser does not support the video tag.
@@ -385,44 +384,50 @@
 
         <div id="proj-display">
             <div class="proj-container">
-                <video class="proj-vid" src="images/projects/statssptfyvid.mp4" loop autoplay muted playsinline controls="false"></video>
-                <img class="proj-img" src="images/projects/statssptfy.JPG" alt="Project Preview">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/Reuben-Mattam/bookstore-analysis">
+                    <video class="proj-vid" src="images/projects/bookstorevid.mov" loop autoplay muted playsinline></video>
+                    <img class="proj-img" src="images/projects/statssptfy.JPG" alt="Project Preview">
+                </a>
                 <div class="proj-details">
                     <p class="proj-desc">Book-title reccomendations for a Physical Store,
                         dervied form a book review repository.
                     </p>
                     <div class="proj-titles">
-                        <p class="proj-name"><a class="github-link" href="https://github.com/Reuben-Mattam/Stats.Sptfy">Bookstore Analysis &rArr;</a></p>
+                        <p class="proj-name"><a target="_blank" rel="noopener noreferrer" class="github-link" href="https://github.com/Reuben-Mattam/Stats.Sptfy">Bookstore Analysis &rArr;</a></p>
                         <p>Python - jupyter notebook</p>
                     </div>
                 </div>
             </div>
             <div class="proj-container">
-                <video class="proj-vid" loop autoplay muted playsinline controls="false">
-                    <source src="images/projects/statssptfyvid.mp4" media="(min-width: 651px)" type="video/mp4">
-                    <source src="images/projects/statssptfyvid-lowq.mp4" media="(max-width: 650px)" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <img class="proj-img" src="images/projects/statssptfy.JPG" alt="Project Preview">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/Reuben-Mattam/Stats.Sptfy">
+                    <video class="proj-vid" loop autoplay muted playsinline>
+                        <source src="images/projects/statssptfyvid.mp4" media="(min-width: 651px)" type="video/mp4">
+                        <source src="images/projects/statssptfyvid-lowq.mp4" media="(max-width: 650px)" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <img class="proj-img" src="images/projects/statssptfy.JPG" alt="Project Preview">
+                </a>
                 <div class="proj-details">
                     <p class="proj-desc">Spotify Stats Application, operating in conjunction with Tracker.Sptfy's excel output.</p>
                     <div class="proj-titles">
-                        <p class="proj-name"><a class="github-link" href="https://github.com/Reuben-Mattam/Stats.Sptfy">Stats.Sptfy &rArr;</a></p>
+                        <p class="proj-name"><a target="_blank" rel="noopener noreferrer" class="github-link" href="https://github.com/Reuben-Mattam/Stats.Sptfy">Stats.Sptfy &rArr;</a></p>
                         <p>Python - eel, HTMl, CSS, JS</p>
                     </div>
                 </div>
             </div>
             <div class="proj-container" style="margin-bottom: 0;">
-                <video class="proj-vid" loop autoplay muted playsinline controls="false">
-                    <source src="images/projects/trackersptfyvid.mp4" media="(min-width: 651px)" type="video/mp4">
-                    <source src="images/projects/trackersptfyvid.mp4" media="(max-width: 650px)" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <img class="proj-img" src="images/projects/trackersptfy.jpg" alt="Project Preview">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/Reuben-Mattam/Tracker.Sptfy">
+                    <video class="proj-vid" loop autoplay muted playsinline>
+                        <source src="images/projects/trackersptfyvid.mp4" media="(min-width: 651px)" type="video/mp4">
+                        <source src="images/projects/trackersptfyvid.mp4" media="(max-width: 650px)" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <img class="proj-img" src="images/projects/trackersptfy.jpg" alt="Project Preview">
+                </a>
                 <div class="proj-details">
                     <p class="proj-desc">Spotify Music Tracker, developed using Python and the Spotify API.</p>
                     <div class="proj-titles">
-                        <p class="proj-name"><a class="github-link" href="https://github.com/Reuben-Mattam/Stats.Sptfy">Tracker.Sptfy &rArr;</a></p>
+                        <p class="proj-name"><a target="_blank" rel="noopener noreferrer" class="github-link" href="https://github.com/Reuben-Mattam/Tracker.Sptfy">Tracker.Sptfy &rArr;</a></p>
                         <p>Python, SQL</p>
                     </div>
                 </div>

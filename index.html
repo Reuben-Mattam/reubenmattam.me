@@ -421,6 +421,7 @@
 
             text-align: end;
             margin-top: 0px;
+            color: #e5e7e6;
         }
         /* mobile-hidden */
         
@@ -449,7 +450,6 @@
             height: auto;
             display: flex;
             flex-direction: column;
-
         }
 
         #backgroundtemp {
@@ -630,7 +630,7 @@
                     <div class="mobile-me-text">Let me tell your Story.</div>
                     <div id="mobile-subheading-name">Reuben Mattam.</div>
                 </div>
-                <a id="mobile-hook" class="mobile-me-text" href="projects.html">See my Works &rArr;</a>
+                <p id="mobile-hook" class="mobile-me-text">See my Works &dArr;</p>
             </div>
         </div>
         <div id="hook-intro">
@@ -640,28 +640,42 @@
     </section>
 
     <div id="hook-section" class="not-start">
-        <div id="scroll-video"> 
-            <video id="video" autoplay loop muted playsinline>
-                <source  src="images/home/bookstore.mp4" type="video/mp4">
-                Your Browser does not support the Video Tag.
-            </video>
+        <div id="scroll-video">
+            <a href="projects.html#project-section">
+                <video id="video" autoplay loop muted playsinline>
+                    <source  src="images/home/bookstore.mov" type="video/mp4">
+                    Your Browser does not support the Video Tag.
+                </video>
+            </a>
         </div>
         <div id="mobile-proj">
             <h1 id="mobile-proj-title">My Works</h1>
             <div class="mobile-proj-box">
-                <img class="mobile-proj-img" src="images/sample.jpg" alt="">
-                <h2 class="mobile-me-text">Book Repository Analysis</h2>
-                <h1 class="mobile-proj-headings">Bookstore Report</h1>
+                <a href="projects.html#project-section">
+                    <img class="mobile-proj-img" src="images/home/bookstore-mobile.gif" alt="">
+                </a>
+                <h2 class="mobile-me-text">Book Repository Analysis for a Bookstore</h2>
+                <a style="text-decoration: none;" href="projects.html#project-section">
+                    <h1 class="mobile-proj-headings">Bookstore Report&rArr;</h1>
+                </a>
             </div>
             <div class="mobile-proj-box">
-                <img class="mobile-proj-img" src="images/home/statssptfy-mobile.jpeg" alt="stats.sptfy">
+                <a href="projects.html#project-section">
+                    <img class="mobile-proj-img" src="images/home/statssptfy-mobile.jpeg" alt="stats.sptfy">
+                </a>
                 <h2 class="mobile-me-text" style="text-align: end;">Spotify Stats App</h2>
-                <h1 class="mobile-proj-headings" style="text-align: start;">Stats.Sptfy</h1>
+                <a style="text-decoration: none;" href="projects.html#project-section">
+                    <h1 class="mobile-proj-headings" style="text-align: start;">Stats.Sptfy&rArr;</h1>
+                </a>
             </div>
             <div class="mobile-proj-box">
-                <img class="mobile-proj-img" src="images/home/trackersptfy-mobile.jpg" alt="stats.sptfy">
+                <a href="projects.html#project-section">
+                    <img class="mobile-proj-img" src="images/home/trackersptfy-mobile.jpg" alt="stats.sptfy">
+                </a>
                 <h2 class="mobile-me-text">Spotify Music Tracker</h2>
-                <h1 class="mobile-proj-headings">Tracker.Sptfy</h1>
+                <a style="text-decoration: none;" href="projects.html#project-section">
+                    <h1 class="mobile-proj-headings">Tracker.Sptfy&rArr;</h1>
+                </a>
             </div>
         </div>
     </div>
@@ -776,7 +790,7 @@
             if (window.innerWidth < 650) return; // check if on mobile
 
             const videos = [
-                'images/home/bookstore.mp4',
+                'images/home/bookstore.mov',
                 'images/home/statssptfy.mp4',
                 'images/home/trackersptfy.mp4'
             ];

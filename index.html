@@ -733,7 +733,6 @@
             const referrer = document.referrer;
             const isInternal = referrer.includes("reubenmattam.me");
         
-            // Use the Navigation Timing API to check the navigation type.
             let navigationType = "navigate";
             if (performance.getEntriesByType("navigation").length > 0) {
                 navigationType = performance.getEntriesByType("navigation")[0].type;
@@ -743,7 +742,6 @@
             const startUpSection = document.getElementById("start-up");
             const landingPage = document.getElementById("landing-page");
         
-            // If reloading or navigating from within the same domain, skip the animation.
             if (isInternal || isReload) {
                 startUpSection.style.display = "none";
                 landingPage.classList.add("reveal");
@@ -751,7 +749,6 @@
                 return;
             }
         
-            // Otherwise, play the animation.
             document.body.style.overflow = "hidden";
         
             const images = [
@@ -764,24 +761,47 @@
                 "images/home/7.jpg",
                 "images/home/7.jpg",
             ];
-            
+        
             const imgElement = document.querySelector('#start-up img[alt="me"]');
             let currentIndex = 0;
-            
-            const flickerInterval = setInterval(() => {
-                imgElement.src = images[currentIndex];
-                currentIndex++;
-                if (currentIndex >= images.length) {
-                    clearInterval(flickerInterval);
-                    startUpSection.classList.add("fade-out");
         
-                    setTimeout(() => {
-                        startUpSection.style.display = "none";
-                        landingPage.classList.add("reveal");
-                        document.body.style.overflow = ""; // allow scrolling
-                    }, 1600); // Delay to match CSS transition.
+            // ccheck if all images have loaded
+            function allImagesLoaded() {
+                return images.every(src => {
+                    const img = new Image();
+                    img.src = src;
+                    return img.complete;
+                });
+            }
+        
+            // wait for all images to load
+            function waitForImagesToLoad() {
+                if (allImagesLoaded()) {
+                    startAnimation();
+                } else {
+                    setTimeout(waitForImagesToLoad, 100);
                 }
-            }, 200); // cycle through images at 200ms per image.
+            }
+        
+            // start the animation
+            function startAnimation() {
+                const flickerInterval = setInterval(() => {
+                    imgElement.src = images[currentIndex];
+                    currentIndex++;
+                    if (currentIndex >= images.length) {
+                        clearInterval(flickerInterval);
+                        startUpSection.classList.add("fade-out");
+        
+                        setTimeout(() => {
+                            startUpSection.style.display = "none";
+                            landingPage.classList.add("reveal");
+                            document.body.style.overflow = ""; // allow scrolling
+                        }, 1600);
+                    }
+                }, 200); // cycle through images at 200ms per image.
+            }
+        
+            waitForImagesToLoad();
         });
 
         // carousell at the bottom !

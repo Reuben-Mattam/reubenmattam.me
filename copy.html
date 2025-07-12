@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/logo !.png" type="image/png">
+    <script src="animations.js" defer></script>
+    <style>
+/* CAROUSEL SECTION !!! */
+        #carousel-section {
+            height: 100vh;
+            min-height: 450px;
+            width: 100vw;
+            
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .carousel-left, .carousel-right {
+            position: absolute;
+            top: 50vh;
+
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+        
+        .carousel-left {
+            left: 24px;
+        }
+        
+        .carousel-right {
+            right: 24px;
+        }
+        
+        .carousel {
+            width: 100%;
+            height: auto;
+            min-height: 375px;
+
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .carousel-track {
+            width: max-content;
+
+            display: flex;
+            gap: 20px;
+            animation: none;
+            will-change: transform;
+        }
+        
+        .carousel-image {
+            max-height: 594px;
+            height: 58vh;
+            min-height: 371px;
+            
+            aspect-ratio: 480 / 594;
+
+            object-fit: cover;
+            flex-shrink: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            display: block;
+            border: 4px solid #123524;
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        /*viewport carousell changes */
+        @media (max-height: 700px) {
+            .carousel-image {
+                min-width: 250px;
+            }
+        }
+
+        @media (max-width: 500px){
+            .carousel-image {
+                min-width: 400px;
+            }
+            .carousel-left{
+                left: 12px;
+            }
+            .carousel-right {
+                right: 12px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .carousel-image {
+                min-width: 300px;
+            }
+            .carousel-left{
+                left: 12px;
+            }
+            .carousel-right {
+                right: 12px;
+            }
+        }
+        /*viewport carousell changes */
+        
+/* CAROUSEL SECTION !!! */
+
+/* skills section */
+        #skill-section {
+            width: 100%;
+            height: auto;
+
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .skills {
+            width: 100%;
+            height: 25vh;
+
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: height 0.3s ease;
+        }
+
+        .skills:hover {
+            height: 33vh;
+        }
+
+        #ds,
+        #webdev {
+            border-top: 2px solid #e5e7e6;
+        }
+
+        #uiux {
+            border-top: 2px solid #e5e7e6;
+            border-bottom: 2px solid #e5e7e6;
+        }
+
+        /* image slide up */
+        .skills::before {
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+
+            content: "";
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            transition: bottom 0.5s ease;
+        }
+
+        .skills-title {
+            font-size: 28px;
+        }
+
+        .skills:hover::before {
+            bottom: 0;
+        }
+
+        #ds::before {
+            background-image: url('/images/about/4.jpg');
+        }
+
+        #webdev::before {
+            background-image: url('/images/about/2.jpg');
+        }
+
+        #uiux::before {
+            background-image: url('/images/about/3.jpg');
+        }
+
+        .default,
+        .hover-content {
+            width: 100%;
+            height: 100%;
+            
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 100px;
+        }
+
+        .hover-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .skills:hover .default {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0s 0.3s;
+        }
+
+        .skills:hover .hover-content {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease;
+        }
+
+        .skills:not(:hover) .hover-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0s 1s;
+        }
+
+        .skill-summary {
+            width: 30%;
+        }
+
+        .skill-contact {
+            text-align: right;
+            position: relative;
+            font-size: 28px;
+        }
+
+        .skill-contact span {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-contact span::after {
+            width: 100%;
+            height: 0;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            content: "";
+            background: #e5e7e6;
+            transition: none;
+            z-index: 2;
+        }
+
+        .skills:not(:hover) .hover-content .skill-contact span::after {
+            height: 100%;
+            transition: height 0.5s ease-out;
+        }
+
+        /* viewport skill changes */
+        @media (max-width: 800px) {        
+            .default,
+            .hover-content  {
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 650px) {            
+            .skill-summary {
+                width: 35%;
+            }
+
+            .skill-summary .lowlight {
+                font-size: 16px;
+            }
+        
+            .default,
+            .hover-content  {
+                padding: 0 24px;
+            }
+        }
+
+        @media (max-width: 399px) {        
+            .default,
+            .hover-content  {
+                padding: 0 16px;
+            }
+        }
+        /* viewport skill changes */
+/* skills section */
+
+/* NOTE SECTION !! */
+        #note-section {
+            height: auto;
+            width: auto;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+
+            margin-top: 136px;
+            margin-bottom: 96px;
+        }
+        
+        #note-container {
+            width: 100%;
+
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+            align-items: flex-start;
+            position: relative;
+        }
+        
+        #image-container {
+            width: min(88vh, calc((100% - 24px) / 2));
+            min-width: 372px;
+            height: 80vh;
+            position: relative;
+
+            margin: 0;
+        }
+        
+        #image-container img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            border-radius: 24px;
+            border: 4px solid #123524;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        #text-container {
+            width: calc(100% - 24px - min(88vh, calc((100% - 24px) / 2)));
+            height: 80vh;
+
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            box-sizing: border-box;
+
+            gap: 12px;
+            margin: 0;
+            padding: 24px;
+
+
+            color: black;
+            background-color: #e5e7e6;
+            border-radius: 24px;
+            border: 4px solid #123524;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+        
+        #about-me {
+            width: 100%;
+            height: 100%;
+            
+        }
+
+        #adjusting-text {
+            font-size: 16px !important;
+        }
+
+        @media (max-width: 1475px), (max-height: 790px) {
+            #adjusting-text {
+                font-size: 14px !important;
+            }
+        }
+        @media (max-width: 1210px), (max-height: 724px) {
+            #adjusting-text {
+                font-size: 12px !important;
+            }
+        }
+        @media (max-width: 900px) {
+            #adjusting-text {
+                font-size: 11px !important;
+            }
+        }
+        @media (max-height: 624px) {
+            #adjusting-text {
+                font-size: 10px !important;
+            }
+        }
+        @media (max-height: 474px) {
+            #adjusting-text {
+                font-size: 8px !important;
+            }
+        }
+
+        #connect {
+            text-decoration: none;
+            color: #181A1B;
+        }
+
+        #connect:hover {
+            text-decoration: underline;
+        }
+
+        #text-container p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        #note-left {
+            position: absolute;
+            top: -36px;
+            left: 2px;
+            
+            background: none;
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        #note-right {
+            position: absolute;
+            top: -36px;
+            right: 2px;
+
+            background: none;
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+        
+        /*viewport note changes */
+        @media (max-width: 800px), (max-height: 374px) {
+            #note-section {
+                height: auto;
+                padding: 20px;
+            }
+        
+            #note-container {
+                flex-direction: column;
+                gap: 36px;
+                align-items: center;
+            }
+        
+            #image-container {
+                width: 100%;
+                height: auto;
+            }
+        
+            #image-container img {
+                height: auto;
+            }
+        
+            #text-container {
+                width: 100%;
+                min-width: unset;
+                height: auto;
+            }
+
+            #text-container p {
+                line-height: 1.25;
+            }
+        
+            #about-me {
+                width: auto;
+            }
+            #adjusting-text {
+                font-size: 16px !important;
+            }
+        }
+        /*viewport note changes */
+/* NOTE SECTION !! */
+
+
+/*window section*/
+        .window-section {
+            width: 100vw;
+            height: auto;
+            margin: 0 0 200px 0;
+
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        
+        .centered-box {
+            width: 1050px;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .centered-box h1 {
+            margin: 0 0 18px 0;
+            font-size: 28px;
+            color: #e5e7e6;
+            text-align: left;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 500px);
+            grid-gap: 24px 48px;
+            justify-content: center;
+        }
+        
+        .grid-item {
+            text-align: left;
+        }
+        
+        .image-box {
+            width: 500px;
+            height: 500px;
+            background-color: #e5e7e6;
+            margin-bottom: 24px;
+
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .grid-item p {
+            margin: 0;
+            font-size: 20px;
+            color: #e5e7e6;
+        }
+        
+        /*Viewport window changes*/
+        @media (max-width: 1100px) and (min-width: 801px) {
+            .window-section {
+                margin-left: 12px;
+            }
+            .image-box {
+                width: calc(45vw);
+                height: calc(45vw);
+            }
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 10px;
+            }
+        }
+        
+        @media (max-width: 800px) {
+            .window-section {
+                margin-right: 8px;
+            }
+        
+            .image-grid {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                width: 100%;
+            }
+        
+            .image-box {
+                width: 500px;
+                height: 500px;
+            }
+            .centered-box h1 {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 550px) {
+            .window-section {
+                margin-right: 8px;
+                margin-top: 100px;
+            }
+            
+            .image-box {
+                width: 85vw;
+                height: 90vw;
+            }
+            .centered-box h1 {
+                text-align: center;
+            }
+        }
+        /*Viewport window changes*/
+/*window section*/
+
+
+/* SPOTIFY SECTION */
+        #spotify-section {
+            height: calc(63vh + 192px);
+            width: 100vw;
+
+            padding: 96px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #103021;
+        }
+
+        #spotify-container {
+            width: 95vw;
+            height: 63vh;
+
+            background-color: #181A1B;
+            border-radius: 12px;
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #playlist-embed {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+        }
+
+        #playlist-embed h2 {
+            display: inline;
+            margin: 0;
+            padding: 0;
+            font-size: 28px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .playlist {
+            width: 90%;
+            height: 90%;
+            max-width: 900px;
+            max-height: 400px;
+            border-radius: 12px;
+        }
+
+        #view-more {
+            display: inline-block;
+            background-color: #123524;
+            color: #e5e7e6;
+            text-align: center;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 20px;
+            transition: background-color 0.3s;
+            margin-top: 16px;
+            width: 250px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        #view-more:hover {
+            background-color: #103021;
+            transform: scale(1.05);
+            font-weight: bold;
+        }
+
+        @media (max-height: 850px) {
+            #spotify-section {
+                min-height: 600px;
+            }
+
+            #spotify-container {
+                height: 50%;
+                min-height: 550px;
+            }
+            #view-more {
+                margin-top: 12px;
+            }
+        }
+/* SPOTIFY SECTION */
+
+        .footer-section {
+            background-color: #103021;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="index.html"><img src="images/logo !.png" alt="Logo" class="nav-logo"></a>
+            <a style="text-decoration: none; color: #e5e7e6;" href="index.html"><span class="nav-text">https://reubenmattam.me</span></a>
+        </div>
+        
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+        <ul class="nav-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    
+    <section id="carousel-section" class="section">
+        <div class="carousel-left highlight">My life in focus.</div>
+        <div class="carousel-right lowlight">Melbourne Based.</div>
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="images/about/carousel1.jpg" alt="Carousel Image 1" class="carousel-image">
+                <img src="images/about/carousel2.jpg" alt="Carousel Image 2" class="carousel-image">
+                <img src="images/about/carousel3.jpg" alt="Carousel Image 3" class="carousel-image">
+                <img src="images/about/carousel4.jpg" alt="Carousel Image 4" class="carousel-image">
+                <img src="images/about/carousel5.jpg" alt="Carousel Image 5" class="carousel-image">
+                <img src="images/about/carousel6.jpg" alt="Carousel Image 6" class="carousel-image">
+                <img src="images/about/carousel7.jpg" alt="Carousel Image 7" class="carousel-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="skill-section" class="not-start">
+        <div id="ds" class="skills">
+            <div class="default">
+                <div>
+                    <h1 class="skills-title">Data Science</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="contrast-col">Leverage my university education in Python and its libraries, as well as C, R, and SQL.</p>
+                </div>
+            </div>
+            
+            <div class="hover-content">
+                <div>
+                    <h1 class="skills-title">Data Science</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="contrast-col">Leverage my university education in Python and its libraries, as well as C, R, and SQL.</p>
+                    <h2 class="skill-contact"><span>Learn More &rArr;</span></h2>
+                </div>
+            </div>
+        </div>
+
+        <div id="webdev" class="skills">
+            <div class="default">
+                <div>
+                    <h1 class="skills-title">Web Dev</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="contrast-col">Integrate my self-taught HTML and CSS expertise with formal JavaScript training.</p>
+                </div>
+            </div>
+
+            <div class="hover-content">
+                <div>
+                    <h1 class="skills-title">Web Dev</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="contrast-col">Integrate my self-taught HTML and CSS expertise with formal JavaScript training.</p>
+                    <h2 class="skill-contact"><span>Learn More &rArr;</h2>
+                </div>
+            </div>
+        </div>
+
+        <div id="uiux" class="skills">
+            <div class="default">
+                <div>
+                    <h1 class="skills-title">UI/UX Design</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="contrast-col">Discover how I stay updated on industry trends to craft intuitive and innovative designs.</p>
+                </div>
+            </div>
+            
+            <div class="hover-content">
+                <div>
+                    <h1 class="skills-title">UI/UX Design</h1>
+                </div>
+                <div class="skill-summary">
+                    <p class="contrast-col">Discover how I stay updated on industry trends to craft intuitive and innovative designs.</p>
+                    <h2 class="skill-contact"><span>Learn More &rArr;</span></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="note-section" class="section not-start">
+        <div id="note-container">
+            <div id="image-container">
+                <span id="note-left" class="lowlight">Built by a Designer.</span>
+                <img src="images/about/me.jpg" alt="My PIC :P">
+            </div>
+            <div id="text-container">
+                <span id="note-right" class="highlight">Learn more about the Creator.</span>
+                <div id="about-me">
+                    <p id="adjusting-text">
+                        Structural Engineering.<br><br>
+
+                        That was my career path, prior to my summer break of self-taught Python passion. That summer, I tutored myself
+                        eagerly, gaining a new hobby and discoveing a potential career path I actually could see myself doing. I was always a
+                        nerd at maths - problem solving is something I adore and is arguably my biggest strength - yet the association of math
+                        and engineering never clicked for me.<br><br>
+
+                        23 people in a room.<br><br>
+
+                        Thats how many people it takes for the probability to exceed 50% that two people share the same birthday. Being 16
+                        and learning this first through a Vertisium video, I believed Statistics was an esoteric field of math; a point of curiousity
+                        that only blossomed the further my educational journey continued. Thus...<br><br>
+
+                        Data Science.<br><br>
+
+                        The culimation of a summer fling of Python and a deep nurtured interest in statistics. Studying data science further,
+                        completing personal projects, staying up to date with data science via reddit, tiktok and twitter; my passion for the field
+                        has only grown.<br><br>
+
+                        Hi, I'm Reuben Mattaｍ...<br>
+                        <a id="connect" href="contact.html">Lets Connect &#9749;</a>
+                    </p> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="window-section not-start">
+        <div class="centered-box">
+            <h1>When I'm not working on projects I'm...</h2>
+                <div class="image-grid">
+                    <div class="grid-item">
+                        <div class="image-box" style="background-image: url('images/about/music.jpg');"></div>
+                        <p>Listening to music.</p>
+                    </div>
+                    <div class="grid-item">
+                        <div class="image-box" style="background-image: url('images/about/cafe.jpg');"></div>
+                        <p>Cafe Hopping.</p>
+                    </div>
+                    <div class="grid-item">
+                        <div class="image-box" style="background-image: url('images/about/bouldering.jpg');"></div>
+                        <p>Bouldering.</p>
+                    </div>
+                    <div class="grid-item">
+                        <div class="image-box" style="background-image: url('images/about/reading.jpg');"></div>
+                        <p>Reading.</p>
+                    </div>
+                </div>
+        </div>
+    </section>
+    
+    <section id="spotify-section" class="not-start">
+        <div id="spotify-container">
+            <div id="playlist-embed">
+                <h2 class="highlight">See what I've been into right now<br><span class="lowlight">Maybe you will like a song or two...</span></h2>
+                <iframe class="playlist" src="https://open.spotify.com/embed/playlist/5lFb21iwftyFLTHqwVIbpq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <a href="https://open.spotify.com/user/5hui60plz2y0sq2wf7q8w47u1?si=39cbe652d012495d" id="view-more">View More</a>
+            </div>
+        </div>
+    </section>    
+
+
+    <footer class="footer-section not-start">
+        <div class="footer-left">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html" class="active">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-center">
+            <a href="home.html">
+                <img src="images/logo !.png" alt="Website Logo" class="logo">
+            </a>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/reubenmattam" target="_blank" rel="noopener">
+                    <img src="images/insta.png" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/in/Reuben-Mattam/" target="_blank" rel="noopener">
+                    <img src="images/linkdin.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/Reuben-Mattam" target="_blank" rel="noopener">
+                    <img src="images/github.png" alt="GitHub">
+                </a>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p>© 2024 Reuben Mattam</p>
+        </div>
+    </footer>
+
+    <script>
+        // intro carousell
+        document.addEventListener("DOMContentLoaded", () => {
+            const track = document.querySelector(".carousel-track");
+
+            function setupInfiniteTrack() {
+                const images = Array.from(track.children);
+                images.forEach((image) => {
+                    const clone = image.cloneNode(true);
+                    track.appendChild(clone);
+                });
+            }
+            function startInfiniteScroll() {
+                let scrollPosition = 0;
+                const scrollSpeed = 1;
+                
+                function scroll() {
+                    const singleSetWidth = track.scrollWidth / 2;
+                    
+                    scrollPosition += scrollSpeed;
+                    
+                    // when we reach the width of the first set
+                    if (scrollPosition >= singleSetWidth) {
+                        // reset to beginning without animation !!
+                        scrollPosition = 0;
+                    }
+                    
+                    track.style.transform = `translateX(-${scrollPosition}px)`;
+                    requestAnimationFrame(scroll);
+                }
+        
+                scroll();
+            }
+        
+            setupInfiniteTrack();
+            startInfiniteScroll();
+        });
+    </script>
+</body>
+</html>

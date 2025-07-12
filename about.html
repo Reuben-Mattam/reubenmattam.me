@@ -8,280 +8,44 @@
     <link rel="icon" href="images/logo !.png" type="image/png">
     <script src="animations.js" defer></script>
     <style>
-/* CAROUSEL SECTION !!! */
-        #carousel-section {
+/* ABOUT -START  SECTION !!! */
+        #about-start {
+            position: relative;
+            width: auto;
             height: 100vh;
-            min-height: 450px;
-            width: 100vw;
-            
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            overflow: hidden;
         }
-        
-        .carousel-left, .carousel-right {
+
+        #img-layer3,
+        #img-layer2,
+        #img-layer1 {
             position: absolute;
-            top: 50vh;
-
-            transform: translateY(-50%);
-            z-index: 1000;
-        }
-        
-        .carousel-left {
-            left: 24px;
-        }
-        
-        .carousel-right {
-            right: 24px;
-        }
-        
-        .carousel {
-            width: 100%;
-            height: auto;
-            min-height: 375px;
-
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .carousel-track {
-            width: max-content;
-
-            display: flex;
-            gap: 20px;
-            animation: none;
-            will-change: transform;
-        }
-        
-        .carousel-image {
-            max-height: 594px;
-            height: 58vh;
-            min-height: 371px;
-            
-            aspect-ratio: 480 / 594;
-
+            top: 0;
+            left: -5%;
+            width: 110%;
+            height: 100%;
             object-fit: cover;
-            flex-shrink: 0;
-            border-radius: 12px;
-            overflow: hidden;
-            display: block;
-            border: 4px solid #123524;
-            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 0;
         }
-        
-        /*viewport carousell changes */
-        @media (max-height: 700px) {
-            .carousel-image {
-                min-width: 250px;
-            }
-        }
+        #img-layer3 { z-index: 0; }
+        #img-layer2 { z-index: 1; }
+        #img-layer1 { z-index: 2; }
 
-        @media (max-width: 500px){
-            .carousel-image {
-                min-width: 400px;
-            }
-            .carousel-left{
-                left: 12px;
-            }
-            .carousel-right {
-                right: 12px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .carousel-image {
-                min-width: 300px;
-            }
-            .carousel-left{
-                left: 12px;
-            }
-            .carousel-right {
-                right: 12px;
-            }
-        }
-        /*viewport carousell changes */
-        
-/* CAROUSEL SECTION !!! */
-
-/* skills section */
-        #skill-section {
-            width: 100%;
-            height: auto;
-
-            display: flex;
-            flex-direction: column;
-            margin: 0;
-        }
-
-        .skills {
-            width: 100%;
-            height: 25vh;
-
+        #text-start {
             position: relative;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            transition: height 0.3s ease;
+            z-index: 3;
+            top: 7.5vw;
+            left: 7.5vw;
         }
-
-        .skills:hover {
-            height: 33vh;
+        #about-heading {
+            font-size: 72px;
+            margin-bottom: 0.25em;
         }
-
-        #ds,
-        #webdev {
-            border-top: 2px solid #e5e7e6;
+        #about-subheading {
+            font-size: 48px;
+            margin-top: 0;
         }
-
-        #uiux {
-            border-top: 2px solid #e5e7e6;
-            border-bottom: 2px solid #e5e7e6;
-        }
-
-        /* image slide up */
-        .skills::before {
-            width: 100%;
-            height: 100%;
-
-            position: absolute;
-            bottom: -100%;
-            left: 0;
-
-            content: "";
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            transition: bottom 0.5s ease;
-        }
-
-        .skills-title {
-            font-size: 28px;
-        }
-
-        .skills:hover::before {
-            bottom: 0;
-        }
-
-        #ds::before {
-            background-image: url('/images/about/4.jpg');
-        }
-
-        #webdev::before {
-            background-image: url('/images/about/2.jpg');
-        }
-
-        #uiux::before {
-            background-image: url('/images/about/3.jpg');
-        }
-
-        .default,
-        .hover-content {
-            width: 100%;
-            height: 100%;
-            
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 100px;
-        }
-
-        .hover-content {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease;
-        }
-
-        .skills:hover .default {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0s 0.3s;
-        }
-
-        .skills:hover .hover-content {
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 0.5s ease;
-        }
-
-        .skills:not(:hover) .hover-content {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0s 1s;
-        }
-
-        .skill-summary {
-            width: 30%;
-        }
-
-        .skill-contact {
-            text-align: right;
-            position: relative;
-            font-size: 28px;
-        }
-
-        .skill-contact span {
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-contact span::after {
-            width: 100%;
-            height: 0;
-
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            content: "";
-            background: #e5e7e6;
-            transition: none;
-            z-index: 2;
-        }
-
-        .skills:not(:hover) .hover-content .skill-contact span::after {
-            height: 100%;
-            transition: height 0.5s ease-out;
-        }
-
-        /* viewport skill changes */
-        @media (max-width: 800px) {        
-            .default,
-            .hover-content  {
-                padding: 0 20px;
-            }
-        }
-
-        @media (max-width: 650px) {            
-            .skill-summary {
-                width: 35%;
-            }
-
-            .skill-summary .lowlight {
-                font-size: 16px;
-            }
-        
-            .default,
-            .hover-content  {
-                padding: 0 24px;
-            }
-        }
-
-        @media (max-width: 399px) {        
-            .default,
-            .hover-content  {
-                padding: 0 16px;
-            }
-        }
-        /* viewport skill changes */
-/* skills section */
+/* ABOUT -START SECTION !!! */
 
 /* NOTE SECTION !! */
         #note-section {
@@ -686,84 +450,13 @@
     </nav>
 
     
-    <section id="carousel-section" class="section">
-        <div class="carousel-left highlight">My life in focus.</div>
-        <div class="carousel-right lowlight">Melbourne Based.</div>
-        <div class="carousel">
-            <div class="carousel-track">
-                <img src="images/about/carousel1.jpg" alt="Carousel Image 1" class="carousel-image">
-                <img src="images/about/carousel2.jpg" alt="Carousel Image 2" class="carousel-image">
-                <img src="images/about/carousel3.jpg" alt="Carousel Image 3" class="carousel-image">
-                <img src="images/about/carousel4.jpg" alt="Carousel Image 4" class="carousel-image">
-                <img src="images/about/carousel5.jpg" alt="Carousel Image 5" class="carousel-image">
-                <img src="images/about/carousel6.jpg" alt="Carousel Image 6" class="carousel-image">
-                <img src="images/about/carousel7.jpg" alt="Carousel Image 7" class="carousel-image">
-            </div>
-        </div>
-    </section>
-
-    <section id="skill-section" class="not-start">
-        <div id="ds" class="skills">
-            <div class="default">
-                <div>
-                    <h1 class="skills-title">Data Science</h1>
-                </div>
-                <div class="skill-summary">
-                    <p class="contrast-col">Leverage my university education in Python and its libraries, as well as C, R, and SQL.</p>
-                </div>
-            </div>
-            
-            <div class="hover-content">
-                <div>
-                    <h1 class="skills-title">Data Science</h1>
-                </div>
-                <div class="skill-summary">
-                    <p class="contrast-col">Leverage my university education in Python and its libraries, as well as C, R, and SQL.</p>
-                    <h2 class="skill-contact"><span>Learn More &rArr;</span></h2>
-                </div>
-            </div>
-        </div>
-
-        <div id="webdev" class="skills">
-            <div class="default">
-                <div>
-                    <h1 class="skills-title">Web Dev</h1>
-                </div>
-                <div class="skill-summary">
-                    <p class="contrast-col">Integrate my self-taught HTML and CSS expertise with formal JavaScript training.</p>
-                </div>
-            </div>
-
-            <div class="hover-content">
-                <div>
-                    <h1 class="skills-title">Web Dev</h1>
-                </div>
-                <div class="skill-summary">
-                    <p class="contrast-col">Integrate my self-taught HTML and CSS expertise with formal JavaScript training.</p>
-                    <h2 class="skill-contact"><span>Learn More &rArr;</h2>
-                </div>
-            </div>
-        </div>
-
-        <div id="uiux" class="skills">
-            <div class="default">
-                <div>
-                    <h1 class="skills-title">UI/UX Design</h1>
-                </div>
-                <div class="skill-summary">
-                    <p class="contrast-col">Discover how I stay updated on industry trends to craft intuitive and innovative designs.</p>
-                </div>
-            </div>
-            
-            <div class="hover-content">
-                <div>
-                    <h1 class="skills-title">UI/UX Design</h1>
-                </div>
-                <div class="skill-summary">
-                    <p class="contrast-col">Discover how I stay updated on industry trends to craft intuitive and innovative designs.</p>
-                    <h2 class="skill-contact"><span>Learn More &rArr;</span></h2>
-                </div>
-            </div>
+    <section id="about-start">
+        <img id="img-layer3" src="images/about/layer3.png" alt="">
+        <img id="img-layer2" src="images/about/layer2.png" alt="">
+        <img id="img-layer1" src="images/about/layer1.png" alt="">
+        <div id="text-start">
+            <h1 id="about-heading" class="highlight">Data Science is Storytelling.</h1>
+            <p id="about-subheading" class="lowlight">Let me tell your Story.</p>
         </div>
     </section>
 
@@ -869,42 +562,42 @@
     </footer>
 
     <script>
-        // intro carousell
-        document.addEventListener("DOMContentLoaded", () => {
-            const track = document.querySelector(".carousel-track");
+        const aboutStart = document.getElementById('about-start');
+        const layer1 = document.getElementById('img-layer1');
+        const layer2 = document.getElementById('img-layer2');
+        const layer3 = document.getElementById('img-layer3');
 
-            function setupInfiniteTrack() {
-                const images = Array.from(track.children);
-                images.forEach((image) => {
-                    const clone = image.cloneNode(true);
-                    track.appendChild(clone);
-                });
-            }
-            function startInfiniteScroll() {
-                let scrollPosition = 0;
-                const scrollSpeed = 1;
-                
-                function scroll() {
-                    const singleSetWidth = track.scrollWidth / 2;
-                    
-                    scrollPosition += scrollSpeed;
-                    
-                    // when we reach the width of the first set
-                    if (scrollPosition >= singleSetWidth) {
-                        // reset to beginning without animation !!
-                        scrollPosition = 0;
-                    }
-                    
-                    track.style.transform = `translateX(-${scrollPosition}px)`;
-                    requestAnimationFrame(scroll);
-                }
-        
-                scroll();
-            }
-        
-            setupInfiniteTrack();
-            startInfiniteScroll();
-        });
+        const layerRanges = {
+            layer1: 30,
+            layer2: -20,
+            layer3: 10
+        };
+
+        function handleMouseMove(e) {
+            const rect = aboutStart.getBoundingClientRect();
+            const centerX = rect.width / 2;
+            
+            const mouseX = e.clientX - rect.left;
+            const deltaX = (mouseX - centerX) / centerX;
+            
+
+            const layer1MoveX = deltaX * layerRanges.layer1;
+            const layer2MoveX = deltaX * layerRanges.layer2;
+            const layer3MoveX = deltaX * layerRanges.layer3;
+            
+            layer1.style.transform = `translate(${layer1MoveX}px, 0px)`;
+            layer2.style.transform = `translate(${layer2MoveX}px, 0px)`;
+            layer3.style.transform = `translate(${layer3MoveX}px, 0px)`;
+        }
+
+        function handleMouseLeave() {
+            layer1.style.transform = 'translate(0px, 0px)';
+            layer2.style.transform = 'translate(0px, 0px)';
+            layer3.style.transform = 'translate(0px, 0px)';
+        }
+
+        aboutStart.addEventListener('mousemove', handleMouseMove);
+        aboutStart.addEventListener('mouseleave', handleMouseLeave);
     </script>
 </body>
 </html>

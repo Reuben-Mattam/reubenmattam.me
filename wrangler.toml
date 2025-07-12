@@ -1,9 +1,0 @@
-name = "latest-spotify-track"
-type = "javascript"
-
-account_id = "d04cc2ab10619675d46dec6494510446"
-workers_dev = true
-
-[env.production]
-route = "https://reubenmattam.me/api/latest-spotify-track"
-zone_id = "4b53bf6dbe7b9720fc28510bda8533a7"

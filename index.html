@@ -55,6 +55,8 @@
 
             transform: translateY(-50%);
             z-index: 1000;
+
+            font-size: 20px;
         }
         
         .carousel-left {
@@ -63,6 +65,7 @@
         
         .carousel-right {
             right: 24px;
+            color: #A5A5A5;
         }
         
         .carousel {
@@ -101,25 +104,25 @@
             box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-                /*viewport carousell changes */
+        /*viewport carousell changes */
         @media (max-height: 700px) {
             .carousel-image {
                 min-width: 250px;
             }
         }
-
         @media (max-width: 500px){
             .carousel-image {
                 min-width: 400px;
             }
             .carousel-left{
                 left: 12px;
+                font-size: 16px;
             }
             .carousel-right {
                 right: 12px;
+                font-size: 16px;
             }
         }
-
         @media (max-width: 400px) {
             .carousel-image {
                 min-width: 300px;
@@ -129,6 +132,9 @@
             }
             .carousel-right {
                 right: 12px;
+            }
+            #temp2 {
+                font-size: 20px;
             }
         }
         /*viewport carousell changes */
@@ -259,8 +265,44 @@
         }
         @media(max-width: 675px) {
             .services {
+                min-height: 0;
                 flex-direction: column;
+                height: calc((200px + (100vw - 600px) * -0.5) + 100vw - 48px);
+                gap: 24px;
             }
+            .services-text {
+                height: calc(200px + (100vw - 600px) * -0.5);
+            }
+            .services-split {
+                align-items: center;
+                width: calc(100% - 24px);
+            }
+            .service-heading {
+                position: relative;
+                top: 0;
+                padding: 0;
+                margin: 0;
+            }
+            .services-p {
+            font-size: 20px;
+            width: 75%;
+            }
+            .services-vid {
+                margin-bottom: 24px;
+                height: calc(100% - 48px);
+                width: calc(100% - 48px);
+                margin-left: 24px;
+            }
+            .services-text {
+                width: calc(100% - 24px);
+                margin-left: 24px;
+                margin-top: 24px;
+            }
+            .services-examples {
+                min-width: 150px;
+                line-height: 1.75;
+            }
+            
         }
         /* PROJ SECTION END !!!!!!*/
 
@@ -371,12 +413,12 @@
         #arrows {
             display: flex;
             flex-direction: row;
-            gap: 06px;
+            gap: 0.625vw;
+            margin: 0;
         }
         #prev-fact, #next-fact {
             cursor: pointer;
             user-select: none;
-            padding: 4px 8px;
             transition: color 0.3s ease;
             font-size: 16px;
         }
@@ -403,6 +445,8 @@
         #now-playing {
             width: calc(100% - 12px);
             margin-left: 12px;
+            font-size: 1.04166666vw;
+            color: #e5e7e6;
         }
         #spotify-container {
             width: 90%;
@@ -455,6 +499,120 @@
         .about-title {
             color: #DE1A1A; /* #E55812 */
             font-size: 3vw;
+        }
+
+        @media (max-width: 920px) {
+             #broken-bento {
+                grid-template-columns: repeat(5, 1fr);
+                grid-template-rows: repeat(5, 1fr);
+                height: calc(((100vw - 108px) / 5) * 5 + 48px);
+             }
+
+             #box-me {
+                grid-column: 1 / span 2;
+                grid-row: 4 / span 2;
+             }
+             #box-fact {
+                grid-column: 4 / span 2;
+                grid-row: 1 / span 2;
+             }
+             #fact-controls {
+                grid-column: 5;
+                grid-row: 3;
+             }
+             #box-music {
+                grid-column: 5;
+                grid-row: 5;
+             }
+             #box-top-padding {
+                grid-column: 4 / span 2;
+                grid-row: 4;
+                align-items: center;
+             }
+             #box-bottom-padding {
+                grid-column: 3 / span 2;
+                grid-row: 5;
+                align-items: center;
+             }
+             #fact-num {
+                font-size: 5vw;
+             }
+             #fact-text {
+                font-size: 2.5vw;
+             }
+             #song-title {
+                font-size: 2vw;
+             }
+             #artist-name {
+                font-size: 1.5vw;
+             }
+             #prev-fact,
+             #next-fact,
+             #carousel-pos,
+             #temp,
+             #now-playing  {
+                font-size: 1.75vw;
+            }
+        }
+
+        @media (max-width: 600px) {
+             #broken-bento {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(9, 1fr);
+                width: calc(100vw - 48px);
+                height: calc(((100vw - 72px) / 3) * 9 + 96px);
+             }
+             #box-factImg {
+                grid-column: 1 / span 3;
+                grid-row: 2 / span 3;
+             }
+             #box-me {
+                grid-column: 2 / span 2;
+                grid-row: 8 / span 2;
+             }
+             #box-fact {
+                grid-column: 1 / span 2;
+                grid-row: 5 / span 2;
+             }
+             #fact-controls {
+                grid-column: 3;
+                grid-row: 5;
+             }
+             #box-music {
+                grid-column: 1;
+                grid-row: 9;
+             }
+             #box-top-padding {
+                grid-column: 1 / span 3;
+                grid-row: 1;
+                align-items: flex-end;
+             }
+             #box-bottom-padding {
+                grid-column: 2 / span 2;
+                grid-row: 7;
+                align-items: center;
+             }
+             .about-title {
+                font-size: 6vw;
+             }
+
+             #fact-num {
+                font-size: 8vw;
+             }
+             #fact-text {
+                font-size: 4vw;
+             }
+             #artist-name {
+                font-size: 2vw;
+             }
+             #prev-fact,
+             #next-fact,
+             #carousel-pos,
+             #temp,
+             #now-playing,
+             #song-title  {
+                font-size: 2.66666667vw;
+            }
         }
         /* ABOUT SECTION END*/
 
@@ -553,10 +711,6 @@
 
         .grid-lfont {
             color: #A5A5A5;
-            font-size: 1.04166666vw;
-        }
-        .grid-hfont {
-            color: #e5e7e6;
             font-size: 1.04166666vw;
         }
         
@@ -857,8 +1011,8 @@
         <div id="hero-name">
             <h1 id="hero-me">REUBEN MATTAM</h1>
         </div>
-        <div class="carousel-left highlight">My life in focus.</div>
-        <div class="carousel-right lowlight">Melbourne Based.</div>
+        <div class="carousel-left">My life in focus.</div>
+        <div class="carousel-right">Melbourne Based.</div>
         <div class="carousel">
             <div class="carousel-track">
                 <img src="images/about/carousel1.jpg" alt="Carousel Image 1" class="carousel-image">
@@ -934,7 +1088,7 @@
                         decision-making across digital products.
                     </p>
                     <div class="services-examples">
-                        \<a href="" class="services-link">reubenmattam.me</a>
+                        <a href="" class="services-link">reubenmattam.me</a>
                         <a href="" class="services-link">stats.sptfy</a>
                     </div>
                 </div>
@@ -971,7 +1125,7 @@
             </div>
             <div id="fact-controls" class="box">
                 <div id="controls-wrapper">
-                    <h2 class="grid-lfont">An interesting fact about me is...</h2>
+                    <h2 id="temp" class="grid-lfont">An interesting fact about me is...</h2>
                     <div id="carousel-controls">
                         <p id="carousel-pos" class="grid-lfont">1/5</p>
                         <div id="arrows">
@@ -983,7 +1137,7 @@
             </div>
 
             <div id="box-music" class="box">
-                <div id="now-playing" class="grid-hfont">
+                <div id="now-playing">
                     Now playing 🎧
                 </div>
                 <div id="spotify-container">

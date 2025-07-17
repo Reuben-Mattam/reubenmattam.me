@@ -12,301 +12,353 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&family=Lexend:wght@100..900&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
     <style>
-/* CAROUSELL !! */
-        #carousel-section {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-        }
+/* Project Landing SEction !! */
+    #project-landing {
+        width: 100vw;
+        height: 100vh;
 
-        .image-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .image-container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .carousel-container {
-            width: 100%;
-            height: 100%;
-
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 3s ease, filter 3s ease;
-            filter: blur(20px);
-
-        }
-
-        .carousel-container.active {
-            opacity: 1;
-            filter: blur(0);
-        }
-
-        .carousel-vid {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .carousel-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none;
-        }
-
-        .carousel-titles {
-            position: absolute;
-            bottom: 48px;
-            left: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            z-index: 16;
-        }
-
-        .carousel-title {
-            font-size: 72px;
-            opacity: 0.6;
-            transition: opacity 0.3s ease;
-        }
-
-        .carousel-title.active {
-            opacity: 1;
-            font-weight: bold;
-        }
-
-        .superscript {
-            font-size: 20px;
-            vertical-align: super;
-        }
-
-        /*carousel text viewport changes !*/
-        @media (max-width: 600px) {
-            #carousel-section{
-                height: 100%;
-            }
-            .carousel-title{
-                font-size: 48px;
-            }
-        }
-        /*carousel text viewport changes !*/
-/* CAROUSELL !! */
-
-/* Projection Section  !! */
-        #project-section {
-            width: 100vw;
-            height: auto;
-            margin: 152px 0 96px 0;
-
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-
-        /* left side */
-        #proj-heading {
-            height: auto;
-            width: auto;
-            margin: 0 24px;
-
-            background:
-                url(images/projects/background-left.png) no-repeat left 0 / auto 100%,
-                url(images/projects/background-right.png) no-repeat right 0 / auto 100%;
-        }
-
-        #section-desc {
-            width: 40vw;
-            height: auto;
-
-            position: sticky;
-            top: 25vh;
-
-            font-size: 48px;
-            font-family: "Lexend", sans-serif;
-        }
-
-        #mobile-section-desc {
-            display: none;
-        }
-
-        #about-link {
-            text-decoration: none;
-            color: #e7e5e6;
-            font-size: 20px;
-        }
-
-        #about-link:hover {
-            text-decoration: underline;
-        }
-        /* left side */
-
-        /* right side */
-        #proj-display {
-            width: auto;
-            height: auto;
-
-            display: flex;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+    }
+    .landing-proj {
+        width: calc((100vw/3) - 36px);
+        aspect-ratio: 1.75;
+        overflow: hidden;
+    }
+    .landing-proj img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    @media (max-width: 675px) {
+        #project-landing {
             flex-direction: column;
         }
-
-        .proj-container {
-            width: auto;
-            max-width: 88vh;
-
-            margin: 48px 36px;
+        .landing-proj {
+            width: 54.6875vw;
         }
-
-        .proj-vid {
-            width: 100%;
-            aspect-ratio: 16 / 9;
+    }
+/* Project Landing SEction !! */
 
 
-            border: 4px solid #123524;
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
+/* Project Showcase SEction !! */
+    #project-showcase {
+        height: auto;
+        width: 100vw;
+    }
+    .showcase-proj {
+        height: 100vh;
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .proj-box {
+        width: 54.6875vw;
+        height: 36.458vw;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        background-color: #1B5136;
+        border-radius: 12px;
+        border: 4px solid #123524;
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+
+        transition: width 0.5s ease, height 0.5s ease;
+    }
+    .expanded .proj-box {
+        width: 1082.8125px;
+        height: 721.875px;
+    }
+    .proj-year {
+        width: calc(10% - 12px);
+        height: calc(100% - 24px);
+
+        display: flex;
+        align-items: flex-start;
+
+    }
+    .proj-png1 {
+        height: 100%;
+        aspect-ratio: 1;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+    }
+    .proj-summary {
+        position: relative;
+        width: calc(20% - 12px);
+        height: calc(100% - 24px);
+
+    }
+    .code-lang {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .sumamry {
+        position: absolute;
+        top: 55%;
+        left: 0;
+    }
+
+
+    .proj-details {
+        width: 18.229vw;
+        height: 36.458vw;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        background-color: #1B5136;
+        border-radius: 12px;
+        border: 4px solid #123524;
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+
+        transition: width 0.5s ease, height 0.5s ease;
+    }
+    .expanded .proj-details {
+        width: 360.9375px;
+        height: 721.875px;
+    }
+
+    .proj-title {
+        width: calc(100% - 24px);
+        height: auto;
+        margin: 12px 0;
+    }
+    .proj-png2 {
+        width: 100%;
+        aspect-ratio: 1.75;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .proj-points {
+        width: calc(100% - 24px);
+        min-height: calc(40% - 12px);
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        z-index: 1000;
+    }
+    .points-list {
+        width: 75%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .points-list li {
+        margin-bottom: 0.52vw;
+    }
+    .proj-png3 {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .proj-heading {
+        color: #e5e7e6;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+    }
+    .proj-text {
+        color: #e5e7e6;
+        font-size: 20px;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+
+        opacity: 0;
+        transition: opacity 1s ease;
+    }
+    .box-link:hover {
+        color: #a5a5a5;
+    }
+    .expanded .proj-text {
+        opacity: 1;
+    }
+    .github-link {
+        align-self: flex-start;
+        margin-top: 0.52vw;
+    }
+
+    .proj-png3 img,
+    .proj-png1 img,
+    .proj-png2 img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+    }
+
+
+    @media (max-width: 1500px) {
+        .expanded .proj-box {
+            width: 866.25px;
+            height: 577.5px;
         }
+        .expanded .proj-details {
+            width: 288.75px;
+            height: 577.5px;
+        }
+        .proj-text,
+        .proj-heading {
+            font-size: 16px;
+        }
+    }
+    @media (max-width: 1200px) {
+        .expanded .proj-box {
+            width: 72.1875vw;
+            height: 48.125vw;
+        }
+        .expanded .proj-details {
+            width: 24.0625vw;
+            height: 48.125vw;
+        }
+    }
 
-        .proj-img {
+    @media (max-width: 1100px) {
+        .points-list {
             width: 100%;
-            aspect-ratio: 16 / 9;
-
-            display: none;
-            border: 4px solid #123524;
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
+        }
+        .proj-title {
+            width: calc(100% - 24px);
+            height: calc(10% - 12px);
+        }
+        .proj-png2 {
+            height: calc(32.5% - 12px);
+        }
+        .proj-png3 {
+            height: 22.5%;
+        }
+    }
+    @media (max-width: 900px) {
+        .proj-text {
+            font-size: 12px;
+        }
+    }
+    @media (max-width: 675px) {
+        .showcase-proj {
+            flex-direction: column;
+        }
+        .proj-box {
+            display: flex;
+            justify-content: flex-start;
+        }
+        .proj-year {
+             width: 10%;
+             margin-left: 4px;
+             justify-self: flex-start;
+        }
+        .proj-png1 {
+             width: calc(70% - 8px);
+        }
+        .proj-summary {
+            width: calc(30% - 4px);
+        }
+        .code-lang {
+            margin-right: 4px;
+        }
+        .sumamry {
+            top: 40%;
         }
 
         .proj-details {
-            width: 100%;
-            height: 10vh;
+            height: 18.229vw;
+            width: 54.6875vw;
 
-            display: flex;
-            flex-direction: column;
-            text-align: end;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
         }
-
-        .proj-titles {
-            width: 100%;
-            height: auto;
-
-            font-size: 20px;
-            display: flex;
-            justify-content: space-between;
-            gap: 64px;
-
-            color: #A5A5A5;
-        }
-
-        .proj-name {
-            display: flex;
-            text-align: start;
-            justify-content: start;
-            align-items: start;
-        }
-
-        .github-link {
-            text-decoration: none;
-            color: #e7e5e6;
-        }
-
-        .github-link:hover {
-            text-decoration: underline;
-        }
-
-        .proj-desc {
-            font-size: 16px;
+        .proj-title {
+            height: 100%;
+            width: 30%;
             margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        /* right side */
+        .proj-png2 {
+            height: 100%;
+            width: 0%;
+        }
+        .proj-points {
+            height: calc(100% - 8px);
+            min-width: calc(40% - 8px);
 
-        @media (max-width: 900px), (max-height: 600px){
-            #project-section {
-                width: 100vw;
-                height: auto;
-
-                flex-direction: column;
-                justify-content: start;
-                margin: 96px 0;
-                
-            }
-            /* left side */
-            #proj-heading {
-                margin: 0 12px;
-                background: none;
-            }
-
-            #section-desc {
-                width: calc(100% - 12px);
-                
-                margin: 0;
-                font-size: 48px;
-                font-family: Sans-Serif;
-            }
-
-            #pc-section-desc {
-                display: none;
-            }
-
-            #mobile-section-desc{
-                display: inline;
-                font-size: 48px;
-            }
-
-            #about-link {
-                display: flex;
-                justify-content: end;
-
-                font-size: 20px;
-            }
-            /* left side */
-
-            /* right side */
-            #proj-display {
-                background:
-                    url(images/projects/background-left.png) no-repeat left 0 / auto 100%,
-                    url(images/projects/background-right.png) no-repeat right 0 / auto 100%;
-            }
-
-            .proj-container {
-                margin: 36px 0;
-            }
-
-            .proj-details {
-                width: calc(100vw - 24px);
-                height: auto;
-                margin: 0 12px;
-            }
-
-            .proj-vid {
-                width: 100vw;
-                margin: 0;
-                border-radius: 0px;
-            }
-            /* right side */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .points-list li {
+            margin-bottom: 4px;
+        }
+        .proj-png3 {
+            width: 25%;
+            height: calc(100% - 8px)
+        }
+        .github-link {
+            align-self: flex-start;
+            margin-top: 1.52vw;
         }
 
-        @media (max-width: 400px) {
-            #mobile-section-desc {
-                font-size: 28px;
-            }
+        .expanded .proj-box {
+            width: 95vw;
+            height: 63.333vw;
         }
-/* Projection Section  !! */
+        .expanded .proj-details {
+            width: 95vw;
+            height: 31.6605vw;
+        }
+    }
+    @media (max-width: 450px) {
+        .proj-title {
+            height: 100%;
+            width: 20%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 4px;
+        }
+    }
+
+
+    
+/* Project Showcase SEction !! */
     </style>
 </head>
 <body id="project-page">
@@ -330,97 +382,163 @@
         </ul>
     </nav>
 
-    <section id="carousel-section" class="not-start">
-        <div class="image-container">
-            <div class="carousel-container active">
-                <video class="carousel-vid" loop autoplay muted playsinline>
-                    <source src="images/projects/bookstore-vid.mp4" media="(min-width: 651px)" type="video/mp4">
-                    <source src="images/projects/bookstore-lowq-vid.mp4" media="(max-width: 650px)" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <img class="carousel-img" src="images/sample.jpg" alt="this is temp">
-            </div>
-            <div class="carousel-container">
-                <video class="carousel-vid" loop autoplay muted playsinline>
-                    <source src="images/projects/statssptfy-vid.mp4" media="(min-width: 651px)" type="video/mp4">
-                    <source src="images/projects/statssptfy-lowq-vid.mp4" media="(max-width: 650px)" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <img class="carousel-img" src="images/sample.jpg" alt="this is temp">
-            </div>
-            <div class="carousel-container">
-                <video class="carousel-vid" loop autoplay muted playsinline>
-                    <source src="images/projects/trackersptfy-vid.mp4" media="(min-width: 651px)" type="video/mp4">
-                    <source src="images/projects/trackersptfy-lowq-vid.mp4" media="(max-width: 650px)" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <img class="carousel-img" src="images/sample.jpg" alt="this is temp">
-            </div>
-            
+    <section id="project-landing">
+        <div class="landing-proj">
+            <img src="images/projects/p1-landing.png" alt="">
         </div>
-        <div class="carousel-titles">
-            <div class="carousel-title" data-index="0">Bookstore<span class="superscript">  2024</span></div>
-            <div class="carousel-title" data-index="1">Stats.Sptfy<span class="superscript">  2025</span></div>
-            <div class="carousel-title" data-index="2">Tracker.Sptfy<span class="superscript">  2024</span></div>
+        <div class="landing-proj">
+            <img src="images/projects/p2-landing.png" alt="">
+        </div>
+        <div class="landing-proj">
+            <img src="images/projects/p3-landing.png" alt="">
         </div>
     </section>
 
-    <section id="project-section" class="not-start">
-        <div id="proj-heading">
-            <div id="section-desc">
-                <p id="pc-section-desc">View my palette of projects. Explore my Works, <span>Or...</span></p>
-                <h1 id="mobile-section-desc">View my palette of projects. Explore my Works, <span>Or...</span></h1>
-                <a id="about-link" href="about.html">See Behind the Curtain &rArr;</a>
+    <section id="project-showcase">
+        <!-- stats.sptfy project -->
+        <div class="showcase-proj">
+            <div class="proj-box">
+                    <div class="proj-year">
+                        <p class="proj-heading">2025</p>
+                    </div>
+                    <div class="proj-png1">
+                        <img class="png-proj" src="images/projects/p1-png1.png" alt="">
+                    </div>
+                    <div class="proj-summary">
+                        <ul class="proj-text code-lang">
+                            <li>Python - eel</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+                        <div class="sumamry">
+                            <p class="proj-heading">Spotify Stats App</p>
+                            <p class="proj-text">View your spotify music habits - in conjunction wtih
+                                <a class="box-link proj-text" href="https://github.com/Reuben-Mattam/Tracker.Sptfy">Tracker.Sptfy</a>.</p>
+                        </div>
+                    </div>
             </div>
+        
+            <div class="proj-details">
+                    <div class="proj-title">
+                        <p class="proj-heading">stats .sptfy</p>
+                    </div>
+                    <div class="proj-png2">
+                        <img class="png-proj" src="images/projects/p1-png2.png" alt="">
+                    </div>
+                    <div class="proj-points">
+                        <ul class="points-list proj-text">
+                            <li>Python-based desktop-web interface using Eel.</li>
+                            <li>GUI integration through HTML, CSS and JS.</li>
+                            <li>Data analysis workflows through Pandas.</li>
+                            <li>Handling star-schema dimensional model for data retrieval.</li>
+                        </ul>
+                        <a class="github-link proj-text" href="https://github.com/Reuben-Mattam/Stats.Sptfy">&rarr; Github Repo</a>
+                    </div>
+                    <div class="proj-png3">
+                        <img class="png-proj" src="images/projects/p1-png3.png" alt="">
+                    </div>
+                    <div></div>
+             </div>
         </div>
 
-        <div id="proj-display">
-            <div class="proj-container">
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/Reuben-Mattam/bookstore-analysis">
-                    <video class="proj-vid" src="images/projects/bookstorevid.mov" loop autoplay muted playsinline></video>
-                    <img class="proj-img" src="images/projects/statssptfy.JPG" alt="Project Preview">
-                </a>
-                <div class="proj-details">
-                    <div class="proj-titles">
-                        <p class="proj-name"><a target="_blank" rel="noopener noreferrer" class="github-link" href="https://github.com/Reuben-Mattam/Stats.Sptfy">Bookstore Analysis &rArr;</a></p>
-                        <p>Python - jupyter notebook</p>
+        <!-- MLP MCSTS game playing agent project -->
+        <div class="showcase-proj">
+            <div class="proj-box">
+                    <div class="proj-year">
+                        <p class="proj-heading">2025</p>
                     </div>
-                </div>
-            </div>
-            <div class="proj-container">
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/Reuben-Mattam/Stats.Sptfy">
-                    <video class="proj-vid" loop autoplay muted playsinline>
-                        <source src="images/projects/statssptfyvid.mp4" media="(min-width: 651px)" type="video/mp4">
-                        <source src="images/projects/statssptfyvid-lowq.mp4" media="(max-width: 650px)" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <img class="proj-img" src="images/projects/statssptfy.JPG" alt="Project Preview">
-                </a>
-                <div class="proj-details">
-                    <div class="proj-titles">
-                        <p class="proj-name"><a target="_blank" rel="noopener noreferrer" class="github-link" href="https://github.com/Reuben-Mattam/Stats.Sptfy">Stats.Sptfy &rArr;</a></p>
-                        <p>Python - eel, HTMl, CSS, Javascript</p>
+                    <div class="proj-png1">
+                        <img class="png-proj" src="images/projects/p2-png1.png" alt="">
                     </div>
-                </div>
-            </div>
-            <div class="proj-container" style="margin-bottom: 0;">
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/Reuben-Mattam/Tracker.Sptfy">
-                    <video class="proj-vid" loop autoplay muted playsinline>
-                        <source src="images/projects/trackersptfyvid.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <img class="proj-img" src="images/projects/trackersptfy-mobile.jpg" alt="Project Preview">
-                </a>
-                <div class="proj-details">
-                    <div class="proj-titles">
-                        <p class="proj-name"><a target="_blank" rel="noopener noreferrer" class="github-link" href="https://github.com/Reuben-Mattam/Tracker.Sptfy">Tracker.Sptfy &rArr;</a></p>
-                        <p>Python, SQL</p>
+                    <div class="proj-summary">
+                        <ul class="proj-text code-lang">
+                            <li>Python - Numpy</li>
+                            <li>SQLite</li>
+                            <li>Docker</li>
+                        </ul>
+                        <div class="sumamry">
+                            <p class="proj-heading">AI Game Playing Agent</p>
+                            <p class="proj-text">
+                                AlphaGo‑inspired adversarial search agent.
+                                <a class="box-link proj-text" href="https://comp30024.pages.gitlab.unimelb.edu.au/2025s1/project/">Try the game.</a>
+                            </p>
+                        </div>
                     </div>
-                </div>
             </div>
+        
+            <div class="proj-details">
+                    <div class="proj-title">
+                        <p class="proj-heading">MCTS + MLP Agent</p>
+                    </div>
+                    <div class="proj-png2">
+                        <img class="png-proj" src="images/projects/p2-png2.png" alt="">
+                    </div>
+                    <div class="proj-points">
+                        <ul class="points-list proj-text">
+                            <li>Custom Numpy dual-head MLP (policy & value).</li>
+                            <li>MCTS with neural priors, hybrid backup, logs to SQLite.</li>
+                            <li>One-hot 256‑D encoding, Zobrist hashing, multi‑hop move generation.</li>
+                            <li>Heuristic opening book, domain‑tuned PUCT bonuses.</li>
+                        </ul>
+                        <a class="github-link proj-text" href="https://github.com/lorraine-sanares/AI-game-of-freckers">&rarr; Github Repo</a>
+                    </div>
+                    <div class="proj-png3">
+                        <img class="png-proj" src="images/projects/p2-png3.png" alt="">
+                    </div>
+                    <div></div>
+             </div>
+        </div>
+
+        <!-- Dual Head CNN Ensemble Classifier -->
+        <div class="showcase-proj">
+            <div class="proj-box">
+                    <div class="proj-year">
+                        <p class="proj-heading">2025</p>
+                    </div>
+                    <div class="proj-png1">
+                        <img class="png-proj" src="images/projects/p3-png1.png" alt="">
+                    </div>
+                    <div class="proj-summary">
+                        <ul class="proj-text code-lang">
+                            <li>JupyterNotebook</li>
+                            <li>Pandas</li>
+                            <li>Numpy</li>
+                            <li>torch</li>
+                            <li>sklearn</li>
+                        </ul>
+                        <div class="sumamry">
+                            <p class="proj-heading">Traffic Sign Labeling.</p>
+                            <p class="proj-text">GTSRB Traffic Sign Classification.
+                                
+                            </p>
+                        </div>
+                    </div>
+            </div>
+        
+            <div class="proj-details">
+                    <div class="proj-title">
+                        <p class="proj-heading">GTSRB Recognition</p>
+                    </div>
+                    <div class="proj-png2">
+                        <img class="png-proj" src="images/projects/p3-png2.png" alt="">
+                    </div>
+                    <div class="proj-points">
+                        <ul class="points-list proj-text">
+                            <li>Dual-head CNN for parallel feature extraction.</li>
+                            <li>Feature selection pipeline optimized for XGBoost.</li>
+                            <li>Softmax ensemble combining classifier outputs.</li>
+                            <li>99.34% accuracy via stratified cross-validation.</li>
+                        </ul>
+                        <a class="github-link proj-text" href="https://github.com/Reuben-Mattam/Stats.Sptfy">&rarr; Github Repo</a>
+                    </div>
+                    <div class="proj-png3">
+                        <img class="png-proj" src="images/projects/p3-png3.png" alt="">
+                    </div>
+                    <div></div>
+             </div>
         </div>
     </section>
-
 
     <footer class="footer-section not-start">
         <div class="footer-left">
@@ -452,112 +570,40 @@
     </footer>
 
     <script>
-        // if vids dont load, load imgs instead
-        function attachVideoFallback(videoSelector, imageSelector) {
-            const videoEl = document.querySelector(videoSelector);
-            const imgEl = document.querySelector(imageSelector);
+        /*clicking animation for showcase-proj*/
+        const projectContainers = document.querySelectorAll('.showcase-proj');
+
+        function toggleAnimation(projectContainer) {
+            const isExpanded = projectContainer.classList.contains('expanded');
             
-            if (videoEl) {
-                videoEl.addEventListener('error', function() {
-                    videoEl.style.display = 'none';
-                    if (imgEl) {
-                        imgEl.style.display = 'block';
-                    }
-                    console.log(`${videoSelector} failed to load. Fallback image ${imageSelector} displayed.`);
-                });
-
-                setTimeout(function() {
-
-                if (videoEl.readyState < 3) {
-                    videoEl.style.display = 'none';
-                    if (imgEl) {
-                        imgEl.style.display = 'block';
-                    }
-                    console.log(`${videoSelector} is taking too long to load. Fallback image ${imageSelector} displayed.`);
-                }
-                }, 10000);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            attachVideoFallback('.proj-vid', '.proj-img');
-            attachVideoFallback('.carousel-vid', '.carousel-img');
-        });
-        
-        // carousell
-        const images = document.querySelectorAll('.carousel-container');
-        const titles = document.querySelectorAll('.carousel-title');
-        let currentImageIndex = 0;
-        let intervalId;
-
-        function updateActiveTitle() {
-            titles.forEach((title, index) => {
-                if (index === currentImageIndex) {
-                    title.classList.add('active');
-                } else {
-                    title.classList.remove('active');
-                }
-            });
-        }
-
-        function changeBackgroundImage(index = null) {
-            if (index !== null) {
-                currentImageIndex = index;
+            if (isExpanded) {
+                projectContainer.classList.remove('expanded');
             } else {
-                currentImageIndex = (currentImageIndex + 1) % images.length;
-            }
-
-            images.forEach((img, i) => {
-                if (i === currentImageIndex) {
-                    img.classList.add('active');
-                } else {
-                    img.classList.remove('active');
-                }
-            });
-
-            updateActiveTitle();
-        }
-
-        function startImageRotation() {
-            intervalId = setInterval(() => changeBackgroundImage(), 5000);
-        }
-
-        function resetImageRotation() {
-            clearInterval(intervalId);
-            startImageRotation();
-        }
-
-        titles.forEach((title, index) => {
-            title.addEventListener('mouseover', () => {
-                changeBackgroundImage(index);
-                resetImageRotation();
-            });
-        });
-
-        startImageRotation();
-        updateActiveTitle();
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const nav = document.querySelector("nav");
-            const carouselSection = document.querySelector(".carousel-section");
-        
-            const observer = new IntersectionObserver(
-                ([entry]) => {
-                    if (entry.isIntersecting) {
-                        nav.classList.add("transparent");
-                    } else {
-                        nav.classList.remove("transparent");
+                projectContainers.forEach(container => {
+                    if (container !== projectContainer) {
+                        container.classList.remove('expanded');
                     }
-                },
-                {
-                    root: null,
-                    threshold: 0.1,
-                }
-            );
-        
-            observer.observe(carouselSection);
+                });
+                projectContainer.classList.add('expanded');
+            }
+        }
+
+        projectContainers.forEach(projectContainer => {
+            const projBox = projectContainer.querySelector('.proj-box');
+            const projDetails = projectContainer.querySelector('.proj-details');
+            
+            if (projBox) {
+                projBox.addEventListener('click', () => {
+                    toggleAnimation(projectContainer);
+                });
+            }
+            
+            if (projDetails) {
+                projDetails.addEventListener('click', () => {
+                    toggleAnimation(projectContainer);
+                });
+            }
         });
-        
     </script>
 </body>
 </html>

@@ -25,7 +25,7 @@
             overflow-x: hidden;
         }
 
-        /* HERO SECTION !!!*/
+/* HERO SECTION !!!*/
         #hero-section {
             height: 100vh;
             max-width: 100vw;
@@ -142,10 +142,11 @@
             }
         }
         /*viewport carousell changes */
-        /* HEROOOOO SECTION OMG*/
+/* HEROOOOO SECTION OMG*/
 
-        /* PROJ SECTION START !!!!!!!!!!!!!!*/
-        #home-proj {
+
+/* PROJ SECTION START !!!!!!!!!!!!!!*/
+        #services-display {
             height: auto;
             width: 100vw;
             margin-bottom: 30vh;
@@ -199,6 +200,10 @@
             color: #e5e7e6;
             font-size: 16px;
         }
+        .services-link:hover {
+            text-decoration: underline;
+            color: #A5A5A5;
+        }
 
         .services-vid {
             height: 80%;
@@ -236,7 +241,7 @@
             font-size: 20px;
             width: 60%;
         }
-
+        /*viewport services changes */
         @media(max-width: 1200px) {
             .services-vid {
                 height: 75%;
@@ -271,14 +276,18 @@
             }
         }
         @media(max-width: 675px) {
-            #home-proj {
+            #services-display {
                 margin-bottom: 200px;
             }
             .services {
                 min-height: 0;
+                display: flex;
                 flex-direction: column;
                 height: calc((200px + (100vw - 600px) * -0.5) + 100vw - 48px);
                 gap: 24px;
+
+                justify-content: center;
+                align-items: center;
             }
             .services-text {
                 height: calc(200px + (100vw - 600px) * -0.5);
@@ -286,6 +295,7 @@
             .services-split {
                 align-items: center;
                 width: calc(100% - 24px);
+                margin-left: 12px;
             }
             .service-heading {
                 position: relative;
@@ -299,9 +309,13 @@
             }
             .services-vid {
                 margin-bottom: 24px;
-                height: calc(100% - 48px);
-                width: calc(100% - 48px);
                 margin-left: 24px;
+                margin-top: 12px;
+                width: 100%;
+                aspect-ratio: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             .services-text {
                 width: calc(100% - 24px);
@@ -329,11 +343,12 @@
                 font-size: 16px;
             }
         }
-        /* PROJ SECTION END !!!!!!*/
+        /*viewport services changes */
+/* PROJ SECTION END !!!!!!*/
 
 
-        /* ABOUT SECTION */
-        #home-about {
+/* ABOUT SECTION */
+        #glimpse-me {
             width: 100vw;
             height: auto;
         }
@@ -525,7 +540,7 @@
             color: #DE1A1A; /* #E55812 */
             font-size: 3vw;
         }
-
+        /*viewport fact carousel changes */
         @media (max-width: 920px) {
              #broken-bento {
                 grid-template-columns: repeat(5, 1fr);
@@ -639,11 +654,11 @@
                 font-size: 2.66666667vw;
             }
         }
-        /* ABOUT SECTION END*/
+        /*viewport fact carousel changes */
+/* ABOUT SECTION END*/
 
 
-
-        /* BREAK\ SECTION */
+/* BREAK SECTION */
         #break {
             min-height: 100vh;
             min-width: 100vw;
@@ -675,9 +690,9 @@
         #reach-out.fade-in {
             opacity: 1;
         }
-        /* BREAK\ SECTION */
+/* BREAK\ SECTION */
 
-        /* Contact SECTION */
+/* Contact SECTION */
         #home-contact {
             min-height: 100vh;
             width: 100vw;
@@ -989,7 +1004,7 @@
         .social:hover .social-link {
             color: #123524;
         }
-
+        /*viewport contact changes */
         @media (max-width: 920px) {
             #contact-wrapper {
                 width: calc(672px - 48px);
@@ -1026,24 +1041,22 @@
                 font-size: 8px;
             }
         }
-        /* BREAK AND CONTACT SECTION*/
-
-        #cursor-container {
-            position: fixed;
-            width: 32px;
-            height: 32px;
-            pointer-events: none;
-            z-index: 9999;
-        }
-        @media (pointer: coarse) {
-            body {
-                cursor: auto;
+        @media (max-width: 550px) {
+            #contact-wrapper {
+                min-height: calc(((100vw - 120px) / 7) * 5 + 48px);
             }
-            #custom-cursor {
-                display: none;
+            #contact-grid {
+                gap: 4px;
+            }
+            .c1c2c3-1 {
+                opacity: 0;
+            }
+            #invs {
+                height: 20%;
             }
         }
-        /**/
+        /*viewport contact changes */
+/* BREAK AND CONTACT SECTION*/
     </style>
 </head>
 <body>
@@ -1075,25 +1088,25 @@
         <div class="carousel-right">Melbourne Based.</div>
         <div class="carousel">
             <div class="carousel-track">
-                <img src="images/about/carousel1.jpg" alt="Carousel Image 1" class="carousel-image">
-                <img src="images/about/carousel2.jpg" alt="Carousel Image 2" class="carousel-image">
-                <img src="images/about/carousel3.jpg" alt="Carousel Image 3" class="carousel-image">
-                <img src="images/about/carousel4.jpg" alt="Carousel Image 4" class="carousel-image">
-                <img src="images/about/carousel5.jpg" alt="Carousel Image 5" class="carousel-image">
-                <img src="images/about/carousel6.jpg" alt="Carousel Image 6" class="carousel-image">
-                <img src="images/about/carousel7.jpg" alt="Carousel Image 7" class="carousel-image">
-                <img src="images/about/carousel1.jpg" alt="Carousel Image 1" class="carousel-image">
-                <img src="images/about/carousel2.jpg" alt="Carousel Image 2" class="carousel-image">
-                <img src="images/about/carousel3.jpg" alt="Carousel Image 3" class="carousel-image">
-                <img src="images/about/carousel4.jpg" alt="Carousel Image 4" class="carousel-image">
-                <img src="images/about/carousel5.jpg" alt="Carousel Image 5" class="carousel-image">
-                <img src="images/about/carousel6.jpg" alt="Carousel Image 6" class="carousel-image">
-                <img src="images/about/carousel7.jpg" alt="Carousel Image 7" class="carousel-image">
+                <img src="images/home/carousel1.jpg" alt="Carousel Image 1" class="carousel-image">
+                <img src="images/home/carousel2.jpg" alt="Carousel Image 2" class="carousel-image">
+                <img src="images/home/carousel3.jpg" alt="Carousel Image 3" class="carousel-image">
+                <img src="images/home/carousel4.jpg" alt="Carousel Image 4" class="carousel-image">
+                <img src="images/home/carousel5.jpg" alt="Carousel Image 5" class="carousel-image">
+                <img src="images/home/carousel6.jpg" alt="Carousel Image 6" class="carousel-image">
+                <img src="images/home/carousel7.jpg" alt="Carousel Image 7" class="carousel-image">
+                <img src="images/home/carousel1.jpg" alt="Carousel Image 1" class="carousel-image">
+                <img src="images/home/carousel2.jpg" alt="Carousel Image 2" class="carousel-image">
+                <img src="images/home/carousel3.jpg" alt="Carousel Image 3" class="carousel-image">
+                <img src="images/home/carousel4.jpg" alt="Carousel Image 4" class="carousel-image">
+                <img src="images/home/carousel5.jpg" alt="Carousel Image 5" class="carousel-image">
+                <img src="images/home/carousel6.jpg" alt="Carousel Image 6" class="carousel-image">
+                <img src="images/home/carousel7.jpg" alt="Carousel Image 7" class="carousel-image">
             </div>
         </div>
     </section>
 
-    <section id="home-proj">
+    <section id="services-display">
         <div class="services" id="ds">
             <div class="services-text">
                 <h1 class="service-heading">Data Science</h1>
@@ -1103,11 +1116,11 @@
                         smarter decisions.
                     </p>
                     <div class="services-examples">
-                        <a href="" class="services-link">MCTS MLP Game Playing Agent.</a>
+                        <a href="https://github.com/lorraine-sanares/AI-game-of-freckers" class="services-link">MCTS MLP Game Playing Agent.</a>
                         <a href="" class="services-link">Dual-Head CNN Ensemble Classifier.</a>
-                        <a href="" class="services-link">A* Search Implementation.</a>
+                        <a href="https://github.com/lorraine-sanares/AI-game-of-freckers" class="services-link">A* Search Implementation.</a>
                         <a href="" class="services-link">Naive Bayes Text Classifier.</a>
-                        <a href="" class="services-link">Bookstore Analysis.</a>
+                        <a href="https://github.com/Reuben-Mattam/bookstore-analysis" class="services-link">Bookstore Analysis.</a>
                     </div>
                 </div>
             </div>
@@ -1127,8 +1140,9 @@
                     and usability.
                     </p>
                     <div class="services-examples">
-                        <a href="" class="services-link">reubenmattam.me</a>
-                        <a href="" class="services-link">stats.sptfy</a>
+                        <a href="https://github.com/Reuben-Mattam/reubenmattam.me" class="services-link">reubenmattam.me</a>
+                        <a href="https://github.com/Reuben-Mattam/Stats.Sptfy" class="services-link">stats.sptfy</a>
+                        <a href="https://github.com/Reuben-Mattam/Tracker.Sptfy" class="services-link">tracker.sptfy</a>
                     </div>
                 </div>
             </div>
@@ -1148,8 +1162,8 @@
                         decision-making across digital products.
                     </p>
                     <div class="services-examples">
-                        <a href="" class="services-link">reubenmattam.me</a>
-                        <a href="" class="services-link">stats.sptfy</a>
+                        <a href="https://github.com/Reuben-Mattam/reubenmattam.me" class="services-link">reubenmattam.me</a>
+                        <a href="https://github.com/Reuben-Mattam/Stats.Sptfy" class="services-link">stats.sptfy</a>
                     </div>
                 </div>
             </div>
@@ -1162,7 +1176,7 @@
         </div>
     </section>
     
-    <section id="home-about">
+    <section id="glimpse-me">
         <div id="broken-bento">
             <div id="box-me" class="box">
                 <img src="images/about/me.jpg" alt="">
@@ -1214,10 +1228,11 @@
         </div>
     </section>
 
+    <section id="tech-stack"></section>
+
     <div id="break">
         <h1 class="highlight" id="interested-break">Interested?</h1>
     </div>
-    
     
     <section id="home-contact">
         <h1 class="highlight" id="reach-out">Reach Out.</h1>
@@ -1249,7 +1264,7 @@
                     </div>
                 </div> <!-- 2 column -->
                 <div id="c3-2"> <!-- 3 column -->
-                    <img id="c3-2img" src="/images/home/wide2.jpg" alt="">
+                    <img id="c3-2img" src="images/home/wide2.jpg" alt="">
                 </div>
                 <div id="c4-2"> <!-- 4 column -->
                     <h1 class="contact-text">)</h1>

@@ -38,7 +38,7 @@
             flex-direction: column;
         }
         .landing-proj {
-            width: 54.6875vw;
+            width: 70vw;
         }
     }
 /* Project Landing SEction !! */
@@ -164,6 +164,7 @@
         align-items: flex-end;
         flex-direction: column;
         z-index: 1000;
+        margin-top: 12px;
     }
     .points-list {
         width: 75%;
@@ -274,45 +275,49 @@
             flex-direction: column;
         }
         .proj-box {
+            height: 45.667vw;
+            width: 70vw;
             display: flex;
             justify-content: flex-start;
         }
         .proj-year {
-             width: 10%;
-             margin-left: 4px;
-             justify-self: flex-start;
+            width: 10%;
+            margin: 0 8px;
+            justify-self: flex-start;
         }
         .proj-png1 {
-             width: calc(70% - 8px);
+            width: calc(70% - 8px);
         }
         .proj-summary {
+            margin-left: 8px;
             width: calc(30% - 4px);
         }
         .code-lang {
-            margin-right: 4px;
+            margin-right: 8px;
         }
         .sumamry {
             top: 40%;
         }
 
         .proj-details {
-            height: 18.229vw;
-            width: 54.6875vw;
+            height: 23.333vw;
+            width: 70vw;
 
+            display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
         }
         .proj-title {
             height: 100%;
-            width: 30%;
+            width: auto;
             margin: 0;
+            margin-left: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .proj-png2 {
-            height: 100%;
             width: 0%;
         }
         .proj-points {
@@ -327,8 +332,16 @@
             margin-bottom: 4px;
         }
         .proj-png3 {
-            width: 25%;
-            height: calc(100% - 8px)
+            width: auto;
+            height: 100%;
+            display: flex;
+            position: static;
+        }
+        .proj-png3 img {
+            width: auto;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
         .github-link {
             align-self: flex-start;
@@ -342,17 +355,16 @@
         .expanded .proj-details {
             width: 95vw;
             height: 31.6605vw;
+            min-height: 150px;
         }
     }
     @media (max-width: 450px) {
         .proj-title {
             height: 100%;
-            width: 20%;
 
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 4px;
         }
     }
 
@@ -398,35 +410,35 @@
         <!-- stats.sptfy project -->
         <div class="showcase-proj">
             <div class="proj-box">
-                    <div class="proj-year">
-                        <p class="proj-heading">2025</p>
+                <div class="proj-year">
+                    <p class="proj-heading">2025</p>
+                </div>
+                <div class="proj-png1">
+                    <img src="images/projects/p1-png1.png" alt="">
+                </div>
+                <div class="proj-summary">
+                    <ul class="proj-text code-lang">
+                        <li>Python - eel</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                    <div class="sumamry">
+                        <p class="proj-heading">Spotify Stats App</p>
+                        <p class="proj-text">View your spotify music habits - in conjunction wtih
+                            <a class="box-link proj-text" href="https://github.com/Reuben-Mattam/Tracker.Sptfy">Tracker.Sptfy</a>.</p>
                     </div>
-                    <div class="proj-png1">
-                        <img class="png-proj" src="images/projects/p1-png1.png" alt="">
-                    </div>
-                    <div class="proj-summary">
-                        <ul class="proj-text code-lang">
-                            <li>Python - eel</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>JavaScript</li>
-                        </ul>
-                        <div class="sumamry">
-                            <p class="proj-heading">Spotify Stats App</p>
-                            <p class="proj-text">View your spotify music habits - in conjunction wtih
-                                <a class="box-link proj-text" href="https://github.com/Reuben-Mattam/Tracker.Sptfy">Tracker.Sptfy</a>.</p>
-                        </div>
-                    </div>
+                </div>
             </div>
         
             <div class="proj-details">
-                    <div class="proj-title">
-                        <p class="proj-heading">stats .sptfy</p>
-                    </div>
-                    <div class="proj-png2">
-                        <img class="png-proj" src="images/projects/p1-png2.png" alt="">
-                    </div>
-                    <div class="proj-points">
+                <div class="proj-title">
+                    <p class="proj-heading">stats .sptfy</p>
+                </div>
+                <div class="proj-png2">
+                    <img src="images/projects/p1-png2.png" alt="">
+                </div>
+                <div class="proj-points">
                         <ul class="points-list proj-text">
                             <li>Python-based desktop-web interface using Eel.</li>
                             <li>GUI integration through HTML, CSS and JS.</li>
@@ -434,108 +446,104 @@
                             <li>Handling star-schema dimensional model for data retrieval.</li>
                         </ul>
                         <a class="github-link proj-text" href="https://github.com/Reuben-Mattam/Stats.Sptfy">&rarr; Github Repo</a>
-                    </div>
-                    <div class="proj-png3">
-                        <img class="png-proj" src="images/projects/p1-png3.png" alt="">
-                    </div>
-                    <div></div>
-             </div>
+                </div>
+                <div class="proj-png3">
+                    <img id="proj1" src="images/projects/p1-png3.png" alt="">
+                </div>
+            </div>
         </div>
 
         <!-- MLP MCSTS game playing agent project -->
         <div class="showcase-proj">
             <div class="proj-box">
-                    <div class="proj-year">
-                        <p class="proj-heading">2025</p>
+                <div class="proj-year">
+                    <p class="proj-heading">2025</p>
+                </div>
+                <div class="proj-png1">
+                    <img src="images/projects/p2-png1.png" alt="">
+                </div>
+                <div class="proj-summary">
+                    <ul class="proj-text code-lang">
+                        <li>Python - Numpy</li>
+                        <li>SQLite</li>
+                        <li>Docker</li>
+                    </ul>
+                    <div class="sumamry">
+                        <p class="proj-heading">AI Game Playing Agent</p>
+                        <p class="proj-text">
+                            AlphaGo‑inspired adversarial search agent.
+                            <a class="box-link proj-text" href="https://comp30024.pages.gitlab.unimelb.edu.au/2025s1/project/">Try the game.</a>
+                        </p>
                     </div>
-                    <div class="proj-png1">
-                        <img class="png-proj" src="images/projects/p2-png1.png" alt="">
-                    </div>
-                    <div class="proj-summary">
-                        <ul class="proj-text code-lang">
-                            <li>Python - Numpy</li>
-                            <li>SQLite</li>
-                            <li>Docker</li>
-                        </ul>
-                        <div class="sumamry">
-                            <p class="proj-heading">AI Game Playing Agent</p>
-                            <p class="proj-text">
-                                AlphaGo‑inspired adversarial search agent.
-                                <a class="box-link proj-text" href="https://comp30024.pages.gitlab.unimelb.edu.au/2025s1/project/">Try the game.</a>
-                            </p>
-                        </div>
-                    </div>
+                </div>
             </div>
         
             <div class="proj-details">
-                    <div class="proj-title">
-                        <p class="proj-heading">MCTS + MLP Agent</p>
-                    </div>
-                    <div class="proj-png2">
-                        <img class="png-proj" src="images/projects/p2-png2.png" alt="">
-                    </div>
-                    <div class="proj-points">
-                        <ul class="points-list proj-text">
-                            <li>Custom Numpy dual-head MLP (policy & value).</li>
-                            <li>MCTS with neural priors, hybrid backup, logs to SQLite.</li>
-                            <li>One-hot 256‑D encoding, Zobrist hashing, multi‑hop move generation.</li>
-                            <li>Heuristic opening book, domain‑tuned PUCT bonuses.</li>
-                        </ul>
-                        <a class="github-link proj-text" href="https://github.com/lorraine-sanares/AI-game-of-freckers">&rarr; Github Repo</a>
-                    </div>
-                    <div class="proj-png3">
-                        <img class="png-proj" src="images/projects/p2-png3.png" alt="">
-                    </div>
-                    <div></div>
+                <div class="proj-title">
+                    <p class="proj-heading">MCTS + MLP Agent</p>
+                </div>
+                <div class="proj-png2">
+                    <img src="images/projects/p2-png2.png" alt="">
+                </div>
+                <div class="proj-points">
+                    <ul class="points-list proj-text">
+                        <li>Custom Numpy dual-head MLP (policy & value).</li>
+                        <li>MCTS with neural priors, hybrid backup, logs to SQLite.</li>
+                        <li>One-hot 256‑D encoding, Zobrist hashing, multi‑hop move generation.</li>
+                        <li>Heuristic opening book, domain‑tuned PUCT bonuses.</li>
+                    </ul>
+                    <a class="github-link proj-text" href="https://github.com/lorraine-sanares/AI-game-of-freckers">&rarr; Github Repo</a>
+                </div>
+                <div class="proj-png3">
+                    <img id="proj2" src="images/projects/p2-png3.png" alt="">
+                </div>
              </div>
         </div>
 
         <!-- Dual Head CNN Ensemble Classifier -->
         <div class="showcase-proj">
             <div class="proj-box">
-                    <div class="proj-year">
-                        <p class="proj-heading">2025</p>
+                <div class="proj-year">
+                    <p class="proj-heading">2025</p>
+                </div>
+                <div class="proj-png1">
+                    <img src="images/projects/p3-png1.png" alt="">
+                </div>
+                <div class="proj-summary">
+                    <ul class="proj-text code-lang">
+                        <li>JupyterNotebook</li>
+                        <li>Pandas</li>
+                        <li>Numpy</li>
+                        <li>torch</li>
+                        <li>sklearn</li>
+                    </ul>
+                    <div class="sumamry">
+                        <p class="proj-heading">Traffic Sign Labeling.</p>
+                        <p class="proj-text">GTSRB Traffic Sign Classification.  
+                        </p>
                     </div>
-                    <div class="proj-png1">
-                        <img class="png-proj" src="images/projects/p3-png1.png" alt="">
-                    </div>
-                    <div class="proj-summary">
-                        <ul class="proj-text code-lang">
-                            <li>JupyterNotebook</li>
-                            <li>Pandas</li>
-                            <li>Numpy</li>
-                            <li>torch</li>
-                            <li>sklearn</li>
-                        </ul>
-                        <div class="sumamry">
-                            <p class="proj-heading">Traffic Sign Labeling.</p>
-                            <p class="proj-text">GTSRB Traffic Sign Classification.
-                                
-                            </p>
-                        </div>
-                    </div>
+                </div>
             </div>
         
             <div class="proj-details">
-                    <div class="proj-title">
-                        <p class="proj-heading">GTSRB Recognition</p>
-                    </div>
-                    <div class="proj-png2">
-                        <img class="png-proj" src="images/projects/p3-png2.png" alt="">
-                    </div>
-                    <div class="proj-points">
-                        <ul class="points-list proj-text">
-                            <li>Dual-head CNN for parallel feature extraction.</li>
-                            <li>Feature selection pipeline optimized for XGBoost.</li>
-                            <li>Softmax ensemble combining classifier outputs.</li>
-                            <li>99.34% accuracy via stratified cross-validation.</li>
-                        </ul>
-                        <a class="github-link proj-text" href="https://github.com/Reuben-Mattam/Stats.Sptfy">&rarr; Github Repo</a>
-                    </div>
-                    <div class="proj-png3">
-                        <img class="png-proj" src="images/projects/p3-png3.png" alt="">
-                    </div>
-                    <div></div>
+                <div class="proj-title">
+                    <p class="proj-heading">GTSRB Recognition</p>
+                </div>
+                <div class="proj-png2">
+                    <img src="images/projects/p3-png2.png" alt="">
+                </div>
+                <div class="proj-points">
+                    <ul class="points-list proj-text">
+                        <li>Dual-head CNN for parallel feature extraction.</li>
+                        <li>Feature selection pipeline optimized for XGBoost.</li>
+                        <li>Softmax ensemble combining classifier outputs.</li>
+                        <li>99.34% accuracy via stratified cross-validation.</li>
+                    </ul>
+                    <a class="github-link proj-text" href="https://github.com/Reuben-Mattam/Stats.Sptfy">&rarr; Github Repo</a>
+                </div>
+                <div class="proj-png3">
+                    <img id="proj3" src="images/projects/p3-png3.png" alt="">
+                </div>
              </div>
         </div>
     </section>
@@ -604,6 +612,36 @@
                 });
             }
         });
+        /*clicking animation for showcase-proj*/
+
+        const mobileImages = {
+            'proj1': 'images/projects/p1-png3-mobile.png',
+            'proj2': 'images/projects/p2-png3-mobile.png',
+            'proj3': 'images/projects/p3-png3-mobile.png'
+        };
+
+        const desktopImages = {
+            'proj1': 'images/projects/p1-png3.png',
+            'proj2': 'images/projects/p2-png3.png',
+            'proj3': 'images/projects/p3-png3.png'
+        };
+
+        function updateImageSources() {
+            const isMobile = window.innerWidth <= 675;
+            
+            Object.keys(mobileImages).forEach(id => {
+                const img = document.getElementById(id);
+                if (img) {
+                    img.src = isMobile ? mobileImages[id] : desktopImages[id];
+                }
+            });
+        }
+
+        const mediaQuery = window.matchMedia('(max-width: 675px)');
+        mediaQuery.addEventListener('change', updateImageSources);
+
+        document.addEventListener('DOMContentLoaded', updateImageSources);
+        window.addEventListener('resize', updateImageSources);
     </script>
 </body>
 </html>

@@ -25,45 +25,6 @@
             overflow-x: hidden;
         }
 
-/* INTRODUCTIOn !!  */
-        #home-intro {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: #123524;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10002;
-        }
-        #masked-title {
-            position: absolute;
-        }
-        #masked-title-text {
-            font-size: 11vw;
-            white-space: nowrap;
-            margin: 0;
-            color: transparent;
-            background: url('images/home/masked-title.jpg') center/cover;
-            background-clip: text;
-            -webkit-background-clip: text;
-            animation: animate-background 2.1s ease-in-out infinite;
-        }
-
-        @keyframes animate-background {
-            0% {
-                background-position: 0% 50%;
-                background-size: 120%;
-            }
-            100% {
-                background-position: 100% 50%;
-                background-size: 120%;
-            }
-        }
-/* INTRODUCTIOn !!  */
-
 
 /* contact me plspspllslslsls lolol */
         /* #contact-meplslol {
@@ -1183,12 +1144,6 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    
-    <div id="home-intro">
-        <div id="masked-title">
-            <h1 id="masked-title-text">REUBEN MATTAM</h1>
-        </div>
-    </div>
 
     <!-- <div id="contact-meplslol">
         <div id="mememme">
@@ -1503,64 +1458,6 @@
     </footer>
 
     <script>
-        // intro animation 
-        const originalScrollY = window.scrollY;
-        document.body.style.overflow = 'hidden';
-        document.documentElement.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${originalScrollY}px`;
-        document.body.style.width = '100%';
-
-        setTimeout(() => {
-            const maskedTitleText = document.getElementById('masked-title-text');
-            
-            const overlay = document.createElement('div');
-            overlay.textContent = maskedTitleText.textContent;
-            overlay.style.position = 'absolute';
-            overlay.style.top = '0';
-            overlay.style.left = '0';
-            overlay.style.width = '100%';
-            overlay.style.height = '100%';
-            overlay.style.color = '#e5e7e6';
-            overlay.style.opacity = '0';
-            overlay.style.transition = 'opacity 1s ease-out';
-            overlay.style.pointerEvents = 'none';
-            
-            const computedStyle = window.getComputedStyle(maskedTitleText);
-            overlay.style.fontSize = computedStyle.fontSize;
-            overlay.style.fontFamily = computedStyle.fontFamily;
-            overlay.style.fontWeight = computedStyle.fontWeight;
-            overlay.style.textAlign = computedStyle.textAlign;
-            overlay.style.lineHeight = computedStyle.lineHeight;
-            
-            const parent = maskedTitleText.parentElement;
-            if (getComputedStyle(parent).position === 'static') {
-                parent.style.position = 'relative';
-            }
-            
-            parent.appendChild(overlay);
-            
-            setTimeout(() => overlay.style.opacity = '1', 50);
-            
-            setTimeout(() => {
-                const homeIntro = document.getElementById('home-intro');
-                homeIntro.style.transition = 'opacity 1s ease-out';
-                homeIntro.style.opacity = '0';
-                homeIntro.style.zIndex = '1';
-                
-                setTimeout(() => {
-                    document.body.style.position = '';
-                    document.body.style.top = '';
-                    document.body.style.width = '';
-                    document.body.style.overflow = '';
-                    document.documentElement.style.overflow = '';
-                    window.scrollTo(0, originalScrollY);
-                }, 1000);
-                
-            }, 2000);
-        }, 2000);
-        // intro animation 
-
         // intro carousell
         document.addEventListener("DOMContentLoaded", () => {
             const track = document.querySelector(".carousel-track");

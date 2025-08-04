@@ -154,10 +154,8 @@
         .carousel-left, .carousel-right {
             position: absolute;
             top: 50vh;
-
             transform: translateY(-50%);
             z-index: 1000;
-
             font-size: 20px;
         }
         
@@ -174,20 +172,34 @@
             width: 100%;
             height: auto;
             min-height: 375px;
-
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
         
         .carousel-track {
-            width: max-content;
-
             display: flex;
             gap: 20px;
-            animation: none;
             will-change: transform;
+        }
+        
+        .carousel-track.animate {
+            animation: infiniteScroll var(--scroll-duration, 40s) linear infinite;
+        }
+        
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes infiniteScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(var(--scroll-distance));
+            }
         }
         
         .carousel-image {
@@ -196,7 +208,6 @@
             min-height: 371px;
             
             aspect-ratio: 480 / 594;
-
             object-fit: cover;
             flex-shrink: 0;
             border-radius: 12px;
@@ -205,7 +216,6 @@
             border: 4px solid #123524;
             box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
         }
-
         /*viewport carousell changes */
         @media (max-height: 700px) {
             .carousel-image {
@@ -1503,100 +1513,114 @@
     </footer>
 
     <script>
-        // intro animation 
-        const originalScrollY = window.scrollY;
-        document.body.style.overflow = 'hidden';
-        document.documentElement.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${originalScrollY}px`;
-        document.body.style.width = '100%';
+        // intro animation !!
+        function imageBuffer() {
+            return new Promise((resolve) => {
+                const images = document.querySelectorAll('img');
+                
+                if (images.length === 0) {
+                    resolve();
+                    return;
+                }
+                let loadedCount = 0;
+                const totalImages = images.length;
+                
+                function checkAllLoaded() {
+                    loadedCount++;
+                    if (loadedCount === totalImages) {
+                        resolve();
+                    }
+                }
+                images.forEach(img => {
+                    if (img.complete) {
+                        checkAllLoaded();
+                    } else {
+                        img.addEventListener('load', checkAllLoaded);
+                        img.addEventListener('error', checkAllLoaded);
+                    }
+                });
+            });
+        }
 
-        setTimeout(() => {
-            const maskedTitleText = document.getElementById('masked-title-text');
+        async function introAnimation() {
+            await imageBuffer();
             
-            const overlay = document.createElement('div');
-            overlay.textContent = maskedTitleText.textContent;
-            overlay.style.position = 'absolute';
-            overlay.style.top = '0';
-            overlay.style.left = '0';
-            overlay.style.width = '100%';
-            overlay.style.height = '100%';
-            overlay.style.color = '#e5e7e6';
-            overlay.style.opacity = '0';
-            overlay.style.transition = 'opacity 1s ease-out';
-            overlay.style.pointerEvents = 'none';
-            
-            const computedStyle = window.getComputedStyle(maskedTitleText);
-            overlay.style.fontSize = computedStyle.fontSize;
-            overlay.style.fontFamily = computedStyle.fontFamily;
-            overlay.style.fontWeight = computedStyle.fontWeight;
-            overlay.style.textAlign = computedStyle.textAlign;
-            overlay.style.lineHeight = computedStyle.lineHeight;
-            
-            const parent = maskedTitleText.parentElement;
-            if (getComputedStyle(parent).position === 'static') {
-                parent.style.position = 'relative';
-            }
-            
-            parent.appendChild(overlay);
-            
-            setTimeout(() => overlay.style.opacity = '1', 50);
-            
+            // animation starts here after all images are loaded in
+            const originalScrollY = window.scrollY;
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${originalScrollY}px`;
+            document.body.style.width = '100%';
+
             setTimeout(() => {
-                const homeIntro = document.getElementById('home-intro');
-                homeIntro.style.transition = 'opacity 1s ease-out';
-                homeIntro.style.opacity = '0';
-                homeIntro.style.zIndex = '1';
+                const maskedTitleText = document.getElementById('masked-title-text');
+                
+                const overlay = document.createElement('div');
+                overlay.textContent = maskedTitleText.textContent;
+                overlay.style.position = 'absolute';
+                overlay.style.top = '0';
+                overlay.style.left = '0';
+                overlay.style.width = '100%';
+                overlay.style.height = '100%';
+                overlay.style.color = '#e5e7e6';
+                overlay.style.opacity = '0';
+                overlay.style.transition = 'opacity 1s ease-out';
+                overlay.style.pointerEvents = 'none';
+                
+                const computedStyle = window.getComputedStyle(maskedTitleText);
+                overlay.style.fontSize = computedStyle.fontSize;
+                overlay.style.fontFamily = computedStyle.fontFamily;
+                overlay.style.fontWeight = computedStyle.fontWeight;
+                overlay.style.textAlign = computedStyle.textAlign;
+                overlay.style.lineHeight = computedStyle.lineHeight;
+                
+                const parent = maskedTitleText.parentElement;
+                if (getComputedStyle(parent).position === 'static') {
+                    parent.style.position = 'relative';
+                }
+                
+                parent.appendChild(overlay);
+                
+                setTimeout(() => overlay.style.opacity = '1', 50);
                 
                 setTimeout(() => {
-                    document.body.style.position = '';
-                    document.body.style.top = '';
-                    document.body.style.width = '';
-                    document.body.style.overflow = '';
-                    document.documentElement.style.overflow = '';
-                    window.scrollTo(0, originalScrollY);
-                }, 1000);
-                
+                    const homeIntro = document.getElementById('home-intro');
+                    homeIntro.style.transition = 'opacity 1s ease-out';
+                    homeIntro.style.opacity = '0';
+                    homeIntro.style.zIndex = '1';
+                    
+                    setTimeout(() => {
+                        document.body.style.position = '';
+                        document.body.style.top = '';
+                        document.body.style.width = '';
+                        document.body.style.overflow = '';
+                        document.documentElement.style.overflow = '';
+                        window.scrollTo(0, originalScrollY);
+                    }, 1000);
+                    
+                }, 2000);
             }, 2000);
-        }, 2000);
+        }
+
+        document.addEventListener('DOMContentLoaded', introAnimation);
         // intro animation 
 
-        // intro carousell
+        // intro carousell !
         document.addEventListener("DOMContentLoaded", () => {
-            const track = document.querySelector(".carousel-track");
-
-            function setupInfiniteTrack() {
-                const images = Array.from(track.children);
-                images.forEach((image) => {
-                    const clone = image.cloneNode(true);
-                    track.appendChild(clone);
-                });
-            }
-            function startInfiniteScroll() {
-                let scrollPosition = 0;
-                const scrollSpeed = 1;
-                
-                function scroll() {
-                    const singleSetWidth = track.scrollWidth / 2;
-                    
-                    scrollPosition += scrollSpeed;
-                    
-                    // when we reach the width of the first set
-                    if (scrollPosition >= singleSetWidth) {
-                        // reset to beginning without animation !!
-                        scrollPosition = 0;
-                    }
-                    
-                    track.style.transform = `translateX(-${scrollPosition}px)`;
-                    requestAnimationFrame(scroll);
-                }
+        const track = document.querySelector(".carousel-track");
+        const images = track.children;
+        const imageCount = images.length;
         
-                scroll();
-            }
+        let singleSetWidth = 0;
+        for (let i = 0; i < imageCount / 2; i++) {
+            singleSetWidth += images[i].offsetWidth + 20;
+        }
+        track.style.setProperty('--scroll-distance', `-${singleSetWidth}px`);
         
-            setupInfiniteTrack();
-            startInfiniteScroll();
+        track.classList.add('animate');
         });
+        // intro carousell !
 
         /* services !! */
         document.addEventListener('DOMContentLoaded', () => {

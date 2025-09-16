@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
     <title>PROJECTS</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/logo !.png" type="image/png">
@@ -43,11 +44,35 @@
     }
 /* Project Landing SEction !! */
 
+/* break */
+    #break {
+        min-height: 100vh;
+        min-width: 100vw;
+        margin-bottom: 0;
+        
+        background: #181A1B;
+        background: linear-gradient(0deg,rgba(24, 26, 27, 1) 0%, rgba(18, 53, 36, 1) 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #interested-break {
+        font-size: 36px;
+        margin: 0;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+    }
+    #interested-break.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
+/* break */
 
 /* Project Showcase SEction !! */
     #project-showcase {
         height: auto;
         width: 100vw;
+        background-color: #181A1B;
     }
     .showcase-proj {
         height: 100vh;
@@ -384,10 +409,7 @@
             width: auto;
             word-wrap: break-word;
         }
-    }
-
-
-    
+    }    
 /* Project Showcase SEction !! */
     </style>
 </head>
@@ -423,6 +445,10 @@
             <img src="images/projects/p3-landing.png" alt="">
         </div>
     </section>
+
+    <div id="break">
+        <h1 class="highlight" id="interested-break">Click to Learn More.</h1>
+    </div>
 
     <section id="project-showcase">
         <!-- stats.sptfy project -->
@@ -568,7 +594,7 @@
 
     <div id="cursor" class="cursor"></div>
 
-    <footer class="footer-section not-start">
+    <footer class="footer-section not-start"  style="background-color: #181A1B;">
         <div class="footer-left">
             <a href="home.html">Home</a>
             <a href="projects.html" class="active">Projects</a>
@@ -598,6 +624,28 @@
     </footer>
 
     <script>
+        // break
+        document.addEventListener('DOMContentLoaded', () => {
+        const breakDiv = document.getElementById('break');
+        const interestedText = document.getElementById('interested-break');
+
+        if (!breakDiv || !interestedText) return; // safety
+
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+            // require at least 50% visible
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                interestedText.classList.add('in-view');
+            } else {
+                interestedText.classList.remove('in-view');
+            }
+            });
+        }, { threshold: [0, 0.5, 1] });
+
+        io.observe(breakDiv);
+        });
+        // break
+
         /*clicking animation for showcase-proj*/
         const projectContainers = document.querySelectorAll('.showcase-proj');
 

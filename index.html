@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light">
     <title>HOME</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="images/logo !.png" type="image/png"/>
@@ -42,7 +43,7 @@
             position: absolute;
         }
         #masked-title-text {
-            font-size: 11vw;
+            font-size: 10.5vw;
             white-space: nowrap;
             margin: 0;
             color: transparent;
@@ -1115,8 +1116,8 @@
             color: #e5e7e6;
             transition: color 0.3s ease;
         }
-        .social:hover .social-link {
-            color: #123524;
+        a.social-link:hover {
+            color: #123524 !important;
         }
         /*viewport contact changes */
         @media (max-width: 920px) {
@@ -1575,7 +1576,7 @@
                 overlay.style.position = 'absolute';
                 overlay.style.top = '0';
                 overlay.style.left = '0';
-                overlay.style.width = '100%';
+                overlay.style.width = '101%';
                 overlay.style.height = '100%';
                 overlay.style.color = '#e5e7e6';
                 overlay.style.opacity = '0';
@@ -1708,7 +1709,7 @@
                         image: "images/home/fact4.png"
                     },
                     { 
-                        number: 1823172, 
+                        number: 182317, 
                         text: "is a big number! also I enjoy bouldering :p.",
                         image: "images/home/fact5.png"
                     }
